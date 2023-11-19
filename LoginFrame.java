@@ -35,7 +35,8 @@ public class LoginFrame extends JFrame {
    
    //建構子:類別Clogin_frame
    public LoginFrame(){
-	   
+	   System.out.println("目前使用者數量:"+db.CountUser()+"/10");
+
 		myFrame.myLogin_pane.tf1.addKeyListener(LoginSelection);             						//登入頁面姓名輸入框
 		myFrame.myLogin_pane.tf2.addKeyListener(LoginSelection);             						//登入頁面電話號碼輸入框
 	   	myFrame.myLogin_pane.btn0.addActionListener(ProcessLoginSelection);             			//登入頁面登入按鈕

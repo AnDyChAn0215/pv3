@@ -22,6 +22,8 @@ import jaco.mp3.player.MP3Player;
 
 import java.io.File;
 
+import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
+
 class Cfunc1 {
 
     //新增部分-----------------------------------------------------------------------------------
@@ -124,7 +126,7 @@ class Cfunc1 {
     Font fontb = new Font("微軟正黑體", Font.BOLD, 28);
     Font labelFont = new Font("微軟正黑體", Font.BOLD, 20);
     Font buttonFont = new Font("微軟正黑體", Font.BOLD, 18);
-	Font tabFont = new Font("微軟正黑體", Font.BOLD, 20);
+    Font tabFont = new Font("微軟正黑體", Font.BOLD, 20);
 
 
     JTabbedPane tabbedPane = new JTabbedPane();
@@ -148,7 +150,7 @@ class Cfunc1 {
     JLabel locationlabel = new JLabel(locationIcon);
     ImageIcon dateIcon = new ImageIcon("images/birthyear_color.png");
     JLabel datelabel = new JLabel(dateIcon);
-	
+
     ImageIcon nameIcon_edit = new ImageIcon("images/name_color.png");
     JLabel namelabel_edit = new JLabel(nameIcon_edit);
     ImageIcon phoneIcon_edit = new ImageIcon("images/phone_color.png");
@@ -158,7 +160,7 @@ class Cfunc1 {
     ImageIcon locationIcon_edit = new ImageIcon("images/city_color.png");
     JLabel locationlabel_edit = new JLabel(locationIcon_edit);
     ImageIcon dateIcon_edit = new ImageIcon("images/birthyear_color.png");
-    JLabel datelabel_edit = new JLabel(dateIcon_edit);	
+    JLabel datelabel_edit = new JLabel(dateIcon_edit);
 
     ImageIcon[] positionIcon = new ImageIcon[12];
     // 350x350像素大圖用於顯示測量位置的圖
@@ -176,27 +178,27 @@ class Cfunc1 {
     JLabel nextPositionPicLabel = new JLabel();
     JLabel MainUserNameLabel = new JLabel();
     JLabel UserNameLabel = new JLabel();
-	JLabel UserNameTextLabel = new JLabel();
-	JLabel UserPhoneTextLabel = new JLabel();
-	JLabel UserGenderTextLabel = new JLabel();
-	JLabel UserBirthTextLabel = new JLabel();
-	JLabel UserCityTextLabel = new JLabel();
-	
-	JLabel UserNameTextLabel_edit = new JLabel();
+    JLabel UserNameTextLabel = new JLabel();
+    JLabel UserPhoneTextLabel = new JLabel();
+    JLabel UserGenderTextLabel = new JLabel();
+    JLabel UserBirthTextLabel = new JLabel();
+    JLabel UserCityTextLabel = new JLabel();
+
+    JLabel UserNameTextLabel_edit = new JLabel();
 
     JPanel mainpanel = new JPanel();
     JPanel settingpanel = new JPanel();
     JPanel[] pane = new JPanel[6];
-	JPanel buttonpanel_left_top = new JPanel();
-	JPanel buttonpanel_left = new JPanel();
+    JPanel buttonpanel_left_top = new JPanel();
+    JPanel buttonpanel_left = new JPanel();
     JPanel settingpanel_left = new JPanel();
     JPanel settingpanel_left_top = new JPanel();
     JPanel settingpanel_right_top = new JPanel();
-	JPanel settingpanel_right_top_edit = new JPanel();
+    JPanel settingpanel_right_top_edit = new JPanel();
     JPanel settingpanel_right_title = new JPanel();
     JPanel settingpanel_right = new JPanel();
     JPanel settingpanel_right_down = new JPanel();
-	JPanel calculatepanel_right_down = new JPanel();
+    JPanel calculatepanel_right_down = new JPanel();
 
     JTextField[] LRHandLabel = new JTextField[2];
     String[] LRHandLabelText = {"左手", "右手"};
@@ -219,27 +221,27 @@ class Cfunc1 {
     JLabel genderLabel = new JLabel("性別：");
     JLabel yearJLabel = new JLabel("出生年：");
     JLabel cityLable = new JLabel("城市：");
-	
+
     JLabel backgroundTextLabel = new JLabel("姓名：");
-	JLabel GenderLabel = new JLabel("性別：");
+    JLabel GenderLabel = new JLabel("性別：");
     JLabel PhoneNumberLabel = new JLabel("電話號碼：");
-	JLabel BirthyearLabel = new JLabel("出生年（西元）：");
-	JLabel CityLabel = new JLabel("城市：");
-	
-	JLabel backgroundTextLabel_edit = new JLabel("姓名：");
-	JLabel GenderLabel_edit = new JLabel("性別：");
+    JLabel BirthyearLabel = new JLabel("出生年（西元）：");
+    JLabel CityLabel = new JLabel("城市：");
+
+    JLabel backgroundTextLabel_edit = new JLabel("姓名：");
+    JLabel GenderLabel_edit = new JLabel("性別：");
     JLabel PhoneNumberLabel_edit = new JLabel("電話號碼：");
-	JLabel BirthyearLabel_edit = new JLabel("出生年（西元）：");
-	JLabel CityLabel_edit = new JLabel("城市：");
+    JLabel BirthyearLabel_edit = new JLabel("出生年（西元）：");
+    JLabel CityLabel_edit = new JLabel("城市：");
 
     JButton measurementdataButton = new JButton("測量數據", heartIcon);
-	JButton datacalculationButton = new JButton("數據計算", cliptIcon);
-	JButton deletedataButton = new JButton("刪除數據");
-	JButton outputdataButton = new JButton("輸出資料");
-	JButton registerButton = new JButton("註冊");
+    JButton datacalculationButton = new JButton("數據計算", cliptIcon);
+    JButton deletedataButton = new JButton("刪除數據");
+    JButton outputdataButton = new JButton("輸出資料");
+    JButton registerButton = new JButton("註冊");
     JButton Login = new JButton("切換");
     JButton Delete = new JButton("刪除");
-	JButton Back = new JButton("返回");
+    JButton Back = new JButton("返回");
     JButton ChangePhoneNumber = new JButton("編輯");
     JButton SavePhoneNumber = new JButton("儲存");
 
@@ -258,10 +260,10 @@ class Cfunc1 {
 
     String[] title1 = {"時間", "左手數值", "左腳數值", "右手數值", "右腳數值"};
     String[][] data1 = new String[20][5];
-	String[] title2 = { "時間", "平均值", "虛實值", "陰陽值", "左右值", "理想值距離" };
-	String[][] data2 = new String[20][6];
-	String[] title3 = {"時間", "左手數值", "左腳數值", "右手數值", "右腳數值"};
-	String[][] data3 = new String[20][5];
+    String[] title2 = {"時間", "平均值", "虛實值", "陰陽值", "左右值", "理想值距離"};
+    String[][] data2 = new String[20][6];
+    String[] title3 = {"時間", "左手數值", "左腳數值", "右手數值", "右腳數值"};
+    String[][] data3 = new String[20][5];
 
     String RightHandNumber[] = new String[db.getRighthandResult().length];
     double[][] RightHandArrays = new double[RightHandNumber.length][];
@@ -299,31 +301,31 @@ class Cfunc1 {
         }
     };
 
-	// Create a DefaultTableModel
-	DefaultTableModel model2 = new DefaultTableModel(data2, title2);
+    // Create a DefaultTableModel
+    DefaultTableModel model2 = new DefaultTableModel(data2, title2);
 
-	// Create a custom JTable with custom rendering
-	JTable table2 = new JTable(model2) {
-		@Override
-		public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
-			Component component = super.prepareRenderer(renderer, row, column);
+    // Create a custom JTable with custom rendering
+    JTable table2 = new JTable(model2) {
+        @Override
+        public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+            Component component = super.prepareRenderer(renderer, row, column);
 
-			// Customize the cell background color
-			if (row % 2 == 0) {
-				component.setBackground(color3);
-			} else {
-				component.setBackground(Color.WHITE);
-			}
+            // Customize the cell background color
+            if (row % 2 == 0) {
+                component.setBackground(color3);
+            } else {
+                component.setBackground(Color.WHITE);
+            }
 
-			// Customize the selected cell background color
-			if (isCellSelected(row, column)) {
-				component.setBackground(color3); // Light Blue
-			}
+            // Customize the selected cell background color
+            if (isCellSelected(row, column)) {
+                component.setBackground(color3); // Light Blue
+            }
 
-			return component;
-		}
-	};
-	
+            return component;
+        }
+    };
+
     String[] DateResult = new String[20];
     String[] LeftHandResult = new String[10];
     String[] LeftFootResult = new String[10];
@@ -331,9 +333,9 @@ class Cfunc1 {
     String[] RightFootResult = new String[10];
 
     String PhoneReault = new String();
-	String GenderResult = new String();
-	String BirthyearResult = new String();
-	String CityResult = new String();
+    String GenderResult = new String();
+    String BirthyearResult = new String();
+    String CityResult = new String();
 
 
     // 播放MP3音樂所需物件
@@ -453,7 +455,7 @@ class Cfunc1 {
         backgroundComboBox.setBounds(190, 80, 130, 50);
         backgroundComboBox.addActionListener(SelectUserBox);
         ptwo.add(backgroundComboBox);
-		
+
         // 開始與停止讀取USB數據
         btn_stop.setBounds(1120, 80, 200, 50);
         btn_stop.setFont(font1);
@@ -642,58 +644,58 @@ class Cfunc1 {
 
         //用戶管理 左下頁籤按鈕區panel
         buttonpanel_left_top.setBounds(30, 300, 150, 100);
-        buttonpanel_left_top.setLayout(null);		
-		
+        buttonpanel_left_top.setLayout(null);
+
         //用戶管理 左下功能按鈕區panel
         buttonpanel_left.setBounds(30, 400, 150, 530);
         buttonpanel_left.setBackground(Color.white);
-        buttonpanel_left.setLayout(null);	
-		
+        buttonpanel_left.setLayout(null);
+
         /*用戶管理-測量結果-左下方測量數據按鈕*/
-		measurementdataButton.setLayout(null);
+        measurementdataButton.setLayout(null);
         measurementdataButton.setBounds(0, 0, 150, 50);
         measurementdataButton.setForeground(Color.black);
         measurementdataButton.setBackground(Color.lightGray);
         measurementdataButton.setFont(tabFont);
         measurementdataButton.setBorderPainted(false);
         measurementdataButton.setFocusPainted(false);
-		measurementdataButton.setEnabled(false);
+        measurementdataButton.setEnabled(false);
         measurementdataButton.addActionListener(dataBtn);
         buttonpanel_left_top.add(measurementdataButton);
-		
+
         /*用戶管理-測量結果-左下方數據計算按鈕*/
-		datacalculationButton.setLayout(null);
+        datacalculationButton.setLayout(null);
         datacalculationButton.setBounds(0, 50, 150, 50);
         datacalculationButton.setForeground(Color.black);
         datacalculationButton.setBackground(Color.lightGray);
         datacalculationButton.setFont(tabFont);
         datacalculationButton.setBorderPainted(false);
         datacalculationButton.setFocusPainted(false);
-		datacalculationButton.setEnabled(true);
+        datacalculationButton.setEnabled(true);
         datacalculationButton.addActionListener(dataBtn);
         buttonpanel_left_top.add(datacalculationButton);
-		
+
         /*用戶管理-測量結果-左下方刪除數據按鈕*/
-		deletedataButton.setLayout(null);
+        deletedataButton.setLayout(null);
         deletedataButton.setBounds(0, 420, 150, 50);
         deletedataButton.setForeground(Color.black);
         deletedataButton.setBackground(Color.lightGray);
         deletedataButton.setFont(tabFont);
         deletedataButton.setBorderPainted(false);
         deletedataButton.setFocusPainted(false);
-		deletedataButton.setEnabled(true);
+        deletedataButton.setEnabled(true);
         //deletedataButton.addActionListener(Register);
         buttonpanel_left.add(deletedataButton);
-		
+
         /*用戶管理-測量結果-左下方輸出資料按鈕*/
-		outputdataButton.setLayout(null);
+        outputdataButton.setLayout(null);
         outputdataButton.setBounds(0, 480, 150, 50);
         outputdataButton.setForeground(Color.black);
         outputdataButton.setBackground(Color.lightGray);
         outputdataButton.setFont(tabFont);
         outputdataButton.setBorderPainted(false);
         outputdataButton.setFocusPainted(false);
-		outputdataButton.setEnabled(true);
+        outputdataButton.setEnabled(true);
         outputdataButton.addActionListener(output);
         buttonpanel_left.add(outputdataButton);
 
@@ -767,117 +769,117 @@ class Cfunc1 {
         /*用戶管理-使用者資料-顯示*/
         settingpanel_right_top.setBounds(30, 50, 1540, 200);
         settingpanel_right_top.setBorder(BorderFactory.createLineBorder(Color.black, 1));
-		settingpanel_right_top.setBackground(Color.white);
+        settingpanel_right_top.setBackground(Color.white);
         settingpanel_right_top.setLayout(null);
-		settingpanel_right_top.setVisible(true);
-		
+        settingpanel_right_top.setVisible(true);
+
         /*用戶管理-使用者資料-編輯*/
         settingpanel_right_top_edit.setBounds(30, 50, 1540, 200);
         settingpanel_right_top_edit.setBorder(BorderFactory.createLineBorder(Color.black, 1));
-		settingpanel_right_top_edit.setBackground(Color.white);
+        settingpanel_right_top_edit.setBackground(Color.white);
         settingpanel_right_top_edit.setLayout(null);
-		settingpanel_right_top_edit.setVisible(false);
+        settingpanel_right_top_edit.setVisible(false);
 
-         /*用戶管理-使用者資料-LOGO標籤*/
-		namelabel.setBounds(60, 50, 25, 30);       				//姓名
+        /*用戶管理-使用者資料-LOGO標籤*/
+        namelabel.setBounds(60, 50, 25, 30);                    //姓名
         settingpanel_right_top.add(namelabel);
 
-        sexuallabel.setBounds(410, 50, 25, 30);   			    //性別
+        sexuallabel.setBounds(410, 50, 25, 30);                //性別
         settingpanel_right_top.add(sexuallabel);
 
-        phonelabel.setBounds(60, 130, 25, 30);       		    //電話
+        phonelabel.setBounds(60, 130, 25, 30);                //電話
         settingpanel_right_top.add(phonelabel);
-		
-        locationlabel.setBounds(410, 130, 25, 30);   		    //城市
+
+        locationlabel.setBounds(410, 130, 25, 30);            //城市
         settingpanel_right_top.add(locationlabel);
-		
-        datelabel.setBounds(700, 130, 25, 30);        			//出生年（西元）
+
+        datelabel.setBounds(700, 130, 25, 30);                    //出生年（西元）
         settingpanel_right_top.add(datelabel);
-		
-		 /*用戶管理-使用者資料-標題標籤*/
+
+        /*用戶管理-使用者資料-標題標籤*/
         backgroundTextLabel.setFont(labelFont);                 //姓名
         backgroundTextLabel.setBounds(110, 50, 60, 30);
         settingpanel_right_top.add(backgroundTextLabel);
-		
-        GenderLabel.setFont(labelFont);                 		//性別
+
+        GenderLabel.setFont(labelFont);                        //性別
         GenderLabel.setBounds(440, 50, 60, 30);
         settingpanel_right_top.add(GenderLabel);
-		
+
         PhoneNumberLabel.setFont(labelFont);                    //電話號碼
         PhoneNumberLabel.setBounds(110, 130, 100, 30);
         settingpanel_right_top.add(PhoneNumberLabel);
-		
-        CityLabel.setFont(labelFont);                    		//城市
+
+        CityLabel.setFont(labelFont);                            //城市
         CityLabel.setBounds(440, 130, 60, 30);
         settingpanel_right_top.add(CityLabel);
 
-        BirthyearLabel.setFont(labelFont);                 		//出生年（西元）
+        BirthyearLabel.setFont(labelFont);                        //出生年（西元）
         BirthyearLabel.setBounds(730, 130, 160, 30);
         settingpanel_right_top.add(BirthyearLabel);
-		
-		 /*用戶管理-使用者資料-內容標籤*/
+
+        /*用戶管理-使用者資料-內容標籤*/
         UserNameTextLabel.setFont(labelFont);
-        UserNameTextLabel.setBounds(170, 50, 150, 30);			//姓名
+        UserNameTextLabel.setBounds(170, 50, 150, 30);            //姓名
         settingpanel_right_top.add(UserNameTextLabel);
-		
-        UserGenderTextLabel.setFont(labelFont);					//性別
+
+        UserGenderTextLabel.setFont(labelFont);                    //性別
         UserGenderTextLabel.setBounds(500, 50, 150, 30);
         settingpanel_right_top.add(UserGenderTextLabel);
-		
-        UserPhoneTextLabel.setFont(labelFont);					//電話號碼
+
+        UserPhoneTextLabel.setFont(labelFont);                    //電話號碼
         UserPhoneTextLabel.setBounds(210, 130, 150, 30);
-        settingpanel_right_top.add(UserPhoneTextLabel);	
+        settingpanel_right_top.add(UserPhoneTextLabel);
 
-        UserCityTextLabel.setFont(labelFont);					//城市
+        UserCityTextLabel.setFont(labelFont);                    //城市
         UserCityTextLabel.setBounds(500, 130, 150, 30);
-        settingpanel_right_top.add(UserCityTextLabel);		
+        settingpanel_right_top.add(UserCityTextLabel);
 
-        UserBirthTextLabel.setFont(labelFont);					//出生年（西元）
+        UserBirthTextLabel.setFont(labelFont);                    //出生年（西元）
         UserBirthTextLabel.setBounds(890, 130, 150, 30);
-        settingpanel_right_top.add(UserBirthTextLabel);		
+        settingpanel_right_top.add(UserBirthTextLabel);
 
-         /*用戶管理-使用者資料-編輯-LOGO標籤*/
-		namelabel_edit.setBounds(60, 50, 25, 30);       			//姓名
+        /*用戶管理-使用者資料-編輯-LOGO標籤*/
+        namelabel_edit.setBounds(60, 50, 25, 30);                //姓名
         settingpanel_right_top_edit.add(namelabel_edit);
 
-        sexuallabel_edit.setBounds(410, 50, 25, 30);   			    //性別
+        sexuallabel_edit.setBounds(410, 50, 25, 30);                //性別
         settingpanel_right_top_edit.add(sexuallabel_edit);
 
-        phonelabel_edit.setBounds(60, 130, 25, 30);       		    //電話
+        phonelabel_edit.setBounds(60, 130, 25, 30);                //電話
         settingpanel_right_top_edit.add(phonelabel_edit);
-		
-        locationlabel_edit.setBounds(410, 130, 25, 30);   		    //城市
+
+        locationlabel_edit.setBounds(410, 130, 25, 30);            //城市
         settingpanel_right_top_edit.add(locationlabel_edit);
-		
-        datelabel_edit.setBounds(700, 130, 25, 30);        			//出生年（西元）
+
+        datelabel_edit.setBounds(700, 130, 25, 30);                    //出生年（西元）
         settingpanel_right_top_edit.add(datelabel_edit);
 
-		 /*用戶管理-使用者資料-編輯-標題標籤*/
+        /*用戶管理-使用者資料-編輯-標題標籤*/
         backgroundTextLabel_edit.setFont(labelFont);                //姓名
         backgroundTextLabel_edit.setBounds(110, 50, 60, 30);
         settingpanel_right_top_edit.add(backgroundTextLabel_edit);
-		
-        GenderLabel_edit.setFont(labelFont);                 		//性別
+
+        GenderLabel_edit.setFont(labelFont);                        //性別
         GenderLabel_edit.setBounds(440, 50, 60, 30);
         settingpanel_right_top_edit.add(GenderLabel_edit);
-		
+
         PhoneNumberLabel_edit.setFont(labelFont);                    //電話號碼
         PhoneNumberLabel_edit.setBounds(110, 130, 100, 30);
         settingpanel_right_top_edit.add(PhoneNumberLabel_edit);
-		
-        CityLabel_edit.setFont(labelFont);                    		//城市
+
+        CityLabel_edit.setFont(labelFont);                            //城市
         CityLabel_edit.setBounds(440, 130, 60, 30);
         settingpanel_right_top_edit.add(CityLabel_edit);
 
-        BirthyearLabel_edit.setFont(labelFont);                 	//出生年（西元）
+        BirthyearLabel_edit.setFont(labelFont);                    //出生年（西元）
         BirthyearLabel_edit.setBounds(730, 130, 160, 30);
         settingpanel_right_top_edit.add(BirthyearLabel_edit);
 
-		 /*用戶管理-使用者資料-內容標籤*/
+        /*用戶管理-使用者資料-內容標籤*/
         UserNameTextLabel_edit.setFont(labelFont);
-        UserNameTextLabel_edit.setBounds(170, 50, 150, 30);			//姓名
+        UserNameTextLabel_edit.setBounds(170, 50, 150, 30);            //姓名
         settingpanel_right_top_edit.add(UserNameTextLabel_edit);
-		
+
         //電話號碼顯示及修改的文字框
         PhoneNumberTextField.setFont(font1);
         PhoneNumberTextField.setBounds(210, 130, 150, 30);
@@ -899,13 +901,13 @@ class Cfunc1 {
         });
         settingpanel_right_top_edit.add(PhoneNumberTextField);
 
-        genderBox.setBounds(500, 50, 150, 30);           	  //性別
+        genderBox.setBounds(500, 50, 150, 30);              //性別
         genderBox.addItem("男");
         genderBox.addItem("女");
         genderBox.setFont(font1);
         settingpanel_right_top_edit.add(genderBox);
 
-        for (int i = STARTYEAR; i <= ENDYEAR; i++) {    	  //出生年（西元）
+        for (int i = STARTYEAR; i <= ENDYEAR; i++) {          //出生年（西元）
             yearBox.addItem(i);
         }
         yearBox.setBounds(890, 130, 150, 30);
@@ -946,9 +948,9 @@ class Cfunc1 {
         /*用戶管理-切換使用者-刪除按鈕*/
         Delete.setFont(font1);
         Delete.setBounds(1380, 130, 100, 30);
-        //Delete.addActionListener(SwitchUser);
+        Delete.addActionListener(delUser);
         Delete.setFocusable(false);
-		Delete.setVisible(true);
+        Delete.setVisible(true);
         settingpanel_right_top.add(Delete);
 
         /*用戶管理-切換使用者-返回按鈕*/
@@ -956,7 +958,7 @@ class Cfunc1 {
         Back.setBounds(1380, 130, 100, 30);
         Back.addActionListener(CpBtn);
         Back.setFocusable(false);
-		Back.setVisible(false);
+        Back.setVisible(false);
         settingpanel_right_top_edit.add(Back);
 
         /*用戶管理-切換使用者-編輯按鈕*/
@@ -964,7 +966,7 @@ class Cfunc1 {
         ChangePhoneNumber.setBounds(1380, 50, 100, 30);
         ChangePhoneNumber.setFocusable(false);
         ChangePhoneNumber.setEnabled(false);
-		ChangePhoneNumber.setVisible(true);
+        ChangePhoneNumber.setVisible(true);
         ChangePhoneNumber.addActionListener(ChangePhoneNum);
         settingpanel_right_top.add(ChangePhoneNumber);
 
@@ -985,71 +987,70 @@ class Cfunc1 {
         settingpanel_right_down.setBounds(180, 300, 1390, 630);
         //settingpanel_right_down.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         settingpanel_right_down.setLayout(null);
-		settingpanel_right_down.setVisible(true);
+        settingpanel_right_down.setVisible(true);
 
         //用戶管理 右下數據計算記錄
         calculatepanel_right_down.setBounds(180, 300, 1390, 630);
         //calculatepanel_right_down.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         calculatepanel_right_down.setLayout(null);
-		calculatepanel_right_down.setVisible(false);
+        calculatepanel_right_down.setVisible(false);
 
 
         //用戶管理 右下測量數據記錄 內容
-		data1 = new String[][]{{"datetime", "lefthand", "leftfoot", "righthand", "rightfoot"}};
+        data1 = new String[][]{{"datetime", "lefthand", "leftfoot", "righthand", "rightfoot"}};
 
-		table1.setEnabled(false);
-		JTableHeader head1 = table1.getTableHeader();
-		table1.getTableHeader().setReorderingAllowed(false);
-		table1.setFont(labelFont);
-		table1.setRowHeight(40);
-		table1.setGridColor(new Color(220,220,220));
+        table1.setEnabled(false);
+        JTableHeader head1 = table1.getTableHeader();
+        table1.getTableHeader().setReorderingAllowed(false);
+        table1.setFont(labelFont);
+        table1.setRowHeight(40);
+        table1.setGridColor(new Color(220, 220, 220));
 
-		head1.setFont(labelFont);
-		JScrollPane sp = new JScrollPane(table1, 
-					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		sp.setBounds(0,0,1390,630);
-		
+        head1.setFont(labelFont);
+        JScrollPane sp = new JScrollPane(table1,
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        sp.setBounds(0, 0, 1390, 630);
+
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-		
-		for (int i = 0; i < table1.getColumnCount(); i++) {
-			table1.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-		}
+
+        for (int i = 0; i < table1.getColumnCount(); i++) {
+            table1.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
 
         //用戶管理 右下數據計算記錄 內容
-		data2 = new String[][]{{"datetime", "lefthand", "leftfoot", "righthand", "rightfoot"}};
+        data2 = new String[][]{{"datetime", "lefthand", "leftfoot", "righthand", "rightfoot"}};
 
-		table2.setEnabled(false);
-		JTableHeader head2 = table2.getTableHeader();
-		table2.getTableHeader().setReorderingAllowed(false);
-		table2.setFont(labelFont);
-		table2.setRowHeight(40);
-		table2.setGridColor(new Color(220,220,220));
+        table2.setEnabled(false);
+        JTableHeader head2 = table2.getTableHeader();
+        table2.getTableHeader().setReorderingAllowed(false);
+        table2.setFont(labelFont);
+        table2.setRowHeight(40);
+        table2.setGridColor(new Color(220, 220, 220));
 
-		head2.setFont(labelFont);
-		JScrollPane sp1 = new JScrollPane(table2, 
-					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		sp1.setBounds(0,0,1390,630);
-		
-		for (int i = 0; i < table2.getColumnCount(); i++) {
-			table2.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-		}
-		
-		settingpanel_right_down.add(sp);
+        head2.setFont(labelFont);
+        JScrollPane sp1 = new JScrollPane(table2,
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        sp1.setBounds(0, 0, 1390, 630);
+
+        for (int i = 0; i < table2.getColumnCount(); i++) {
+            table2.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
+
+        settingpanel_right_down.add(sp);
         calculatepanel_right_down.add(sp1);
-	
+
 
         pthr.add(buttonpanel_left_top);
-		pthr.add(buttonpanel_left);
+        pthr.add(buttonpanel_left);
         pthr.add(settingpanel_right_top);
-		pthr.add(settingpanel_right_top_edit);
+        pthr.add(settingpanel_right_top_edit);
         pthr.add(settingpanel_right_title);
         pthr.add(settingpanel_right);
         pthr.add(settingpanel_right_down);
-		pthr.add(calculatepanel_right_down);
-
+        pthr.add(calculatepanel_right_down);
 
 
         f.setLayout(null);
@@ -1280,8 +1281,8 @@ class Cfunc1 {
         UserName = USER;
         MainUserNameLabel.setText(UserName);
         UserNameLabel.setText(UserName);
-		UserNameTextLabel.setText(UserName);
-		UserNameTextLabel_edit.setText(UserName);
+        UserNameTextLabel.setText(UserName);
+        UserNameTextLabel_edit.setText(UserName);
     }
 
     //取得資料庫中每一筆測量記錄到特定變數
@@ -1376,14 +1377,14 @@ class Cfunc1 {
             if (DateResult[j] != null) {
                 //將一筆資料進行運算
                 double[] Log = new double[24];
-                // 開始計算數值
+                //將資料庫中一筆測量記錄存到Log[]內
                 for (int i = 0; i <= 5; i++) {
                     Log[i] = LeftHandArrays[j][i];
                     Log[i + 6] = LeftFootArrays[j][i];
                     Log[i + 12] = RightHandArrays[j][i];
                     Log[i + 18] = RightFootArrays[j][i];
                 }
-
+                // 開始計算數值
                 System.out.print("\n");
                 mycal.Getnumber(Log);
                 System.out.print("\n");
@@ -1393,16 +1394,36 @@ class Cfunc1 {
                 mycal.LR();
                 mycal.CalDistance();
                 mycal.CheckTheData();
-                mycal.ToMyString();
-//              mycal.showdetail();
 
-                //next傳送數據到數據計算table
+                //資料格式化 只顯示到小數點後三位
+                String formattedAvg = String.format("%.3f", mycal.CSUM);
+                String formattedFRSUM = String.format("%.3f", mycal.CFRSUM);
+                String formattedYY = String.format("%.3f", mycal.CYY);
+                String formattedLR = String.format("%.3f", mycal.CLR);
+                String formattedSTD = String.format("%.3f", mycal.CStandard);
+
+
+                //傳送數據到數據計算table
+                if (DateResult[count] != null) {
+                    table2.setValueAt(DateResult[count], count, 0);
+                    table2.setValueAt(formattedAvg, count, 1);
+                    table2.setValueAt(formattedFRSUM, count, 2);
+                    table2.setValueAt(formattedYY, count, 3);
+                    table2.setValueAt(formattedLR, count, 4);
+                    table2.setValueAt(formattedSTD, count, 5);
+                }
+                count++;
+
+
+                mycal.ToMyString();
+//                mycal.showdetail();
+                mycal.ToDefault();
 
 
             }
         }
     }
-	
+
     public void LogCalOutPut() {
         //時間TimeNumber
         String TimeNumber[] = new String[db.getDateResult().length];
@@ -1533,7 +1554,7 @@ class Cfunc1 {
                 btn_a.setEnabled(false);
                 ptwo.setVisible(false);
                 pthr.setVisible(true);
-				
+
                 UserName = MainUserNameLabel.getText();
 
                 db.UserLog(UserName);
@@ -1547,24 +1568,24 @@ class Cfunc1 {
 
                 for (int row = 0; row < 20; row++) {
                     if (DateResult[row] != null) {
-                        table1 .setValueAt(DateResult[row], row, 0);
+                        table1.setValueAt(DateResult[row], row, 0);
                         table1.setValueAt(LeftHandResult[row], row, 1);
                         table1.setValueAt(LeftFootResult[row], row, 2);
                         table1.setValueAt(RightHandResult[row], row, 3);
                         table1.setValueAt(RightFootResult[row], row, 4);
                     }
                 }
-				
-				LogCal();
+
+                LogCal();
 
                 PhoneReault = db.getPhoneResult();
-				GenderResult = db.getGenderResult();
-				BirthyearResult = db.getBirthyearResult();
-				CityResult = db.getCityResult();
-				UserPhoneTextLabel.setText(PhoneReault);
-				UserGenderTextLabel.setText(GenderResult);
-				UserBirthTextLabel.setText(BirthyearResult);
-				UserCityTextLabel.setText(CityResult);
+                GenderResult = db.getGenderResult();
+                BirthyearResult = db.getBirthyearResult();
+                CityResult = db.getCityResult();
+                UserPhoneTextLabel.setText(PhoneReault);
+                UserGenderTextLabel.setText(GenderResult);
+                UserBirthTextLabel.setText(BirthyearResult);
+                UserCityTextLabel.setText(CityResult);
                 PhoneNumberTextField.setText(PhoneReault);
                 ChangePhoneNumber.setEnabled(true);
                 PhoneNumberTextField.setEnabled(false);
@@ -1577,15 +1598,15 @@ class Cfunc1 {
 
                 settingpanel_right_top.setVisible(true);
                 settingpanel_right_top_edit.setVisible(false);
-				ChangePhoneNumber.setVisible(true);
-				SavePhoneNumber.setVisible(false);
-				Delete.setVisible(true);
-				Back.setVisible(false);
+                ChangePhoneNumber.setVisible(true);
+                SavePhoneNumber.setVisible(false);
+                Delete.setVisible(true);
+                Back.setVisible(false);
 
             }
         }
     };
-	
+
     public ActionListener dataBtn = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
 
@@ -1604,13 +1625,13 @@ class Cfunc1 {
                 datacalculationButton.setEnabled(false);
                 settingpanel_right_down.setVisible(false);
                 calculatepanel_right_down.setVisible(true);
-				
+
             }
 
         }
     };
 
-     public ActionListener output = new ActionListener() {
+    public ActionListener output = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -1867,7 +1888,7 @@ class Cfunc1 {
 
                 for (int row = 0; row < 20; row++) {
                     if (DateResult[row] != null) {
-                        table1 .setValueAt(DateResult[row], row, 0);
+                        table1.setValueAt(DateResult[row], row, 0);
                         table1.setValueAt(LeftHandResult[row], row, 1);
                         table1.setValueAt(LeftFootResult[row], row, 2);
                         table1.setValueAt(RightHandResult[row], row, 3);
@@ -1894,12 +1915,12 @@ class Cfunc1 {
     public ActionListener ChangePhoneNum = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-			settingpanel_right_top.setVisible(false);
-			settingpanel_right_top_edit.setVisible(true);
+            settingpanel_right_top.setVisible(false);
+            settingpanel_right_top_edit.setVisible(true);
             ChangePhoneNumber.setVisible(false);
             SavePhoneNumber.setVisible(true);
-			Delete.setVisible(false);
-			Back.setVisible(true);
+            Delete.setVisible(false);
+            Back.setVisible(true);
             PhoneNumberTextField.setEnabled(true);
 
         }
@@ -1909,20 +1930,20 @@ class Cfunc1 {
     public ActionListener SavePhoneNum = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-			if(!phoneTextField.getText().equals("")){
-				settingpanel_right_top.setVisible(true);
-				settingpanel_right_top_edit.setVisible(false);
-				ChangePhoneNumber.setVisible(true);
-				SavePhoneNumber.setVisible(false);
-				Delete.setVisible(true);
-				Back.setVisible(false);
-				PhoneNumberTextField.setEnabled(false);
-				//將資料傳入資料庫內
-				data.setUser(UserName);
-				data.setPhone(PhoneNumberTextField.getText());
-				db.UpdatePhone();
-			}else
-				JOptionPane.showMessageDialog(null, "所有的欄位都要填寫！", "操作警訊", JOptionPane.ERROR_MESSAGE);
+            if (!phoneTextField.getText().equals("")) {
+                settingpanel_right_top.setVisible(true);
+                settingpanel_right_top_edit.setVisible(false);
+                ChangePhoneNumber.setVisible(true);
+                SavePhoneNumber.setVisible(false);
+                Delete.setVisible(true);
+                Back.setVisible(false);
+                PhoneNumberTextField.setEnabled(false);
+                //將資料傳入資料庫內
+                data.setUser(UserName);
+                data.setPhone(PhoneNumberTextField.getText());
+                db.UpdatePhone();
+            } else
+                JOptionPane.showMessageDialog(null, "所有的欄位都要填寫！", "操作警訊", JOptionPane.ERROR_MESSAGE);
         }
     };
 
@@ -1991,16 +2012,23 @@ class Cfunc1 {
             }
         }
     };
-	
-	//刪除使用者
+
+    //刪除使用者
     public ActionListener delUser = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-			data.setDeleteUser(UserName);//要刪除的使用者
-			db.DeleteUser();	//刪除使用者
-			db.DeleteLog();		//刪除測量記錄
+            //加入二次詢問 以免誤刪
+            int result = JOptionPane.showConfirmDialog(f, "是否要刪除使用者，測量記錄也會刪除？", "注意!!!", JOptionPane.YES_NO_OPTION);
+            if (result == JOptionPane.YES_OPTION) {
+                data.setDeleteUser(UserName);//要刪除的使用者
+                db.DeleteUser();    //刪除使用者
+                db.DeleteLog();     //刪除測量記錄
+                //退出到登入畫面
+                LoginFrame login = new LoginFrame();
+                f.dispose();
+            }
         }
     };
-	
+
     //折線圖
     class ClineChart extends JPanel {
 
