@@ -14,6 +14,7 @@ class Data {
     private String righthand;
     private String rightfoot;
     private static String phone;
+	private static String DeleteUser;
 
 
     public Data(){
@@ -23,6 +24,7 @@ class Data {
         leftfoot = "";
         righthand = "";
         rightfoot = "";
+		DeleteUser = "";
     }
 
     public void setDatetime(String DateTime){
@@ -78,5 +80,13 @@ class Data {
     }
     public static String getPhone(){
         return phone;
+    }	
+	
+	//預留刪除使用者
+    public void setDeleteUser(String DELETEUSER){
+        DeleteUser = DELETEUSER;
+    }
+    public static String getDeleteUser(){
+        return DeleteUser;
     }	
 }

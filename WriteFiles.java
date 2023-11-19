@@ -6,8 +6,8 @@ public class WriteFiles {
 
     public void main(String data,String avg, String FRSUM, String YY, String LR, int count ,String Distance) {
         try {
-            String FileName = "01";    //在這裡修改檔案名稱
-            FileWriter fWrite = new FileWriter("C:\\Workspace\\TestFile\\" + FileName + ".txt", true);  //在這裡修改位址
+            String FileName = "output";    //在這裡修改檔案名稱
+            FileWriter fWrite = new FileWriter("./" + FileName + ".txt", true);  //在這裡修改位址
             BufferedWriter fOut = new BufferedWriter(fWrite);
 
             fOut.write("第" + count + "筆資料");

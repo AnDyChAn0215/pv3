@@ -16,6 +16,8 @@ class DataBase {
     public String BirthyearResult = new String();
     public String CityResult = new String();
 
+    public int[] LefthandResultArray = new int[100];
+
     public DataBase() {
 
     }
@@ -39,7 +41,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
 
         try {
@@ -58,7 +60,7 @@ class DataBase {
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤!");
+            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤！");
         }
 
         myResult[0] = String.valueOf(Name);
@@ -79,7 +81,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
 
         try {
@@ -98,7 +100,7 @@ class DataBase {
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤!");
+            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤！");
         }
         return 0;
 
@@ -115,7 +117,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
 
         try {
@@ -132,11 +134,11 @@ class DataBase {
             statement.setString(5, RegisterD.getCity());
 
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "註冊成功!");
+            JOptionPane.showMessageDialog(null, "註冊成功！");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "註冊失敗!");
+            JOptionPane.showMessageDialog(null, "註冊失敗！");
         }
 
     }
@@ -156,7 +158,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
 
         try {
@@ -173,7 +175,7 @@ class DataBase {
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤!");
+            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤！");
         }
 
         for (int k = 0; k <= 9; k++) {
@@ -197,7 +199,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
 
         try {
@@ -215,7 +217,7 @@ class DataBase {
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤!");
+            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤！");
         }
 
         return Count;
@@ -238,7 +240,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
         try {
             cmdData = "SELECT * FROM `user` WHERE name = ? ";
@@ -259,7 +261,7 @@ class DataBase {
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤!");
+            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤！");
         }
     }
 
@@ -267,6 +269,18 @@ class DataBase {
         return PhoneResult;
     }
 
+    public String getGenderResult() {
+        return GenderResult;
+    }
+	
+    public String getBirthyearResult() {
+        return BirthyearResult;
+    }
+	
+    public String getCityResult() {
+        return CityResult;
+    }
+	
     //查詢最近測量記錄
     public void UserLog(String Name) {
 
@@ -281,7 +295,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
         try {
             cmdData = "SELECT * FROM `mdata` WHERE user = ? ORDER BY 1 DESC";
@@ -303,7 +317,7 @@ class DataBase {
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤!");
+            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤！");
         }
     }
 
@@ -325,7 +339,6 @@ class DataBase {
 
     public String[] getDateResult() {
         return (DateResult);
-
     }
 
     public String[] getLefthandResult() {
@@ -355,7 +368,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
 
         try {
@@ -373,11 +386,11 @@ class DataBase {
             statement.setString(6, aData.getRightfoot());
 
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "寫入資料庫成功!");
+            JOptionPane.showMessageDialog(null, "寫入資料庫成功！");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "寫入資料庫發生錯誤!");
+            JOptionPane.showMessageDialog(null, "寫入資料庫發生錯誤！");
         }
     }
 
@@ -392,7 +405,7 @@ class DataBase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗!");
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
         }
 
         try {
@@ -403,13 +416,70 @@ class DataBase {
             statement.setString(1, Data.getPhone());
             statement.setString(2, Data.getUser());
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "修改成功!");
+            JOptionPane.showMessageDialog(null, "修改成功！");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "修改資料發生錯誤!");
+            JOptionPane.showMessageDialog(null, "修改資料發生錯誤！");
         }
     }
 
+    //刪除使用者
+    public void DeleteUser() {
 
+        Connection connection;
+        PreparedStatement statement;
+        String cmdData;
+
+        //資料庫前置作業
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
+        }
+
+        try {
+            cmdData = "DELETE FROM user WHERE name = ?";
+            connection = DriverManager.getConnection("jdbc:mysql://210.65.88.131/isudb2" + "?user=112isuproject&password=yang3807e");
+
+            statement = connection.prepareStatement(cmdData);
+            statement.setString(1, Data.getDeleteUser());
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "使用者刪除成功！");
+            statement.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "修改資料發生錯誤！");
+        }
+    }
+
+    //刪除測量記錄
+    public void DeleteLog() {
+
+        Connection connection;
+        PreparedStatement statement;
+        String cmdData;
+
+        //資料庫前置作業
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
+        }
+
+        try {
+            cmdData = "DELETE FROM mdata WHERE user = ?";
+            connection = DriverManager.getConnection("jdbc:mysql://210.65.88.131/isudb2" + "?user=112isuproject&password=yang3807e");
+
+            statement = connection.prepareStatement(cmdData);
+            statement.setString(1, Data.getDeleteUser());
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "測量記錄刪除成功！");
+            statement.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "修改資料發生錯誤！");
+        }
+    }
+	
 }
