@@ -76,8 +76,10 @@ public class LoginFrame extends JFrame {
                 JOptionPane.showMessageDialog(null,"未完整輸入登入資料，請填寫後再登入！","操作警訊",JOptionPane.ERROR_MESSAGE);
 				}
 			}else if (e.getSource() == myFrame.myLogin_pane.btn0) {
-				myFrame.setVisible(false);		//隱藏登入畫面	
-				Cfunc1 mainFrame = new Cfunc1();	
+				myFrame.setVisible(false);		//隱藏登入畫面
+
+				Cfunc1 mainFrame = new Cfunc1();
+
 				mainFrame.setUser("訪客");
 				dispose();
 			}

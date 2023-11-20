@@ -83,7 +83,6 @@ class Cfunc1 {
     // 計算方法
     double[] number = new double[24];
     CAL mycal = new CAL();
-
     Data data = new Data();
     DataBase db = new DataBase();
     RegisterData RD = new RegisterData();
@@ -186,7 +185,6 @@ class Cfunc1 {
 
     JLabel UserNameTextLabel_edit = new JLabel();
 
-    JPanel mainpanel = new JPanel();
     JPanel settingpanel = new JPanel();
     JPanel[] pane = new JPanel[6];
     JPanel buttonpanel_left_top = new JPanel();
@@ -248,9 +246,7 @@ class Cfunc1 {
     JTextField PhoneNumberTextField = new JTextField();
 
     String[] UserDataText = new String[10];
-    JButton[] UserSelect = new JButton[10];
     JComboBox<String> backgroundComboBox;
-    JComboBox<String> backgroundComboBox1;
 
     JTextField userTextField = new JTextField();
     JTextField phoneTextField = new JTextField();
@@ -439,22 +435,6 @@ class Cfunc1 {
         menuBar.add(portMenu);
         menuBar.setBounds(30, 80, 130, 50);
         ptwo.add(menuBar);
-
-        //下拉選單
-        UserDataText = db.SelectUser();
-        ArrayList<String> backgroundOptionsList = new ArrayList<>();
-        backgroundOptionsList.add("選擇使用者");
-        for (int i = 0; i < UserDataText.length; i++) {
-            if (!UserDataText[i].equals("null")) {
-                backgroundOptionsList.add(UserDataText[i]);
-            }
-        }
-        String[] backgroundOptions = backgroundOptionsList.toArray(new String[0]);
-        backgroundComboBox = new JComboBox<>(backgroundOptions);
-        backgroundComboBox.setFont(font1);
-        backgroundComboBox.setBounds(190, 80, 130, 50);
-        backgroundComboBox.addActionListener(SelectUserBox);
-        ptwo.add(backgroundComboBox);
 
         // 開始與停止讀取USB數據
         btn_stop.setBounds(1120, 80, 200, 50);
@@ -1283,6 +1263,21 @@ class Cfunc1 {
         UserNameLabel.setText(UserName);
         UserNameTextLabel.setText(UserName);
         UserNameTextLabel_edit.setText(UserName);
+
+        //下拉選單預設為目前使用者
+        UserDataText = db.SelectUserDESC(UserName);
+        ArrayList<String> backgroundOptionsList = new ArrayList<>();
+        for (int i = 0; i < UserDataText.length; i++) {
+            if (!UserDataText[i].equals("null")) {
+                backgroundOptionsList.add(UserDataText[i]);
+            }
+        }
+        String[] backgroundOptions = backgroundOptionsList.toArray(new String[0]);
+        backgroundComboBox = new JComboBox<>(backgroundOptions);
+        backgroundComboBox.setFont(font1);
+        backgroundComboBox.setBounds(190, 80, 130, 50);
+        backgroundComboBox.addActionListener(SelectUserBox);
+        ptwo.add(backgroundComboBox);
     }
 
     //取得資料庫中每一筆測量記錄到特定變數
@@ -1582,6 +1577,9 @@ class Cfunc1 {
                 GenderResult = db.getGenderResult();
                 BirthyearResult = db.getBirthyearResult();
                 CityResult = db.getCityResult();
+                if (CityResult.equals("屏東市")){
+                    CityResult = "屏東縣";
+                }
                 UserPhoneTextLabel.setText(PhoneReault);
                 UserGenderTextLabel.setText(GenderResult);
                 UserBirthTextLabel.setText(BirthyearResult);
@@ -1922,6 +1920,17 @@ class Cfunc1 {
             Delete.setVisible(false);
             Back.setVisible(true);
             PhoneNumberTextField.setEnabled(true);
+
+            System.out.println(CityResult);
+            System.out.println(BirthyearResult);
+            int Birthyear = Integer.parseInt(BirthyearResult);//因為yearBox內的item資料型態為int 所以必須做型態的轉換
+            System.out.println(GenderResult);
+
+            //預設選中使用者資料
+            cityComboBox.setSelectedItem(CityResult);
+            yearBox.setSelectedItem(Birthyear);
+            genderBox.setSelectedItem(GenderResult);
+
 
         }
     };

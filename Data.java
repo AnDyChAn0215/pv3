@@ -42,6 +42,9 @@ class Data {
     public static String getUser(){
         return user;
     }
+    public String getuser(){
+        return user;
+    }
 
     public void setLefthand(String LeftHand){
         lefthand = LeftHand;

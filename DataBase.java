@@ -186,6 +186,50 @@ class DataBase {
 
     }
 
+    //以輸入的使用者為優先 顯示所有使用者
+    public String[] SelectUserDESC(String Name) {
+        Connection connection;
+        PreparedStatement statement;
+        ResultSet result;
+        String cmdData;
+
+        String[] theResult = new String[10];
+        String[] myResult = new String[10];
+        int i = 0;
+
+        //資料庫前置作業
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
+        }
+
+        try {
+            cmdData = "SELECT * FROM user ORDER BY name = ? DESC";
+            connection = DriverManager.getConnection("jdbc:mysql://210.65.88.131/isudb2" + "?user=112isuproject&password=yang3807e");
+            statement = connection.prepareStatement(cmdData);
+            statement.setString(1, Name);
+            result = statement.executeQuery();
+
+            while (result.next()) {
+                //列出所有的帳號10個
+                theResult[i] = result.getString("name");
+                i++;
+            }
+            statement.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "資料庫操作發生其他錯誤！");
+        }
+
+        for (int k = 0; k <= 9; k++) {
+            myResult[k] = String.valueOf(theResult[k]);
+        }
+
+        return (myResult);
+
+    }
+
     public int CountUser() {
 
         Connection connection;
@@ -231,10 +275,6 @@ class DataBase {
         ResultSet result;
         String cmdData;
 
-        String[] theResult = new String[10];
-        String[] myResult = new String[10];
-
-        int i = 0;
 
         //資料庫前置作業
         try {
@@ -254,8 +294,6 @@ class DataBase {
                 GenderResult = result.getString("gender");
                 BirthyearResult = result.getString("birthyear");
                 CityResult = result.getString("city");
-                i++;
-
             }
             statement.close();
 
