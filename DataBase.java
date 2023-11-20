@@ -454,13 +454,101 @@ class DataBase {
             statement.setString(1, Data.getPhone());
             statement.setString(2, Data.getUser());
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "修改成功！");
+//            JOptionPane.showMessageDialog(null, "修改成功！");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "修改資料發生錯誤！");
+            JOptionPane.showMessageDialog(null, "修改電話資料發生錯誤！");
         }
     }
+    //修改使用者生日年
+    public void UpdateBirth() {
+
+        Connection connection;
+        PreparedStatement statement;
+        String cmdData;
+
+        //資料庫前置作業
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
+        }
+
+        try {
+            cmdData = "UPDATE user SET birthyear= ? WHERE name = ?";
+            connection = DriverManager.getConnection("jdbc:mysql://210.65.88.131/isudb2" + "?user=112isuproject&password=yang3807e");
+
+            statement = connection.prepareStatement(cmdData);
+            statement.setString(1, String.valueOf(Data.getBirth()));
+            statement.setString(2, Data.getUser());
+            statement.executeUpdate();
+//            JOptionPane.showMessageDialog(null, "修改成功！");
+            statement.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "修改出生年資料發生錯誤！");
+        }
+    }
+    //修改使用者出生地
+    public void UpdateCity() {
+
+        Connection connection;
+        PreparedStatement statement;
+        String cmdData;
+
+        //資料庫前置作業
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
+        }
+
+        try {
+            cmdData = "UPDATE user SET city= ? WHERE name = ?";
+            connection = DriverManager.getConnection("jdbc:mysql://210.65.88.131/isudb2" + "?user=112isuproject&password=yang3807e");
+
+            statement = connection.prepareStatement(cmdData);
+            statement.setString(1, Data.getCity());
+            statement.setString(2, Data.getUser());
+            statement.executeUpdate();
+//            JOptionPane.showMessageDialog(null, "修改成功！");
+            statement.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "修改出生地資料發生錯誤！");
+        }
+    }
+    //修改使用者性別
+    public void UpdateGender() {
+
+        Connection connection;
+        PreparedStatement statement;
+        String cmdData;
+
+        //資料庫前置作業
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MySQL驅動程式安裝失敗！");
+        }
+
+        try {
+            cmdData = "UPDATE user SET gender= ? WHERE name = ?";
+            connection = DriverManager.getConnection("jdbc:mysql://210.65.88.131/isudb2" + "?user=112isuproject&password=yang3807e");
+
+            statement = connection.prepareStatement(cmdData);
+            statement.setString(1, Data.getGender());
+            statement.setString(2, Data.getUser());
+            statement.executeUpdate();
+//            JOptionPane.showMessageDialog(null, "修改成功！");
+            statement.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "修改性別資料發生錯誤！");
+        }
+    }
+
 
     //刪除使用者
     public void DeleteUser() {

@@ -1,6 +1,7 @@
 //匯入需要的各類套件
 import java.awt.*;
 import java.sql.*;
+import javax.print.attribute.standard.Chromaticity;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Toolkit;
@@ -14,6 +15,9 @@ class Data {
     private String righthand;
     private String rightfoot;
     private static String phone;
+    private static int Birth;
+    private  static String City;
+    private  static String Gender;
 	private static String DeleteUser;
 
 
@@ -25,6 +29,9 @@ class Data {
         righthand = "";
         rightfoot = "";
 		DeleteUser = "";
+        Birth = 0;
+        City = "";
+        Gender = "";
     }
 
     public void setDatetime(String DateTime){
@@ -40,9 +47,6 @@ class Data {
     }
 
     public static String getUser(){
-        return user;
-    }
-    public String getuser(){
         return user;
     }
 
@@ -83,7 +87,25 @@ class Data {
     }
     public static String getPhone(){
         return phone;
-    }	
+    }
+    public void setBirth(int BIRTH){
+        Birth = BIRTH;
+    }
+    public static int getBirth(){
+        return Birth;
+    }
+    public void setcity(String CITY){
+        City = CITY;
+    }
+    public static String getCity(){
+        return City;
+    }
+    public void setGender(String GENDER){
+        Gender = GENDER;
+    }
+    public static String getGender(){
+        return Gender;
+    }
 	
 	//預留刪除使用者
     public void setDeleteUser(String DELETEUSER){

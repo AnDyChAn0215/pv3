@@ -215,14 +215,14 @@ class Cfunc1 {
     JLabel UserSignUp = new JLabel("新增使用者");
     JLabel UserData = new JLabel("測量結果");
     JLabel userLabel = new JLabel("姓名：");
-    JLabel phoneLabel = new JLabel("電話號碼：");
+    JLabel phoneLabel = new JLabel("電話號碼:");
     JLabel genderLabel = new JLabel("性別：");
     JLabel yearJLabel = new JLabel("出生年：");
     JLabel cityLable = new JLabel("城市：");
 
     JLabel backgroundTextLabel = new JLabel("姓名：");
     JLabel GenderLabel = new JLabel("性別：");
-    JLabel PhoneNumberLabel = new JLabel("電話號碼：");
+    JLabel PhoneNumberLabel = new JLabel("電話號碼:");
     JLabel BirthyearLabel = new JLabel("出生年（西元）：");
     JLabel CityLabel = new JLabel("城市：");
 
@@ -690,9 +690,6 @@ class Cfunc1 {
         settingpanel_left.setBackground(Color.white);
         settingpanel_left.setLayout(null);
 
-
-        //用戶管理 左側Panel內容
-
         /*用戶管理-新增使用者-LOGO標籤*/
         namelabel.setBounds(30, 100, 50, 50);        //姓名
         settingpanel_left.add(namelabel);
@@ -865,20 +862,21 @@ class Cfunc1 {
         PhoneNumberTextField.setBounds(210, 130, 150, 30);
         PhoneNumberTextField.setEnabled(false);
         PhoneNumberTextField.setDocument(new JTextFieldLimit(10));
-        PhoneNumberTextField.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                if (e.getKeyChar() == KeyEvent.VK_ENTER) {
-                    ChangePhoneNumber.setVisible(true);
-                    SavePhoneNumber.setVisible(false);
-                    PhoneNumberTextField.setEnabled(false);
-                    //將資料傳入資料庫內
-                    data.setUser(UserName);
-                    data.setPhone(PhoneNumberTextField.getText());
-                    db.UpdatePhone();
-                }
-            }
+        /**
+         PhoneNumberTextField.addKeyListener(new KeyAdapter() {
+        @Override public void keyTyped(KeyEvent e) {
+        if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+        ChangePhoneNumber.setVisible(true);
+        SavePhoneNumber.setVisible(false);
+        PhoneNumberTextField.setEnabled(false);
+        //將資料傳入資料庫內
+        data.setUser(UserName);
+        data.setPhone(PhoneNumberTextField.getText());
+        db.UpdatePhone();
+        }
+        }
         });
+         **/
         settingpanel_right_top_edit.add(PhoneNumberTextField);
 
         genderBox.setBounds(500, 50, 150, 30);              //性別
@@ -1264,7 +1262,7 @@ class Cfunc1 {
         UserNameTextLabel.setText(UserName);
         UserNameTextLabel_edit.setText(UserName);
 
-        //下拉選單預設為目前使用者
+        //將下拉選單預設選中為目前使用者
         UserDataText = db.SelectUserDESC(UserName);
         ArrayList<String> backgroundOptionsList = new ArrayList<>();
         for (int i = 0; i < UserDataText.length; i++) {
@@ -1577,7 +1575,7 @@ class Cfunc1 {
                 GenderResult = db.getGenderResult();
                 BirthyearResult = db.getBirthyearResult();
                 CityResult = db.getCityResult();
-                if (CityResult.equals("屏東市")){
+                if (CityResult.equals("屏東市")) {
                     CityResult = "屏東縣";
                 }
                 UserPhoneTextLabel.setText(PhoneReault);
@@ -1909,7 +1907,7 @@ class Cfunc1 {
         }
     };
 
-    //編輯電話號碼
+    //編輯使用者資料
     public ActionListener ChangePhoneNum = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -1921,42 +1919,56 @@ class Cfunc1 {
             Back.setVisible(true);
             PhoneNumberTextField.setEnabled(true);
 
-            System.out.println(CityResult);
-            System.out.println(BirthyearResult);
-            int Birthyear = Integer.parseInt(BirthyearResult);//因為yearBox內的item資料型態為int 所以必須做型態的轉換
-            System.out.println(GenderResult);
+            //從資料庫接收使用者資料
+            CityResult = UserCityTextLabel.getText();
+            BirthyearResult = UserBirthTextLabel.getText();
+            GenderResult = UserGenderTextLabel.getText();
+            PhoneReault = UserPhoneTextLabel.getText();
 
             //預設選中使用者資料
             cityComboBox.setSelectedItem(CityResult);
+            int Birthyear = Integer.parseInt(BirthyearResult);//因為yearBox內的item資料型態為int 所以必須做型態的轉換
             yearBox.setSelectedItem(Birthyear);
             genderBox.setSelectedItem(GenderResult);
-
+            UserPhoneTextLabel.setText(PhoneReault);
 
         }
     };
 
-    //儲存電話號碼
+    //儲存編輯後的使用者資料
     public ActionListener SavePhoneNum = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (!phoneTextField.getText().equals("")) {
-                settingpanel_right_top.setVisible(true);
-                settingpanel_right_top_edit.setVisible(false);
-                ChangePhoneNumber.setVisible(true);
-                SavePhoneNumber.setVisible(false);
-                Delete.setVisible(true);
-                Back.setVisible(false);
-                PhoneNumberTextField.setEnabled(false);
-                //將資料傳入資料庫內
-                data.setUser(UserName);
-                data.setPhone(PhoneNumberTextField.getText());
-                db.UpdatePhone();
-            } else
-                JOptionPane.showMessageDialog(null, "所有的欄位都要填寫！", "操作警訊", JOptionPane.ERROR_MESSAGE);
+
+            settingpanel_right_top.setVisible(true);
+            settingpanel_right_top_edit.setVisible(false);
+            ChangePhoneNumber.setVisible(true);
+            SavePhoneNumber.setVisible(false);
+            Delete.setVisible(true);
+            Back.setVisible(false);
+            PhoneNumberTextField.setEnabled(false);
+
+            //將資料傳入資料庫內
+            data.setUser(UserName);
+            data.setPhone(PhoneNumberTextField.getText());
+            data.setBirth((Integer) yearBox.getSelectedItem());
+            data.setGender((String) genderBox.getSelectedItem());
+            data.setcity((String) cityComboBox.getSelectedItem());
+            db.UpdatePhone();
+            db.UpdateBirth();
+            db.UpdateCity();
+            db.UpdateGender();
+
+            //更新顯示資料
+            UserGenderTextLabel.setText(data.getGender());
+            UserPhoneTextLabel.setText(data.getPhone());
+            UserBirthTextLabel.setText(String.valueOf(data.getBirth()));
+            UserCityTextLabel.setText(data.getCity());
+            JOptionPane.showMessageDialog(null, "資料修改完成！");
         }
     };
 
-    //清空測量記錄&電話號碼
+    //選中使用者
     public ActionListener SelectUserBox = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             for (int row = 0; row < 20; row++) {
@@ -1969,6 +1981,11 @@ class Cfunc1 {
             ChangePhoneNumber.setVisible(true);
             ChangePhoneNumber.setEnabled(false);
             db.CleanDate();
+
+            //選中的測量使用者
+            String SelectedUser = (String) backgroundComboBox.getSelectedItem();
+            System.out.println("將為此使用者測量:" + SelectedUser);
+            data.setUser(SelectedUser);
 
         }
     };
