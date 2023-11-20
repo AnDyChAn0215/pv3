@@ -4,19 +4,15 @@ import java.sql.*;
 class DataBase {
     Connection connection;
     Statement statement;
-    public Object isudb2;
-
-    public String[] DateResult = new String[100];
-    public String[] LefthandResult = new String[100];
-    public String[] LeftfootResult = new String[100];
-    public String[] RighthandResult = new String[100];
-    public String[] RightfootResult = new String[100];
+    public String[] DateResult = new String[200];
+    public String[] LefthandResult = new String[200];
+    public String[] LeftfootResult = new String[200];
+    public String[] RighthandResult = new String[200];
+    public String[] RightfootResult = new String[200];
     public String PhoneResult = new String();
     public String GenderResult = new String();
     public String BirthyearResult = new String();
     public String CityResult = new String();
-
-    public int[] LefthandResultArray = new int[100];
 
     public DataBase() {
 

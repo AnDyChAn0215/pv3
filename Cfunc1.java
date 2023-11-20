@@ -253,9 +253,9 @@ class Cfunc1 {
     JComboBox cityComboBox = new JComboBox<>();
 
     String[] title1 = {"丁", "オも计", "オ竲计", "も计", "竲计"};
-    String[][] data1 = new String[20][5];
+    String[][] data1 = new String[200][5];
     String[] title2 = {"丁", "キА", "店龟", "潮锭", "オ", "瞶稱禯瞒"};
-    String[][] data2 = new String[20][6];
+    String[][] data2 = new String[200][6];
     String[] title3 = {"丁", "オも计", "オ竲计", "も计", "竲计"};
     String[][] data3 = new String[20][5];
 
@@ -320,11 +320,11 @@ class Cfunc1 {
         }
     };
 
-    String[] DateResult = new String[20];
-    String[] LeftHandResult = new String[10];
-    String[] LeftFootResult = new String[10];
-    String[] RightHandResult = new String[10];
-    String[] RightFootResult = new String[10];
+    String[] DateResult = new String[200];
+    String[] LeftHandResult = new String[200];
+    String[] LeftFootResult = new String[200];
+    String[] RightHandResult = new String[200];
+    String[] RightFootResult = new String[200];
 
     String PhoneReault = new String();
     String GenderResult = new String();
@@ -1557,7 +1557,8 @@ class Cfunc1 {
                 RightHandResult = db.getRighthandResult();
                 RightFootResult = db.getRightfootResult();
 
-                for (int row = 0; row < 20; row++) {
+                //эtable1ず陪ボ戈计
+                for (int row = 0; row < db.getDateResult().length; row++) {
                     if (DateResult[row] != null) {
                         table1.setValueAt(DateResult[row], row, 0);
                         table1.setValueAt(LeftHandResult[row], row, 1);
