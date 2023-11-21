@@ -1104,6 +1104,14 @@ class Cfunc1 {
         positionPicLabel.setFont(new Font("微軟正黑體", Font.BOLD, 36));
         nextPositionPicLabel.setIcon(nextPositionIcon[0]);
 
+        progressBar.setValue(0);
+        music1_Player.stop();
+        music2_Player.stop();
+        music3_Player.stop();
+
+        for (int x = 0; x < chart.pointValue.length; x++) chart.pointValue[x] = -1; //清空畫圖點數據
+        g = chart.getGraphics();       //重新取得畫布
+        chart.paintComponent(g);
     }
 
     // 依照傳入的fieldCount值把量測資料顯示到對應欄位
@@ -1245,6 +1253,11 @@ class Cfunc1 {
                 System.out.println(RightFoot);
 
                 db.InsertData(data);
+                btn_start.setEnabled(true);
+                btn_stop.setEnabled(false);
+                btn_a.setEnabled(true);
+                btn_out.setEnabled(true);
+                backgroundComboBox.setEnabled(true);
             }
         }
         stepsOfAMeasure = -1;
@@ -1720,6 +1733,9 @@ class Cfunc1 {
             thread_changeField_status = RUNNING;
             pressStopMeasure = 0;
             btn_stop.setEnabled(true);
+            btn_out.setEnabled(false);
+            btn_a.setEnabled(false);
+            backgroundComboBox.setEnabled(false);
             fieldCount = 0;
             stepsOfAMeasure = 0;
             final int[] timeInterval = {10000, 5000, 5000, 5000, 5000, 5000, 5000, 10000, 5000, 5000, 5000, 5000, 5000,
@@ -1819,6 +1835,10 @@ class Cfunc1 {
 
                 Thread.sleep(1000);
                 btn_start.setEnabled(true);
+                btn_stop.setEnabled(false);
+                btn_out.setEnabled(true);
+                btn_a.setEnabled(true);
+                backgroundComboBox.setEnabled(true);
 
             } catch (InterruptedException ioe) {
                 ioe.printStackTrace();
@@ -1983,8 +2003,8 @@ class Cfunc1 {
 
             //選中的測量使用者
             String SelectedUser = (String) backgroundComboBox.getSelectedItem();
-            System.out.println("將為此使用者測量:" + SelectedUser);
-            data.setUser(SelectedUser);
+            UserName = SelectedUser;
+            System.out.println("將為此使用者測量:" + UserName);
 
         }
     };
