@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 //播放MP3音樂所需套件
 //import com.sun.scenario.effect.Offset;
 import jaco.mp3.player.MP3Player;
+import org.jfree.layout.CenterLayout;
 
 import java.io.File;
 
@@ -272,6 +273,7 @@ class Cfunc1 {
 
     // Create a DefaultTableModel
     DefaultTableModel model = new DefaultTableModel(data1, title1);
+
 
     // Create a custom JTable with custom rendering
     JTable table1 = new JTable(model) {
@@ -974,13 +976,17 @@ class Cfunc1 {
 
         //用戶管理 右下測量數據記錄 內容
         data1 = new String[][]{{"datetime", "lefthand", "leftfoot", "righthand", "rightfoot"}};
-
         table1.setEnabled(false);
         JTableHeader head1 = table1.getTableHeader();
         table1.getTableHeader().setReorderingAllowed(false);
         table1.setFont(labelFont);
         table1.setRowHeight(40);
         table1.setGridColor(new Color(220, 220, 220));
+
+        //將head1字體置中
+        DefaultTableCellRenderer headerRenderer1 = new DefaultTableCellRenderer();
+        headerRenderer1.setHorizontalAlignment(JLabel.CENTER);
+        head1.setDefaultRenderer(headerRenderer1);
 
         head1.setFont(labelFont);
         JScrollPane sp = new JScrollPane(table1,
@@ -1004,6 +1010,11 @@ class Cfunc1 {
         table2.setFont(labelFont);
         table2.setRowHeight(40);
         table2.setGridColor(new Color(220, 220, 220));
+
+        //將head2字體置中
+        DefaultTableCellRenderer headerRenderer2 = new DefaultTableCellRenderer();
+        headerRenderer2.setHorizontalAlignment(JLabel.CENTER);
+        head2.setDefaultRenderer(headerRenderer2);
 
         head2.setFont(labelFont);
         JScrollPane sp1 = new JScrollPane(table2,
