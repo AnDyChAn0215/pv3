@@ -1,8 +1,6 @@
 import java.io.*;
 
-//簡單的寫入文件範例
 public class WriteFiles {
-    CAL cal = new CAL();
 
     public void main(String data,String avg, String FRSUM, String YY, String LR, int count ,String Distance) {
         try {

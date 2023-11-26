@@ -12,6 +12,5 @@
 public class pv3 {
 	public static void main(String[] args) {
 		LoginFrame Login = new LoginFrame();
-		//Cfunc1 MainFrame = new Cfunc1();
 	}
 }

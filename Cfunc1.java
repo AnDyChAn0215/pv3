@@ -46,7 +46,6 @@ class Cfunc1 {
     JButton btn_f = new JButton("首頁", iconhome);
     JButton btn_a = new JButton("用戶管理", iconuser);
     JButton btn_out = new JButton("登出", iconout);
-    JButton btn_search = new JButton(iconsearch);        //搜尋按鈕
 
     Font ft1 = new Font("微軟正黑體", Font.BOLD, 24);        //內頁文字格式
     Font ft2 = new Font("微軟正黑體", Font.BOLD, 38);        //抬頭文字格式
@@ -134,9 +133,6 @@ class Cfunc1 {
     JMenuItem[] portMenuItem = new JMenuItem[20];
     JButton btn_start = new JButton("開始測量");
     JButton btn_stop = new JButton("取消測量");
-    JButton btn_test = new JButton("計算");
-    JButton btn_data = new JButton("產生亂數");
-    JButton btn_Database = new JButton("傳送到資料庫");
 
     ImageIcon nameIcon = new ImageIcon("images/name_color.png");
     JLabel namelabel = new JLabel(nameIcon);
@@ -169,10 +165,6 @@ class Cfunc1 {
 
     ImageIcon[] nextPositionIcon = new ImageIcon[12];
     // 320x320像素小一點的圖用於顯示下一個測量位置的圖
-    String[] nextPositionIconFileName = {"images/sH1.png", "images/sH2.png", "images/sH3.png", "images/sH4.png",
-            "images/sH5.png", "images/sH6.png", "images/sF1.png", "images/sF2.png", "images/sF3.png", "images/sF4.png",
-            "images/sF5.png", "images/sF6.png"};
-    JTextField nextPosTxtFd = new JTextField("下一個測量點（預告）");
     JLabel nextPositionPicLabel = new JLabel();
     JLabel MainUserNameLabel = new JLabel();
     JLabel UserNameLabel = new JLabel();
@@ -233,7 +225,6 @@ class Cfunc1 {
 
     JButton measurementdataButton = new JButton("測量數據", heartIcon);
     JButton datacalculationButton = new JButton("數據計算", cliptIcon);
-    JButton deletedataButton = new JButton("刪除數據");
     JButton outputdataButton = new JButton("輸出資料");
     JButton registerButton = new JButton("註冊");
     JButton Login = new JButton("切換");
@@ -260,20 +251,8 @@ class Cfunc1 {
     String[] title3 = {"時間", "左手數值", "左腳數值", "右手數值", "右腳數值"};
     String[][] data3 = new String[20][5];
 
-    String RightHandNumber[] = new String[db.getRighthandResult().length];
-    double[][] RightHandArrays = new double[RightHandNumber.length][];
-    String RightFootNumber[] = new String[db.getRightfootResult().length];
-    double[][] RightFootArrays = new double[RightFootNumber.length][];
-    String LeftFootNumber[] = new String[db.getLeftfootResult().length];
-    double[][] LeftFootArrays = new double[LeftFootNumber.length][];
-    String TimeNumber[] = new String[db.getDateResult().length];
-    String LeftHandNumber[] = new String[db.getLefthandResult().length];
-    double[][] LeftHandArrays = new double[LeftHandNumber.length][];
-
-
     // Create a DefaultTableModel
     DefaultTableModel model = new DefaultTableModel(data1, title1);
-
 
     // Create a custom JTable with custom rendering
     JTable table1 = new JTable(model) {
@@ -450,26 +429,6 @@ class Cfunc1 {
         btn_start.addActionListener(ProcessStartReadUSB);
         btn_start.setBackground(MyColor);
         ptwo.add(btn_start);
-
-        /**
-         //計算方法
-         btn_test.setBounds(890, 90, 200, 50);
-         btn_test.setFont(font1);
-         btn_test.addActionListener(SendData);
-         mainpanel.add(btn_test);
-
-         // 產生隨機數值(用於測試)
-         btn_data.setBounds(660, 90, 200, 50);
-         btn_data.setFont(font1);
-         btn_data.addActionListener(GetRandomData);
-         mainpanel.add(btn_data);
-
-         //傳送資料到資料庫
-         btn_Database.setBounds(200, 90, 200, 50);
-         btn_Database.setFont(font1);
-         btn_Database.addActionListener(ToDataBase);
-         mainpanel.add(btn_Database);
-         **/
 
         manlabel.setBounds(1186, (int) (5.15), 50, 40);
         pone.add(manlabel);
@@ -654,18 +613,6 @@ class Cfunc1 {
         datacalculationButton.setEnabled(true);
         datacalculationButton.addActionListener(dataBtn);
         buttonpanel_left_top.add(datacalculationButton);
-
-        /*用戶管理-測量結果-左下方刪除數據按鈕*/
-        deletedataButton.setLayout(null);
-        deletedataButton.setBounds(0, 420, 150, 50);
-        deletedataButton.setForeground(Color.black);
-        deletedataButton.setBackground(Color.lightGray);
-        deletedataButton.setFont(tabFont);
-        deletedataButton.setBorderPainted(false);
-        deletedataButton.setFocusPainted(false);
-        deletedataButton.setEnabled(true);
-        //deletedataButton.addActionListener(Register);
-        buttonpanel_left.add(deletedataButton);
 
         /*用戶管理-測量結果-左下方輸出資料按鈕*/
         outputdataButton.setLayout(null);
@@ -862,21 +809,6 @@ class Cfunc1 {
         PhoneNumberTextField.setBounds(210, 130, 150, 30);
         PhoneNumberTextField.setEnabled(false);
         PhoneNumberTextField.setDocument(new JTextFieldLimit(10));
-        /**
-         PhoneNumberTextField.addKeyListener(new KeyAdapter() {
-        @Override public void keyTyped(KeyEvent e) {
-        if (e.getKeyChar() == KeyEvent.VK_ENTER) {
-        ChangePhoneNumber.setVisible(true);
-        SavePhoneNumber.setVisible(false);
-        PhoneNumberTextField.setEnabled(false);
-        //將資料傳入資料庫內
-        data.setUser(UserName);
-        data.setPhone(PhoneNumberTextField.getText());
-        db.UpdatePhone();
-        }
-        }
-        });
-         **/
         settingpanel_right_top_edit.add(PhoneNumberTextField);
 
         genderBox.setBounds(500, 50, 150, 30);              //性別
@@ -963,13 +895,11 @@ class Cfunc1 {
 
         //用戶管理 右下測量數據記錄
         settingpanel_right_down.setBounds(180, 300, 1390, 630);
-        //settingpanel_right_down.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         settingpanel_right_down.setLayout(null);
         settingpanel_right_down.setVisible(true);
 
         //用戶管理 右下數據計算記錄
         calculatepanel_right_down.setBounds(180, 300, 1390, 630);
-        //calculatepanel_right_down.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         calculatepanel_right_down.setLayout(null);
         calculatepanel_right_down.setVisible(false);
 
@@ -1068,36 +998,6 @@ class Cfunc1 {
             if (getLength() + str.length() <= limit) {
                 super.insertString(offset, str, attr);
             }
-        }
-    }
-
-    static class CustomScrollBarUI extends BasicScrollBarUI {
-        @Override
-        protected JButton createDecreaseButton(int orientation) {
-            return createEmptyButton();
-        }
-
-        @Override
-        protected JButton createIncreaseButton(int orientation) {
-            return createEmptyButton();
-        }
-
-        private JButton createEmptyButton() {
-            JButton button = new JButton();
-            button.setPreferredSize(new Dimension(0, 0));
-            return button;
-        }
-
-        @Override
-        protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
-            g.setColor(Color.GRAY);
-            g.fillRect(thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height);
-        }
-
-        @Override
-        protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
-            g.setColor(Color.LIGHT_GRAY);
-            g.fillRect(trackBounds.x, trackBounds.y, trackBounds.width, trackBounds.height);
         }
     }
 
@@ -1699,44 +1599,6 @@ class Cfunc1 {
         }
     };
 
-    // 產生隨機數字
-    public ActionListener GetRandomData = new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            for (int i = 0; i <= 11; i++) {
-                Random random = new Random();
-                int randomNumber = random.nextInt(11);
-                int randomNumber2 = random.nextInt(11);
-                H1toH6MDataField[i].setText(String.valueOf(randomNumber));
-                F1toF6MDataField[i].setText(String.valueOf(randomNumber2));
-            }
-
-        }
-    };
-
-    // 傳送資料到副程式
-    public ActionListener SendData = new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            System.out.print("原始數值" + "\n");
-            // 開始計算數值
-            for (int i = 0; i <= 11; i++) {
-                number[i] = Double.parseDouble(H1toH6MDataField[i].getText());
-                number[i + 12] = Double.parseDouble(F1toF6MDataField[i].getText());
-            }
-            for (int i = 0; i <= 23; i++) {
-                System.out.print(number[i] + ",");
-            }
-            System.out.print("\n");
-            mycal.Getnumber(number);
-            System.out.print("\n");
-            mycal.avg();
-            mycal.FR();
-            mycal.YY();
-            mycal.LR();
-            mycal.showdetail();
-
-        }
-    };
-
     public ActionListener ProcessStartReadUSB = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
 
@@ -1854,43 +1716,6 @@ class Cfunc1 {
             } catch (InterruptedException ioe) {
                 ioe.printStackTrace();
             }
-        }
-    };
-
-    public ActionListener ToDataBase = new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-
-            Date date = new Date();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HH:mm:ss");
-            String dateStr = dateFormat.format(date);
-            data.setDatetime(dateStr);
-            System.out.println(dateStr);
-
-            data.setUser(UserName);
-            System.out.println(UserName);
-
-            String LeftHands = new String();
-            LeftHands = H1toH6MDataField[0].getText() + " " + H1toH6MDataField[1].getText() + " " + H1toH6MDataField[2].getText() + " " + H1toH6MDataField[3].getText() + " " + H1toH6MDataField[4].getText() + " " + H1toH6MDataField[5].getText();
-            data.setLefthand(LeftHands);
-            System.out.println(LeftHands);
-
-            String LeftFoot = new String();
-            LeftFoot = F1toF6MDataField[0].getText() + " " + F1toF6MDataField[1].getText() + " " + F1toF6MDataField[2].getText() + " " + F1toF6MDataField[3].getText() + " " + F1toF6MDataField[4].getText() + " " + F1toF6MDataField[5].getText();
-            data.setLeftfoot(LeftFoot);
-            System.out.println(LeftFoot);
-
-            String RightHand = new String();
-            RightHand = H1toH6MDataField[6].getText() + " " + H1toH6MDataField[7].getText() + " " + H1toH6MDataField[8].getText() + " " + H1toH6MDataField[9].getText() + " " + H1toH6MDataField[10].getText() + " " + H1toH6MDataField[11].getText();
-            data.setRighthand(RightHand);
-            System.out.println(RightHand);
-
-            String RightFoot = new String();
-            RightFoot = F1toF6MDataField[6].getText() + " " + F1toF6MDataField[7].getText() + " " + F1toF6MDataField[8].getText() + " " + F1toF6MDataField[9].getText() + " " + F1toF6MDataField[10].getText() + " " + F1toF6MDataField[11].getText();
-            data.setRightfoot(RightFoot);
-            System.out.println(RightFoot);
-
-            db.InsertData(data);
-
         }
     };
 
@@ -2178,25 +2003,6 @@ class Cfunc1 {
                     }
 
                 }
-            }
-        }
-    }
-
-    // 自定?TabbedPaneUI以移除???框
-    class NoTabBorderAndBackgroundTabbedPaneUI extends BasicTabbedPaneUI {
-        @Override
-        protected void paintTabBorder(Graphics g, int tabPlacement, int tabIndex, int x, int y, int w, int h, boolean isSelected) {
-            // 不繪製標籤邊框
-        }
-
-        @Override
-        protected void paintTabBackground(Graphics g, int tabPlacement, int tabIndex, int x, int y, int w, int h, boolean isSelected) {
-            // 不繪製標籤背景
-
-            // 選中標籤時底線
-            if (isSelected) {
-                g.setColor(Color.BLUE); // 底線?色
-                g.fillRect(x, y + h - 5, w, 5); // 底線的位置和大小
             }
         }
     }
