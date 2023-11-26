@@ -11,12 +11,12 @@ import javax.swing.table.*;
 import javax.swing.border.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import javax.swing.plaf.FontUIResource; //­×§ïJOptionPane¦rÅé©Ò»İ®M¥ó
+import javax.swing.plaf.FontUIResource; //ä¿®æ”¹JOptionPaneå­—é«”æ‰€éœ€å¥—ä»¶
 import javax.swing.table.DefaultTableModel;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableCellRenderer;
-//¼½©ñMP3­µ¼Ö©Ò»İ®M¥ó
+//æ’­æ”¾MP3éŸ³æ¨‚æ‰€éœ€å¥—ä»¶
 //import com.sun.scenario.effect.Offset;
 import jaco.mp3.player.MP3Player;
 import org.jfree.layout.CenterLayout;
@@ -25,15 +25,15 @@ import java.io.File;
 
 class Cfunc1 {
 
-    //·s¼W³¡¤À-----------------------------------------------------------------------------------
+    //æ–°å¢éƒ¨åˆ†-----------------------------------------------------------------------------------
 
     int STARTYEAR = 1900;
     int ENDYEAR = 2030;
 
-    JPanel pone = new JPanel();    //­¶ÅÒ«ö¶s°Ï
-    JPanel ptwo = new JPanel();    //´ú¶q°Ï
-    JPanel pthr = new JPanel();    //´ú¶qµ²ªG°Ï
-    JPanel pfou = new JPanel();    //¥Î¤áºŞ²z°Ï
+    JPanel pone = new JPanel();    //é ç±¤æŒ‰éˆ•å€
+    JPanel ptwo = new JPanel();    //æ¸¬é‡å€
+    JPanel pthr = new JPanel();    //æ¸¬é‡çµæœå€
+    JPanel pfou = new JPanel();    //ç”¨æˆ¶ç®¡ç†å€
 
     ImageIcon iconout = new ImageIcon("images/signout.png");
     ImageIcon iconuser = new ImageIcon("images/user.png");
@@ -43,42 +43,42 @@ class Cfunc1 {
     ImageIcon heartIcon = new ImageIcon("images/result.png");
     ImageIcon cliptIcon = new ImageIcon("images/calculation.png");
 
-    JButton btn_f = new JButton("­º­¶", iconhome);
-    JButton btn_a = new JButton("¥Î¤áºŞ²z", iconuser);
-    JButton btn_out = new JButton("µn¥X", iconout);
+    JButton btn_f = new JButton("é¦–é ", iconhome);
+    JButton btn_a = new JButton("ç”¨æˆ¶ç®¡ç†", iconuser);
+    JButton btn_out = new JButton("ç™»å‡º", iconout);
 
-    Font ft1 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 24);        //¤º­¶¤å¦r®æ¦¡
-    Font ft2 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 38);        //©ïÀY¤å¦r®æ¦¡
-    Font ft3 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 18);        //«ö¶s¤å¦r®æ¦¡
-    Font ft4 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 60);        //­I´º¤å¦r
+    Font ft1 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 24);        //å…§é æ–‡å­—æ ¼å¼
+    Font ft2 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 38);        //æŠ¬é ­æ–‡å­—æ ¼å¼
+    Font ft3 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 18);        //æŒ‰éˆ•æ–‡å­—æ ¼å¼
+    Font ft4 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 60);        //èƒŒæ™¯æ–‡å­—
 
-    JLabel d1 = new JLabel("Â¾¦ì");        //±b¤á
-    JLabel d2 = new JLabel("©m¦W");        //±b¤á
-    JLabel d3 = new JLabel("±b¸¹");        //±b¤á
-    JLabel d4 = new JLabel("±K½X");        //±b¤á
+    JLabel d1 = new JLabel("è·ä½");        //å¸³æˆ¶
+    JLabel d2 = new JLabel("å§“å");        //å¸³æˆ¶
+    JLabel d3 = new JLabel("å¸³è™Ÿ");        //å¸³æˆ¶
+    JLabel d4 = new JLabel("å¯†ç¢¼");        //å¸³æˆ¶
 
-    JButton btnd1 = new JButton("¿é¥X");        //±b¤á
-    JButton btnd2 = new JButton("§R°£");        //±b¤á
-    JButton btnd3 = new JButton("²MªÅ");        //±b¤á
+    JButton btnd1 = new JButton("è¼¸å‡º");        //å¸³æˆ¶
+    JButton btnd2 = new JButton("åˆªé™¤");        //å¸³æˆ¶
+    JButton btnd3 = new JButton("æ¸…ç©º");        //å¸³æˆ¶
 
-    JTextField tfd1 = new JTextField();            //±b¤á
+    JTextField tfd1 = new JTextField();            //å¸³æˆ¶
 
 
-    //­ìµ{¦¡³¡¤À---------------------------------------------------------------------------------
+    //åŸç¨‹å¼éƒ¨åˆ†---------------------------------------------------------------------------------
 
-    //¨ú±o¿Ã¹õ¼e¡]w¡^»P°ª¡]h¡^
+    //å–å¾—è¢å¹•å¯¬ï¼ˆwï¼‰èˆ‡é«˜ï¼ˆhï¼‰
     Toolkit kt = Toolkit.getDefaultToolkit();
     Dimension dm = kt.getScreenSize();
     int w = (int) dm.getWidth();
     int h = (int) dm.getHeight();
 
-    // Åª¨úusb¸ê®Æ©Ò¥Îªº¼Ò²Õª«¥ó»PÅÜ¼Æ
+    // è®€å–usbè³‡æ–™æ‰€ç”¨çš„æ¨¡çµ„ç‰©ä»¶èˆ‡è®Šæ•¸
     int[] mdata = {0};
-    SerialPortListener_v1 sp = new SerialPortListener_v1(mdata); // ±qusbÅªArduino¸ê®Æ
-    CgetSerialCom_v1 getCom = new CgetSerialCom_v1();             // °»´ú¨ú±ousb³q°T°ğª«¥ó
-    String[] portList = getCom.getComPortList();                 // ¦s©ñ¨ú±oªºusb³q°T°ğ
+    SerialPortListener_v1 sp = new SerialPortListener_v1(mdata); // å¾usbè®€Arduinoè³‡æ–™
+    CgetSerialCom_v1 getCom = new CgetSerialCom_v1();             // åµæ¸¬å–å¾—usbé€šè¨ŠåŸ ç‰©ä»¶
+    String[] portList = getCom.getComPortList();                 // å­˜æ”¾å–å¾—çš„usbé€šè¨ŠåŸ 
 
-    // ­pºâ¤èªk
+    // è¨ˆç®—æ–¹æ³•
     double[] number = new double[24];
     CAL mycal = new CAL();
     Data data = new Data();
@@ -86,21 +86,21 @@ class Cfunc1 {
     RegisterData RD = new RegisterData();
     String UserName = "";
 
-    //ÃC¦â
+    //é¡è‰²
     Color MyColor = new Color(161, 204, 209);
     Color MyColor1 = new Color(233, 179, 132);
     Color MyColor2 = new Color(124, 157, 150);
     Color MyColor3 = new Color(244, 242, 222);
 
-    Color color1 = new Color(0, 47, 73);            //¬Ó®aÂÅ
-    Color color2 = new Color(238, 238, 238);        //³¡¦ì
-    Color color3 = new Color(173, 217, 232);        //¥Ş¦ì
-    Color color4 = new Color(144, 144, 144);        //®Ø½u
-    Color color5 = new Color(112, 134, 163);        //¼ĞÃD
+    Color color1 = new Color(0, 47, 73);            //çš‡å®¶è—
+    Color color2 = new Color(238, 238, 238);        //éƒ¨ä½
+    Color color3 = new Color(173, 217, 232);        //ç©´ä½
+    Color color4 = new Color(144, 144, 144);        //æ¡†ç·š
+    Color color5 = new Color(112, 134, 163);        //æ¨™é¡Œ
     Color color6 = new Color(112, 134, 163);
     Color color7 = new Color(214, 217, 223);
 
-    // °õ¦æºü
+    // åŸ·è¡Œç·’
     Thread thread_readData;
     Thread thread_changeField;
     private final int STOP = -1;
@@ -109,30 +109,30 @@ class Cfunc1 {
     private int thread_readData_status = STOP;
     private int thread_changeField_status = STOP;
 
-    // ±±¨î¬yµ{
+    // æ§åˆ¶æµç¨‹
     int fieldCount = 0;
     int pressStopMeasure = 0; // 0: not press, 1: press the STOP Measure button
     int count = 0;
     int outputcount = 0;
 
-    // HCIª«¥ó
+    // HCIç‰©ä»¶
     JFrame f = new JFrame();
 
-    Font font1 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 18);
-    Font font2 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 15);
-    Font fontb = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 28);
-    Font labelFont = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 20);
-    Font buttonFont = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 18);
-    Font tabFont = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 20);
+    Font font1 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 18);
+    Font font2 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 15);
+    Font fontb = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 28);
+    Font labelFont = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 20);
+    Font buttonFont = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 18);
+    Font tabFont = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 20);
 
 
     JTabbedPane tabbedPane = new JTabbedPane();
 
     JMenuBar menuBar = new JMenuBar();
-    JMenu portMenu = new JMenu("³s±µµwÅé³]©w");
+    JMenu portMenu = new JMenu("é€£æ¥ç¡¬é«”è¨­å®š");
     JMenuItem[] portMenuItem = new JMenuItem[20];
-    JButton btn_start = new JButton("¶}©l´ú¶q");
-    JButton btn_stop = new JButton("¨ú®ø´ú¶q");
+    JButton btn_start = new JButton("é–‹å§‹æ¸¬é‡");
+    JButton btn_stop = new JButton("å–æ¶ˆæ¸¬é‡");
 
     ImageIcon nameIcon = new ImageIcon("images/name_color.png");
     JLabel namelabel = new JLabel(nameIcon);
@@ -157,14 +157,14 @@ class Cfunc1 {
     JLabel datelabel_edit = new JLabel(dateIcon_edit);
 
     ImageIcon[] positionIcon = new ImageIcon[12];
-    // 350x350¹³¯À¤j¹Ï¥Î©óÅã¥Ü´ú¶q¦ì¸mªº¹Ï
+    // 350x350åƒç´ å¤§åœ–ç”¨æ–¼é¡¯ç¤ºæ¸¬é‡ä½ç½®çš„åœ–
     String[] positionIconFileName = {"images/H1.png", "images/H2.png", "images/H3.png", "images/H4.png",
             "images/H5.png", "images/H6.png", "images/F1.png", "images/F2.png", "images/F3.png", "images/F4.png",
             "images/F5.png", "images/F6.png"};
     JLabel positionPicLabel = new JLabel();
 
     ImageIcon[] nextPositionIcon = new ImageIcon[12];
-    // 320x320¹³¯À¤p¤@ÂIªº¹Ï¥Î©óÅã¥Ü¤U¤@­Ó´ú¶q¦ì¸mªº¹Ï
+    // 320x320åƒç´ å°ä¸€é»çš„åœ–ç”¨æ–¼é¡¯ç¤ºä¸‹ä¸€å€‹æ¸¬é‡ä½ç½®çš„åœ–
     JLabel nextPositionPicLabel = new JLabel();
     JLabel MainUserNameLabel = new JLabel();
     JLabel UserNameLabel = new JLabel();
@@ -190,48 +190,48 @@ class Cfunc1 {
     JPanel calculatepanel_right_down = new JPanel();
 
     JTextField[] LRHandLabel = new JTextField[2];
-    String[] LRHandLabelText = {"¥ª¤â", "¥k¤â"};
+    String[] LRHandLabelText = {"å·¦æ‰‹", "å³æ‰‹"};
     JTextField[] H1toH6PositionLabel = new JTextField[12];
-    String[] H1toH6PositionLabelText = {"H1 ¤Ó²W¥Ş", "H2 ¤j³®¥Ş", "H3 ¯«ªù¥Ş", "H4 ¶§¨¦¥Ş", "H5 ¶§¦À¥Ş", "H6 ¶§ÁÆ¥Ş", "H1 ¤Ó²W¥Ş", "H2 ¤j³®¥Ş",
-            "H3 ¯«ªù¥Ş", "H4 ¶§¨¦¥Ş", "H5 ¶§¦À¥Ş", "H6 ¶§ÁÆ¥Ş"};
+    String[] H1toH6PositionLabelText = {"H1 å¤ªæ·µç©´", "H2 å¤§é™µç©´", "H3 ç¥é–€ç©´", "H4 é™½è°·ç©´", "H5 é™½æ± ç©´", "H6 é™½è°¿ç©´", "H1 å¤ªæ·µç©´", "H2 å¤§é™µç©´",
+            "H3 ç¥é–€ç©´", "H4 é™½è°·ç©´", "H5 é™½æ± ç©´", "H6 é™½è°¿ç©´"};
     JTextField[] H1toH6MDataField = new JTextField[12];
     JTextField[] LRFootLabel = new JTextField[2];
-    String[] LRFootLabelText = {"¥ª¸}", "¥k¸}"};
+    String[] LRFootLabelText = {"å·¦è…³", "å³è…³"};
     JTextField[] F1toF6PositionLabel = new JTextField[12];
-    String[] F1toF6PositionLabelText = {"F1 ¤Ó¥Õ¥Ş", "F2 ¤Ó½Ä¥Ş", "F3 ¤jÄÁ¥Ş", "F4 §ô°©¥Ş", "F5 «L·Ë¥Ş", "F6 ¤º®x¥Ş", "F1 ¤Ó¥Õ¥Ş", "F2 ¤Ó½Ä¥Ş",
-            "F3 ¤jÄÁ¥Ş", "F4 §ô°©¥Ş", "F5 «L·Ë¥Ş", "F6 ¤º®x¥Ş"};
+    String[] F1toF6PositionLabelText = {"F1 å¤ªç™½ç©´", "F2 å¤ªè¡ç©´", "F3 å¤§é˜ç©´", "F4 æŸéª¨ç©´", "F5 ä¿ æºªç©´", "F6 å…§åº­ç©´", "F1 å¤ªç™½ç©´", "F2 å¤ªè¡ç©´",
+            "F3 å¤§é˜ç©´", "F4 æŸéª¨ç©´", "F5 ä¿ æºªç©´", "F6 å…§åº­ç©´"};
     JTextField[] F1toF6MDataField = new JTextField[12];
 
-    /*¥Î¤áºŞ²z*/
-    JLabel UserSignUp = new JLabel("·s¼W¨Ï¥ÎªÌ");
-    JLabel UserData = new JLabel("´ú¶qµ²ªG");
-    JLabel userLabel = new JLabel("©m¦W¡G");
-    JLabel phoneLabel = new JLabel("¹q¸Ü¸¹½X:");
-    JLabel genderLabel = new JLabel("©Ê§O¡G");
-    JLabel yearJLabel = new JLabel("¥X¥Í¦~¡G");
-    JLabel cityLable = new JLabel("«°¥«¡G");
+    /*ç”¨æˆ¶ç®¡ç†*/
+    JLabel UserSignUp = new JLabel("æ–°å¢ä½¿ç”¨è€…");
+    JLabel UserData = new JLabel("æ¸¬é‡çµæœ");
+    JLabel userLabel = new JLabel("å§“åï¼š");
+    JLabel phoneLabel = new JLabel("é›»è©±è™Ÿç¢¼:");
+    JLabel genderLabel = new JLabel("æ€§åˆ¥ï¼š");
+    JLabel yearJLabel = new JLabel("å‡ºç”Ÿå¹´ï¼š");
+    JLabel cityLable = new JLabel("åŸå¸‚ï¼š");
 
-    JLabel backgroundTextLabel = new JLabel("©m¦W¡G");
-    JLabel GenderLabel = new JLabel("©Ê§O¡G");
-    JLabel PhoneNumberLabel = new JLabel("¹q¸Ü¸¹½X:");
-    JLabel BirthyearLabel = new JLabel("¥X¥Í¦~¡]¦è¤¸¡^¡G");
-    JLabel CityLabel = new JLabel("«°¥«¡G");
+    JLabel backgroundTextLabel = new JLabel("å§“åï¼š");
+    JLabel GenderLabel = new JLabel("æ€§åˆ¥ï¼š");
+    JLabel PhoneNumberLabel = new JLabel("é›»è©±è™Ÿç¢¼:");
+    JLabel BirthyearLabel = new JLabel("å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰ï¼š");
+    JLabel CityLabel = new JLabel("åŸå¸‚ï¼š");
 
-    JLabel backgroundTextLabel_edit = new JLabel("©m¦W¡G");
-    JLabel GenderLabel_edit = new JLabel("©Ê§O¡G");
-    JLabel PhoneNumberLabel_edit = new JLabel("¹q¸Ü¸¹½X¡G");
-    JLabel BirthyearLabel_edit = new JLabel("¥X¥Í¦~¡]¦è¤¸¡^¡G");
-    JLabel CityLabel_edit = new JLabel("«°¥«¡G");
+    JLabel backgroundTextLabel_edit = new JLabel("å§“åï¼š");
+    JLabel GenderLabel_edit = new JLabel("æ€§åˆ¥ï¼š");
+    JLabel PhoneNumberLabel_edit = new JLabel("é›»è©±è™Ÿç¢¼ï¼š");
+    JLabel BirthyearLabel_edit = new JLabel("å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰ï¼š");
+    JLabel CityLabel_edit = new JLabel("åŸå¸‚ï¼š");
 
-    JButton measurementdataButton = new JButton("´ú¶q¼Æ¾Ú", heartIcon);
-    JButton datacalculationButton = new JButton("¼Æ¾Ú­pºâ", cliptIcon);
-    JButton outputdataButton = new JButton("¿é¥X¸ê®Æ");
-    JButton registerButton = new JButton("µù¥U");
-    JButton Login = new JButton("¤Á´«");
-    JButton Delete = new JButton("§R°£");
-    JButton Back = new JButton("ªğ¦^");
-    JButton ChangePhoneNumber = new JButton("½s¿è");
-    JButton SavePhoneNumber = new JButton("Àx¦s");
+    JButton measurementdataButton = new JButton("æ¸¬é‡æ•¸æ“š", heartIcon);
+    JButton datacalculationButton = new JButton("æ•¸æ“šè¨ˆç®—", cliptIcon);
+    JButton outputdataButton = new JButton("è¼¸å‡ºè³‡æ–™");
+    JButton registerButton = new JButton("è¨»å†Š");
+    JButton Login = new JButton("åˆ‡æ›");
+    JButton Delete = new JButton("åˆªé™¤");
+    JButton Back = new JButton("è¿”å›");
+    JButton ChangePhoneNumber = new JButton("ç·¨è¼¯");
+    JButton SavePhoneNumber = new JButton("å„²å­˜");
 
     JTextField PhoneNumberTextField = new JTextField();
 
@@ -244,11 +244,11 @@ class Cfunc1 {
     JComboBox yearBox = new JComboBox<>();
     JComboBox cityComboBox = new JComboBox<>();
 
-    String[] title1 = {"®É¶¡", "¥ª¤â¼Æ­È", "¥ª¸}¼Æ­È", "¥k¤â¼Æ­È", "¥k¸}¼Æ­È"};
+    String[] title1 = {"æ™‚é–“", "å·¦æ‰‹æ•¸å€¼", "å·¦è…³æ•¸å€¼", "å³æ‰‹æ•¸å€¼", "å³è…³æ•¸å€¼"};
     String[][] data1 = new String[200][5];
-    String[] title2 = {"®É¶¡", "¥­§¡­È", "µê¹ê­È", "³±¶§­È", "¥ª¥k­È", "²z·Q­È¶ZÂ÷"};
+    String[] title2 = {"æ™‚é–“", "å¹³å‡å€¼", "è™›å¯¦å€¼", "é™°é™½å€¼", "å·¦å³å€¼", "ç†æƒ³å€¼è·é›¢"};
     String[][] data2 = new String[200][6];
-    String[] title3 = {"®É¶¡", "¥ª¤â¼Æ­È", "¥ª¸}¼Æ­È", "¥k¤â¼Æ­È", "¥k¸}¼Æ­È"};
+    String[] title3 = {"æ™‚é–“", "å·¦æ‰‹æ•¸å€¼", "å·¦è…³æ•¸å€¼", "å³æ‰‹æ•¸å€¼", "å³è…³æ•¸å€¼"};
     String[][] data3 = new String[20][5];
 
     // Create a DefaultTableModel
@@ -313,31 +313,31 @@ class Cfunc1 {
     String CityResult = new String();
 
 
-    // ¼½©ñMP3­µ¼Ö©Ò»İª«¥ó
-    File f1 = new File("musics/music.mp3"); // µ¥«İ®Éªº°t¼Ö
-    File f2 = new File("musics/button04a.mp3"); // ¶i«×±ø¸õ°Êªº°t¼Ö
-    File f3 = new File("musics/press.mp3"); // ¤Á´«®Éªº°t¼Ö
+    // æ’­æ”¾MP3éŸ³æ¨‚æ‰€éœ€ç‰©ä»¶
+    File f1 = new File("musics/music.mp3"); // ç­‰å¾…æ™‚çš„é…æ¨‚
+    File f2 = new File("musics/button04a.mp3"); // é€²åº¦æ¢è·³å‹•çš„é…æ¨‚
+    File f3 = new File("musics/press.mp3"); // åˆ‡æ›æ™‚çš„é…æ¨‚
     MP3Player music1_Player = new MP3Player(f1);
     MP3Player music2_Player = new MP3Player(f2);
     MP3Player music3_Player = new MP3Player(f3);
-    int stepsOfAMeasure = 0; // ­p¼Æ¨C¤@¦¸´ú¶q¤À¦¨6­Ó¨BÆJ
+    int stepsOfAMeasure = 0; // è¨ˆæ•¸æ¯ä¸€æ¬¡æ¸¬é‡åˆ†æˆ6å€‹æ­¥é©Ÿ
 
-    // ¶i«×±ø
+    // é€²åº¦æ¢
     JProgressBar progressBar = new JProgressBar();
 
-    //§é½u¹Ï
+    //æŠ˜ç·šåœ–
     ClineChart chart = new ClineChart();
     Graphics g;
 
-    int[] pointValue = new int[6];   //6­ÓÂIªº­È
-    int[] px = new int[6];    //ÂI¹ïÀ³ªº¹³¯Àx®y¼Ğ
-    int[] py = new int[6];    //ÂI¹ïÀ³ªº¹³¯Ày®y¼Ğ
+    int[] pointValue = new int[6];   //6å€‹é»çš„å€¼
+    int[] px = new int[6];    //é»å°æ‡‰çš„åƒç´ xåº§æ¨™
+    int[] py = new int[6];    //é»å°æ‡‰çš„åƒç´ yåº§æ¨™
 
     WriteFiles Write = new WriteFiles();
 
     Cfunc1() {
 
-        //·s¼W³¡¤À-----------------------------------------------------------------------------------
+        //æ–°å¢éƒ¨åˆ†-----------------------------------------------------------------------------------
 
         pone.setLayout(null);
         pone.setBounds(0, 0, 1600, 50);
@@ -387,7 +387,7 @@ class Cfunc1 {
         pthr.setVisible(false);
         f.add(pthr);
 
-        //­ìµ{¦¡³¡¤À---------------------------------------------------------------------------------
+        //åŸç¨‹å¼éƒ¨åˆ†---------------------------------------------------------------------------------
 
 
         try {
@@ -396,13 +396,13 @@ class Cfunc1 {
             e.printStackTrace();
         }
 
-        // ²K¥[ICON¨ì­¶ÅÒ
+        // æ·»åŠ ICONåˆ°é ç±¤
         ImageIcon manIcon = new ImageIcon("images/man1.png");
 
         JLabel manlabel = new JLabel(manIcon);
         JLabel manlabel1 = new JLabel(manIcon);
 
-        // «Ø¥ß¦³±µ¤W¹q¸£ªºUSB°ğ¿ï³æ
+        // å»ºç«‹æœ‰æ¥ä¸Šé›»è…¦çš„USBåŸ é¸å–®
         for (int x = 0; x < portList.length; x++) {
             portMenuItem[x] = new JMenuItem(portList[x]);
             portMenuItem[x].setFont(font1);
@@ -415,7 +415,7 @@ class Cfunc1 {
         menuBar.setBounds(30, 80, 130, 50);
         ptwo.add(menuBar);
 
-        // ¶}©l»P°±¤îÅª¨úUSB¼Æ¾Ú
+        // é–‹å§‹èˆ‡åœæ­¢è®€å–USBæ•¸æ“š
         btn_stop.setBounds(1120, 80, 200, 50);
         btn_stop.setFont(font1);
         btn_stop.setEnabled(false);
@@ -433,7 +433,7 @@ class Cfunc1 {
         manlabel.setBounds(1186, (int) (5.15), 50, 40);
         pone.add(manlabel);
 
-        JLabel MainUserLabel = new JLabel("¥Ø«e¨Ï¥ÎªÌ¡G");
+        JLabel MainUserLabel = new JLabel("ç›®å‰ä½¿ç”¨è€…ï¼š");
         MainUserLabel.setFont(font1);
         MainUserLabel.setBounds(1236, (int) (5.15), 110, 40);
         pone.add(MainUserLabel);
@@ -442,19 +442,19 @@ class Cfunc1 {
         MainUserNameLabel.setBounds(1346, (int) (5.15), 100, 40);
         pone.add(MainUserNameLabel);
 
-        // Åã¥Ü´ú¶qÂI¹Ï¤ù
+        // é¡¯ç¤ºæ¸¬é‡é»åœ–ç‰‡
         for (int i = 0; i < positionIcon.length; i++) {
             positionIcon[i] = new ImageIcon(positionIconFileName[i]);
         }
         positionPicLabel.setIcon(null);
-        positionPicLabel.setText("¹w³Æ´ú¶q¡e¥ª¤â¡f");
-        positionPicLabel.setFont(new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36));
+        positionPicLabel.setText("é å‚™æ¸¬é‡ã€”å·¦æ‰‹ã€•");
+        positionPicLabel.setFont(new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36));
         positionPicLabel.setBounds(790, 160, 755, 350);
         positionPicLabel.setHorizontalAlignment(JLabel.CENTER);
         positionPicLabel.setBorder(BorderFactory.createLineBorder(MyColor, 3));
         ptwo.add(positionPicLabel);
 
-        // ´ú¶q¶i«×±ø
+        // æ¸¬é‡é€²åº¦æ¢
         progressBar.setBounds(30, 520, 1520, 50);
         progressBar.setBackground(MyColor3);
         progressBar.setForeground(Color.orange);
@@ -462,7 +462,7 @@ class Cfunc1 {
         progressBar.setFont(font1);
         ptwo.add(progressBar);
 
-        // Åã¥Ü¦U´ú¶qÂIªº¼Æ­È
+        // é¡¯ç¤ºå„æ¸¬é‡é»çš„æ•¸å€¼
         pane[0] = new JPanel();
         pane[0].setBounds(30, 580, 1520, 50);
         pane[0].setBackground(Color.white);
@@ -559,18 +559,18 @@ class Cfunc1 {
             pane[5].add(F1toF6MDataField[i]);
         }
 
-        //§é½u¹Ï¦ì¸m
+        //æŠ˜ç·šåœ–ä½ç½®
         chart.setBounds(30, 160, 755, 350);
         chart.setBorder(BorderFactory.createLineBorder(MyColor, 3));
-        // ±Ò¥Î x ¶b©M y ¶bªººô®æ½u
+        // å•Ÿç”¨ x è»¸å’Œ y è»¸çš„ç¶²æ ¼ç·š
         ptwo.add(chart);
         ptwo.setBounds(0, 0, 1600, 1000);
 
-        /*Åã¥Ü¥Ø«e¨Ï¥ÎªÌ*/
+        /*é¡¯ç¤ºç›®å‰ä½¿ç”¨è€…*/
         manlabel1.setBounds(40, 10, 50, 50);
         settingpanel.add(manlabel1);
 
-        JLabel User = new JLabel("¥Ø«e¨Ï¥ÎªÌ¡G");
+        JLabel User = new JLabel("ç›®å‰ä½¿ç”¨è€…ï¼š");
         User.setFont(font1);
         User.setBounds(80, 10, 100, 50);
         settingpanel.add(User);
@@ -581,16 +581,16 @@ class Cfunc1 {
 
         /*-------------------------------------------*/
 
-        //¥Î¤áºŞ²z ¥ª¤U­¶ÅÒ«ö¶s°Ïpanel
+        //ç”¨æˆ¶ç®¡ç† å·¦ä¸‹é ç±¤æŒ‰éˆ•å€panel
         buttonpanel_left_top.setBounds(30, 300, 150, 100);
         buttonpanel_left_top.setLayout(null);
 
-        //¥Î¤áºŞ²z ¥ª¤U¥\¯à«ö¶s°Ïpanel
+        //ç”¨æˆ¶ç®¡ç† å·¦ä¸‹åŠŸèƒ½æŒ‰éˆ•å€panel
         buttonpanel_left.setBounds(30, 400, 150, 530);
         buttonpanel_left.setBackground(Color.white);
         buttonpanel_left.setLayout(null);
 
-        /*¥Î¤áºŞ²z-´ú¶qµ²ªG-¥ª¤U¤è´ú¶q¼Æ¾Ú«ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-æ¸¬é‡çµæœ-å·¦ä¸‹æ–¹æ¸¬é‡æ•¸æ“šæŒ‰éˆ•*/
         measurementdataButton.setLayout(null);
         measurementdataButton.setBounds(0, 0, 150, 50);
         measurementdataButton.setForeground(Color.black);
@@ -602,7 +602,7 @@ class Cfunc1 {
         measurementdataButton.addActionListener(dataBtn);
         buttonpanel_left_top.add(measurementdataButton);
 
-        /*¥Î¤áºŞ²z-´ú¶qµ²ªG-¥ª¤U¤è¼Æ¾Ú­pºâ«ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-æ¸¬é‡çµæœ-å·¦ä¸‹æ–¹æ•¸æ“šè¨ˆç®—æŒ‰éˆ•*/
         datacalculationButton.setLayout(null);
         datacalculationButton.setBounds(0, 50, 150, 50);
         datacalculationButton.setForeground(Color.black);
@@ -614,7 +614,7 @@ class Cfunc1 {
         datacalculationButton.addActionListener(dataBtn);
         buttonpanel_left_top.add(datacalculationButton);
 
-        /*¥Î¤áºŞ²z-´ú¶qµ²ªG-¥ª¤U¤è¿é¥X¸ê®Æ«ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-æ¸¬é‡çµæœ-å·¦ä¸‹æ–¹è¼¸å‡ºè³‡æ–™æŒ‰éˆ•*/
         outputdataButton.setLayout(null);
         outputdataButton.setBounds(0, 480, 150, 50);
         outputdataButton.setForeground(Color.black);
@@ -626,56 +626,56 @@ class Cfunc1 {
         outputdataButton.addActionListener(output);
         buttonpanel_left.add(outputdataButton);
 
-        //¥Î¤áºŞ²z ¥ª¤W¼ĞÃDpanel
+        //ç”¨æˆ¶ç®¡ç† å·¦ä¸Šæ¨™é¡Œpanel
         //settingpanel_left_top.setBounds(30, 60, 500, 30);
         UserSignUp.setFont(font1);
         settingpanel_left_top.add(UserSignUp);
 
-        //¥Î¤áºŞ²z ¥ª°¼panel
+        //ç”¨æˆ¶ç®¡ç† å·¦å´panel
         //settingpanel_left.setBounds(30, 100, 500, 800);
         settingpanel_left.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         settingpanel_left.setBackground(Color.white);
         settingpanel_left.setLayout(null);
 
-        /*¥Î¤áºŞ²z-·s¼W¨Ï¥ÎªÌ-LOGO¼ĞÅÒ*/
-        namelabel.setBounds(30, 100, 50, 50);        //©m¦W
+        /*ç”¨æˆ¶ç®¡ç†-æ–°å¢ä½¿ç”¨è€…-LOGOæ¨™ç±¤*/
+        namelabel.setBounds(30, 100, 50, 50);        //å§“å
         settingpanel_left.add(namelabel);
 
-        phonelabel.setBounds(30, 200, 50, 50);        //¹q¸Ü
+        phonelabel.setBounds(30, 200, 50, 50);        //é›»è©±
         settingpanel_left.add(phonelabel);
 
-        sexuallabel.setBounds(30, 300, 50, 50);    //©Ê§O
+        sexuallabel.setBounds(30, 300, 50, 50);    //æ€§åˆ¥
         settingpanel_left.add(sexuallabel);
 
-        datelabel.setBounds(30, 400, 50, 50);        //¥X¥Í¦~¡]¦è¤¸¡^
+        datelabel.setBounds(30, 400, 50, 50);        //å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
         settingpanel_left.add(datelabel);
 
-        locationlabel.setBounds(30, 500, 50, 50);    //«°¥«
+        locationlabel.setBounds(30, 500, 50, 50);    //åŸå¸‚
         settingpanel_left.add(locationlabel);
 
 
-        /*¥Î¤áºŞ²z-·s¼W¨Ï¥ÎªÌ-¤å¦r¼ĞÅÒ*/
-        userLabel.setBounds(90, 100, 80, 50);        //©m¦W
+        /*ç”¨æˆ¶ç®¡ç†-æ–°å¢ä½¿ç”¨è€…-æ–‡å­—æ¨™ç±¤*/
+        userLabel.setBounds(90, 100, 80, 50);        //å§“å
         userLabel.setFont(labelFont);
         settingpanel_left.add(userLabel);
 
-        phoneLabel.setBounds(90, 200, 120, 50);    //¹q¸Ü
+        phoneLabel.setBounds(90, 200, 120, 50);    //é›»è©±
         phoneLabel.setFont(labelFont);
         settingpanel_left.add(phoneLabel);
 
-        genderLabel.setBounds(90, 300, 80, 50);    //©Ê§O
+        genderLabel.setBounds(90, 300, 80, 50);    //æ€§åˆ¥
         genderLabel.setFont(labelFont);
         settingpanel_left.add(genderLabel);
 
-        yearJLabel.setBounds(90, 400, 120, 50);    //¥X¥Í¦~¡]¦è¤¸¡^
+        yearJLabel.setBounds(90, 400, 120, 50);    //å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
         yearJLabel.setFont(labelFont);
         settingpanel_left.add(yearJLabel);
 
-        cityLable.setBounds(90, 500, 80, 50);        //«°¥«
+        cityLable.setBounds(90, 500, 80, 50);        //åŸå¸‚
         cityLable.setFont(labelFont);
         settingpanel_left.add(cityLable);
 
-        /*¥Î¤áºŞ²z-·s¼W¨Ï¥ÎªÌ-¤U¤èµù¥U«ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-æ–°å¢ä½¿ç”¨è€…-ä¸‹æ–¹è¨»å†ŠæŒ‰éˆ•*/
         registerButton.setBounds(200, 650, 120, 50);
         registerButton.setBackground(color1);
         registerButton.setForeground(Color.white);
@@ -684,178 +684,178 @@ class Cfunc1 {
         registerButton.addActionListener(Register);
         settingpanel_left.add(registerButton);
 
-        //¥Î¤áºŞ²z ¥k¤W¼ĞÃDPanel
-        JLabel UserSelect = new JLabel("¨Ï¥ÎªÌ¸ê®Æ");
+        //ç”¨æˆ¶ç®¡ç† å³ä¸Šæ¨™é¡ŒPanel
+        JLabel UserSelect = new JLabel("ä½¿ç”¨è€…è³‡æ–™");
         settingpanel_right_title.setBounds(30, 10, 1540, 30);
         UserSelect.setFont(font1);
         settingpanel_right_title.add(UserSelect);
 
-        /*¥Î¤áºŞ²z-¨Ï¥ÎªÌ¸ê®Æ-Åã¥Ü*/
+        /*ç”¨æˆ¶ç®¡ç†-ä½¿ç”¨è€…è³‡æ–™-é¡¯ç¤º*/
         settingpanel_right_top.setBounds(30, 50, 1540, 200);
         settingpanel_right_top.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         settingpanel_right_top.setBackground(Color.white);
         settingpanel_right_top.setLayout(null);
         settingpanel_right_top.setVisible(true);
 
-        /*¥Î¤áºŞ²z-¨Ï¥ÎªÌ¸ê®Æ-½s¿è*/
+        /*ç”¨æˆ¶ç®¡ç†-ä½¿ç”¨è€…è³‡æ–™-ç·¨è¼¯*/
         settingpanel_right_top_edit.setBounds(30, 50, 1540, 200);
         settingpanel_right_top_edit.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         settingpanel_right_top_edit.setBackground(Color.white);
         settingpanel_right_top_edit.setLayout(null);
         settingpanel_right_top_edit.setVisible(false);
 
-        /*¥Î¤áºŞ²z-¨Ï¥ÎªÌ¸ê®Æ-LOGO¼ĞÅÒ*/
-        namelabel.setBounds(60, 50, 25, 30);                    //©m¦W
+        /*ç”¨æˆ¶ç®¡ç†-ä½¿ç”¨è€…è³‡æ–™-LOGOæ¨™ç±¤*/
+        namelabel.setBounds(60, 50, 25, 30);                    //å§“å
         settingpanel_right_top.add(namelabel);
 
-        sexuallabel.setBounds(410, 50, 25, 30);                //©Ê§O
+        sexuallabel.setBounds(410, 50, 25, 30);                //æ€§åˆ¥
         settingpanel_right_top.add(sexuallabel);
 
-        phonelabel.setBounds(60, 130, 25, 30);                //¹q¸Ü
+        phonelabel.setBounds(60, 130, 25, 30);                //é›»è©±
         settingpanel_right_top.add(phonelabel);
 
-        locationlabel.setBounds(410, 130, 25, 30);            //«°¥«
+        locationlabel.setBounds(410, 130, 25, 30);            //åŸå¸‚
         settingpanel_right_top.add(locationlabel);
 
-        datelabel.setBounds(700, 130, 25, 30);                    //¥X¥Í¦~¡]¦è¤¸¡^
+        datelabel.setBounds(700, 130, 25, 30);                    //å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
         settingpanel_right_top.add(datelabel);
 
-        /*¥Î¤áºŞ²z-¨Ï¥ÎªÌ¸ê®Æ-¼ĞÃD¼ĞÅÒ*/
-        backgroundTextLabel.setFont(labelFont);                 //©m¦W
+        /*ç”¨æˆ¶ç®¡ç†-ä½¿ç”¨è€…è³‡æ–™-æ¨™é¡Œæ¨™ç±¤*/
+        backgroundTextLabel.setFont(labelFont);                 //å§“å
         backgroundTextLabel.setBounds(110, 50, 60, 30);
         settingpanel_right_top.add(backgroundTextLabel);
 
-        GenderLabel.setFont(labelFont);                        //©Ê§O
+        GenderLabel.setFont(labelFont);                        //æ€§åˆ¥
         GenderLabel.setBounds(440, 50, 60, 30);
         settingpanel_right_top.add(GenderLabel);
 
-        PhoneNumberLabel.setFont(labelFont);                    //¹q¸Ü¸¹½X
+        PhoneNumberLabel.setFont(labelFont);                    //é›»è©±è™Ÿç¢¼
         PhoneNumberLabel.setBounds(110, 130, 100, 30);
         settingpanel_right_top.add(PhoneNumberLabel);
 
-        CityLabel.setFont(labelFont);                            //«°¥«
+        CityLabel.setFont(labelFont);                            //åŸå¸‚
         CityLabel.setBounds(440, 130, 60, 30);
         settingpanel_right_top.add(CityLabel);
 
-        BirthyearLabel.setFont(labelFont);                        //¥X¥Í¦~¡]¦è¤¸¡^
+        BirthyearLabel.setFont(labelFont);                        //å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
         BirthyearLabel.setBounds(730, 130, 160, 30);
         settingpanel_right_top.add(BirthyearLabel);
 
-        /*¥Î¤áºŞ²z-¨Ï¥ÎªÌ¸ê®Æ-¤º®e¼ĞÅÒ*/
+        /*ç”¨æˆ¶ç®¡ç†-ä½¿ç”¨è€…è³‡æ–™-å…§å®¹æ¨™ç±¤*/
         UserNameTextLabel.setFont(labelFont);
-        UserNameTextLabel.setBounds(170, 50, 150, 30);            //©m¦W
+        UserNameTextLabel.setBounds(170, 50, 150, 30);            //å§“å
         settingpanel_right_top.add(UserNameTextLabel);
 
-        UserGenderTextLabel.setFont(labelFont);                    //©Ê§O
+        UserGenderTextLabel.setFont(labelFont);                    //æ€§åˆ¥
         UserGenderTextLabel.setBounds(500, 50, 150, 30);
         settingpanel_right_top.add(UserGenderTextLabel);
 
-        UserPhoneTextLabel.setFont(labelFont);                    //¹q¸Ü¸¹½X
+        UserPhoneTextLabel.setFont(labelFont);                    //é›»è©±è™Ÿç¢¼
         UserPhoneTextLabel.setBounds(210, 130, 150, 30);
         settingpanel_right_top.add(UserPhoneTextLabel);
 
-        UserCityTextLabel.setFont(labelFont);                    //«°¥«
+        UserCityTextLabel.setFont(labelFont);                    //åŸå¸‚
         UserCityTextLabel.setBounds(500, 130, 150, 30);
         settingpanel_right_top.add(UserCityTextLabel);
 
-        UserBirthTextLabel.setFont(labelFont);                    //¥X¥Í¦~¡]¦è¤¸¡^
+        UserBirthTextLabel.setFont(labelFont);                    //å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
         UserBirthTextLabel.setBounds(890, 130, 150, 30);
         settingpanel_right_top.add(UserBirthTextLabel);
 
-        /*¥Î¤áºŞ²z-¨Ï¥ÎªÌ¸ê®Æ-½s¿è-LOGO¼ĞÅÒ*/
-        namelabel_edit.setBounds(60, 50, 25, 30);                //©m¦W
+        /*ç”¨æˆ¶ç®¡ç†-ä½¿ç”¨è€…è³‡æ–™-ç·¨è¼¯-LOGOæ¨™ç±¤*/
+        namelabel_edit.setBounds(60, 50, 25, 30);                //å§“å
         settingpanel_right_top_edit.add(namelabel_edit);
 
-        sexuallabel_edit.setBounds(410, 50, 25, 30);                //©Ê§O
+        sexuallabel_edit.setBounds(410, 50, 25, 30);                //æ€§åˆ¥
         settingpanel_right_top_edit.add(sexuallabel_edit);
 
-        phonelabel_edit.setBounds(60, 130, 25, 30);                //¹q¸Ü
+        phonelabel_edit.setBounds(60, 130, 25, 30);                //é›»è©±
         settingpanel_right_top_edit.add(phonelabel_edit);
 
-        locationlabel_edit.setBounds(410, 130, 25, 30);            //«°¥«
+        locationlabel_edit.setBounds(410, 130, 25, 30);            //åŸå¸‚
         settingpanel_right_top_edit.add(locationlabel_edit);
 
-        datelabel_edit.setBounds(700, 130, 25, 30);                    //¥X¥Í¦~¡]¦è¤¸¡^
+        datelabel_edit.setBounds(700, 130, 25, 30);                    //å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
         settingpanel_right_top_edit.add(datelabel_edit);
 
-        /*¥Î¤áºŞ²z-¨Ï¥ÎªÌ¸ê®Æ-½s¿è-¼ĞÃD¼ĞÅÒ*/
-        backgroundTextLabel_edit.setFont(labelFont);                //©m¦W
+        /*ç”¨æˆ¶ç®¡ç†-ä½¿ç”¨è€…è³‡æ–™-ç·¨è¼¯-æ¨™é¡Œæ¨™ç±¤*/
+        backgroundTextLabel_edit.setFont(labelFont);                //å§“å
         backgroundTextLabel_edit.setBounds(110, 50, 60, 30);
         settingpanel_right_top_edit.add(backgroundTextLabel_edit);
 
-        GenderLabel_edit.setFont(labelFont);                        //©Ê§O
+        GenderLabel_edit.setFont(labelFont);                        //æ€§åˆ¥
         GenderLabel_edit.setBounds(440, 50, 60, 30);
         settingpanel_right_top_edit.add(GenderLabel_edit);
 
-        PhoneNumberLabel_edit.setFont(labelFont);                    //¹q¸Ü¸¹½X
+        PhoneNumberLabel_edit.setFont(labelFont);                    //é›»è©±è™Ÿç¢¼
         PhoneNumberLabel_edit.setBounds(110, 130, 100, 30);
         settingpanel_right_top_edit.add(PhoneNumberLabel_edit);
 
-        CityLabel_edit.setFont(labelFont);                            //«°¥«
+        CityLabel_edit.setFont(labelFont);                            //åŸå¸‚
         CityLabel_edit.setBounds(440, 130, 60, 30);
         settingpanel_right_top_edit.add(CityLabel_edit);
 
-        BirthyearLabel_edit.setFont(labelFont);                    //¥X¥Í¦~¡]¦è¤¸¡^
+        BirthyearLabel_edit.setFont(labelFont);                    //å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
         BirthyearLabel_edit.setBounds(730, 130, 160, 30);
         settingpanel_right_top_edit.add(BirthyearLabel_edit);
 
-        /*¥Î¤áºŞ²z-¨Ï¥ÎªÌ¸ê®Æ-¤º®e¼ĞÅÒ*/
+        /*ç”¨æˆ¶ç®¡ç†-ä½¿ç”¨è€…è³‡æ–™-å…§å®¹æ¨™ç±¤*/
         UserNameTextLabel_edit.setFont(labelFont);
-        UserNameTextLabel_edit.setBounds(170, 50, 150, 30);            //©m¦W
+        UserNameTextLabel_edit.setBounds(170, 50, 150, 30);            //å§“å
         settingpanel_right_top_edit.add(UserNameTextLabel_edit);
 
-        //¹q¸Ü¸¹½XÅã¥Ü¤Î­×§ïªº¤å¦r®Ø
+        //é›»è©±è™Ÿç¢¼é¡¯ç¤ºåŠä¿®æ”¹çš„æ–‡å­—æ¡†
         PhoneNumberTextField.setFont(font1);
         PhoneNumberTextField.setBounds(210, 130, 150, 30);
         PhoneNumberTextField.setEnabled(false);
         PhoneNumberTextField.setDocument(new JTextFieldLimit(10));
         settingpanel_right_top_edit.add(PhoneNumberTextField);
 
-        genderBox.setBounds(500, 50, 150, 30);              //©Ê§O
-        genderBox.addItem("¨k");
-        genderBox.addItem("¤k");
+        genderBox.setBounds(500, 50, 150, 30);              //æ€§åˆ¥
+        genderBox.addItem("ç”·");
+        genderBox.addItem("å¥³");
         genderBox.setFont(font1);
         settingpanel_right_top_edit.add(genderBox);
 
-        for (int i = STARTYEAR; i <= ENDYEAR; i++) {          //¥X¥Í¦~¡]¦è¤¸¡^
+        for (int i = STARTYEAR; i <= ENDYEAR; i++) {          //å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
             yearBox.addItem(i);
         }
         yearBox.setBounds(890, 130, 150, 30);
         yearBox.setFont(labelFont);
         settingpanel_right_top_edit.add(yearBox);
 
-        cityComboBox.setBounds(500, 130, 150, 30);            //«°¥«
-        cityComboBox.addItem("»O¥_¥«");
-        cityComboBox.addItem("·s¥_¥«");
-        cityComboBox.addItem("°ò¶©¥«");
-        cityComboBox.addItem("®ç¶é¥«");
-        cityComboBox.addItem("·s¦Ë¥«");
-        cityComboBox.addItem("­]®ß¿¤");
-        cityComboBox.addItem("»O¤¤¥«");
-        cityComboBox.addItem("¹ü¤Æ¿¤");
-        cityComboBox.addItem("«n§ë¿¤");
-        cityComboBox.addItem("¶³ªL¿¤");
-        cityComboBox.addItem("¹Å¸q¥«");
-        cityComboBox.addItem("»O«n¥«");
-        cityComboBox.addItem("°ª¶¯¥«");
-        cityComboBox.addItem("«ÌªF¿¤");
-        cityComboBox.addItem("©yÄõ¿¤");
-        cityComboBox.addItem("ªá½¬¿¤");
-        cityComboBox.addItem("»OªF¿¤");
-        cityComboBox.addItem("¼ê´ò¿¤");
-        cityComboBox.addItem("ª÷ªù¿¤");
-        cityComboBox.addItem("³s¦¿¿¤");
+        cityComboBox.setBounds(500, 130, 150, 30);            //åŸå¸‚
+        cityComboBox.addItem("è‡ºåŒ—å¸‚");
+        cityComboBox.addItem("æ–°åŒ—å¸‚");
+        cityComboBox.addItem("åŸºéš†å¸‚");
+        cityComboBox.addItem("æ¡ƒåœ’å¸‚");
+        cityComboBox.addItem("æ–°ç«¹å¸‚");
+        cityComboBox.addItem("è‹—æ —ç¸£");
+        cityComboBox.addItem("è‡ºä¸­å¸‚");
+        cityComboBox.addItem("å½°åŒ–ç¸£");
+        cityComboBox.addItem("å—æŠ•ç¸£");
+        cityComboBox.addItem("é›²æ—ç¸£");
+        cityComboBox.addItem("å˜‰ç¾©å¸‚");
+        cityComboBox.addItem("è‡ºå—å¸‚");
+        cityComboBox.addItem("é«˜é›„å¸‚");
+        cityComboBox.addItem("å±æ±ç¸£");
+        cityComboBox.addItem("å®œè˜­ç¸£");
+        cityComboBox.addItem("èŠ±è“®ç¸£");
+        cityComboBox.addItem("è‡ºæ±ç¸£");
+        cityComboBox.addItem("æ¾æ¹–ç¸£");
+        cityComboBox.addItem("é‡‘é–€ç¸£");
+        cityComboBox.addItem("é€£æ±Ÿç¸£");
         cityComboBox.setFont(font1);
         settingpanel_right_top_edit.add(cityComboBox);
 
-        /*¥Î¤áºŞ²z-¤Á´«¨Ï¥ÎªÌ-¤Á´««ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-åˆ‡æ›ä½¿ç”¨è€…-åˆ‡æ›æŒ‰éˆ•*/
         Login.setFont(font1);
         Login.setBounds(350, 50, 100, 30);
         Login.addActionListener(SwitchUser);
         Login.setFocusable(false);
         //settingpanel_right_top.add(Login);
 
-        /*¥Î¤áºŞ²z-¤Á´«¨Ï¥ÎªÌ-§R°£«ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-åˆ‡æ›ä½¿ç”¨è€…-åˆªé™¤æŒ‰éˆ•*/
         Delete.setFont(font1);
         Delete.setBounds(1380, 130, 100, 30);
         Delete.addActionListener(delUser);
@@ -863,7 +863,7 @@ class Cfunc1 {
         Delete.setVisible(true);
         settingpanel_right_top.add(Delete);
 
-        /*¥Î¤áºŞ²z-¤Á´«¨Ï¥ÎªÌ-ªğ¦^«ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-åˆ‡æ›ä½¿ç”¨è€…-è¿”å›æŒ‰éˆ•*/
         Back.setFont(font1);
         Back.setBounds(1380, 130, 100, 30);
         Back.addActionListener(CpBtn);
@@ -871,7 +871,7 @@ class Cfunc1 {
         Back.setVisible(false);
         settingpanel_right_top_edit.add(Back);
 
-        /*¥Î¤áºŞ²z-¤Á´«¨Ï¥ÎªÌ-½s¿è«ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-åˆ‡æ›ä½¿ç”¨è€…-ç·¨è¼¯æŒ‰éˆ•*/
         ChangePhoneNumber.setFont(font1);
         ChangePhoneNumber.setBounds(1380, 50, 100, 30);
         ChangePhoneNumber.setFocusable(false);
@@ -880,7 +880,7 @@ class Cfunc1 {
         ChangePhoneNumber.addActionListener(ChangePhoneNum);
         settingpanel_right_top.add(ChangePhoneNumber);
 
-        /*¥Î¤áºŞ²z-¤Á´«¨Ï¥ÎªÌ-¹q¸Ü¸¹½XÀx¦s«ö¶s*/
+        /*ç”¨æˆ¶ç®¡ç†-åˆ‡æ›ä½¿ç”¨è€…-é›»è©±è™Ÿç¢¼å„²å­˜æŒ‰éˆ•*/
         SavePhoneNumber.setFont(font1);
         SavePhoneNumber.setBounds(1380, 50, 100, 30);
         SavePhoneNumber.setFocusable(false);
@@ -888,23 +888,23 @@ class Cfunc1 {
         SavePhoneNumber.setVisible(false);
         settingpanel_right_top_edit.add(SavePhoneNumber);
 
-        //¥Î¤áºŞ²z ¥k¤U¼ĞÃDPanel
+        //ç”¨æˆ¶ç®¡ç† å³ä¸‹æ¨™é¡ŒPanel
         settingpanel_right.setBounds(30, 260, 1540, 30);
         UserData.setFont(font1);
         settingpanel_right.add(UserData);
 
-        //¥Î¤áºŞ²z ¥k¤U´ú¶q¼Æ¾Ú°O¿ı
+        //ç”¨æˆ¶ç®¡ç† å³ä¸‹æ¸¬é‡æ•¸æ“šè¨˜éŒ„
         settingpanel_right_down.setBounds(180, 300, 1390, 630);
         settingpanel_right_down.setLayout(null);
         settingpanel_right_down.setVisible(true);
 
-        //¥Î¤áºŞ²z ¥k¤U¼Æ¾Ú­pºâ°O¿ı
+        //ç”¨æˆ¶ç®¡ç† å³ä¸‹æ•¸æ“šè¨ˆç®—è¨˜éŒ„
         calculatepanel_right_down.setBounds(180, 300, 1390, 630);
         calculatepanel_right_down.setLayout(null);
         calculatepanel_right_down.setVisible(false);
 
 
-        //¥Î¤áºŞ²z ¥k¤U´ú¶q¼Æ¾Ú°O¿ı ¤º®e
+        //ç”¨æˆ¶ç®¡ç† å³ä¸‹æ¸¬é‡æ•¸æ“šè¨˜éŒ„ å…§å®¹
         data1 = new String[][]{{"datetime", "lefthand", "leftfoot", "righthand", "rightfoot"}};
         table1.setEnabled(false);
         JTableHeader head1 = table1.getTableHeader();
@@ -913,7 +913,7 @@ class Cfunc1 {
         table1.setRowHeight(40);
         table1.setGridColor(new Color(220, 220, 220));
 
-        //±Nhead1¦rÅé¸m¤¤
+        //å°‡head1å­—é«”ç½®ä¸­
         DefaultTableCellRenderer headerRenderer1 = new DefaultTableCellRenderer();
         headerRenderer1.setHorizontalAlignment(JLabel.CENTER);
         head1.setDefaultRenderer(headerRenderer1);
@@ -931,7 +931,7 @@ class Cfunc1 {
             table1.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
         }
 
-        //¥Î¤áºŞ²z ¥k¤U¼Æ¾Ú­pºâ°O¿ı ¤º®e
+        //ç”¨æˆ¶ç®¡ç† å³ä¸‹æ•¸æ“šè¨ˆç®—è¨˜éŒ„ å…§å®¹
         data2 = new String[][]{{"datetime", "lefthand", "leftfoot", "righthand", "rightfoot"}};
 
         table2.setEnabled(false);
@@ -941,7 +941,7 @@ class Cfunc1 {
         table2.setRowHeight(40);
         table2.setGridColor(new Color(220, 220, 220));
 
-        //±Nhead2¦rÅé¸m¤¤
+        //å°‡head2å­—é«”ç½®ä¸­
         DefaultTableCellRenderer headerRenderer2 = new DefaultTableCellRenderer();
         headerRenderer2.setHorizontalAlignment(JLabel.CENTER);
         head2.setDefaultRenderer(headerRenderer2);
@@ -975,16 +975,16 @@ class Cfunc1 {
         f.setVisible(true);
         f.setResizable(false);
         f.setIconImage(new ImageIcon("images/logo.png").getImage());
-        f.setTitle("¨}¾Éµ¸¸gµ¸´ú¶q¨t²Î");
+        f.setTitle("è‰¯å°çµ¡ç¶“çµ¡æ¸¬é‡ç³»çµ±");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
 //----------------------------------------------------------------------
-//¤èªkµ{¦¡°Ï
+//æ–¹æ³•ç¨‹å¼å€
 //----------------------------------------------------------------------
 
-    //­­¨î¿é¤Jªø«×
+    //é™åˆ¶è¼¸å…¥é•·åº¦
     public class JTextFieldLimit extends PlainDocument {
         private int limit;
 
@@ -1001,7 +1001,7 @@ class Cfunc1 {
         }
     }
 
-    // ²MªÅ¸ê°T¦^Âkªì©l
+    // æ¸…ç©ºè³‡è¨Šå›æ­¸åˆå§‹
     public void clearDisplay() {
 
         for (int i = 0; i < H1toH6MDataField.length; i++) {
@@ -1011,8 +1011,8 @@ class Cfunc1 {
             F1toF6MDataField[i].setText("");
         }
         positionPicLabel.setIcon(null);
-        positionPicLabel.setText("¹w³Æ´ú¶q[¥ª¤â]");
-        positionPicLabel.setFont(new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36));
+        positionPicLabel.setText("é å‚™æ¸¬é‡[å·¦æ‰‹]");
+        positionPicLabel.setFont(new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36));
         nextPositionPicLabel.setIcon(nextPositionIcon[0]);
 
         progressBar.setValue(0);
@@ -1020,31 +1020,31 @@ class Cfunc1 {
         music2_Player.stop();
         music3_Player.stop();
 
-        for (int x = 0; x < chart.pointValue.length; x++) chart.pointValue[x] = -1; //²MªÅµe¹ÏÂI¼Æ¾Ú
-        g = chart.getGraphics();       //­«·s¨ú±oµe¥¬
+        for (int x = 0; x < chart.pointValue.length; x++) chart.pointValue[x] = -1; //æ¸…ç©ºç•«åœ–é»æ•¸æ“š
+        g = chart.getGraphics();       //é‡æ–°å–å¾—ç•«å¸ƒ
         chart.paintComponent(g);
     }
 
-    // ¨Ì·Ó¶Ç¤JªºfieldCount­È§â¶q´ú¸ê®ÆÅã¥Ü¨ì¹ïÀ³Äæ¦ì
+    // ä¾ç…§å‚³å…¥çš„fieldCountå€¼æŠŠé‡æ¸¬è³‡æ–™é¡¯ç¤ºåˆ°å°æ‡‰æ¬„ä½
     public synchronized void showMeasureData(int fieldCount) {
         if (stepsOfAMeasure != -1) {
             if (fieldCount >= 1 && fieldCount < 7 && stepsOfAMeasure < 6) {
                 H1toH6MDataField[fieldCount - 1].setText(String.valueOf(mdata[0]));
-                chart.pointValue[stepsOfAMeasure % 6] = mdata[0] * 10;  //³]©wÂIªº¼Æ­È
+                chart.pointValue[stepsOfAMeasure % 6] = mdata[0] * 10;  //è¨­å®šé»çš„æ•¸å€¼
             } else if (fieldCount >= 8 && fieldCount <= 13 && stepsOfAMeasure < 6) {
                 H1toH6MDataField[fieldCount - 2].setText(String.valueOf(mdata[0]));
-                chart.pointValue[stepsOfAMeasure % 6] = mdata[0] * 10;  //³]©wÂIªº¼Æ­È
+                chart.pointValue[stepsOfAMeasure % 6] = mdata[0] * 10;  //è¨­å®šé»çš„æ•¸å€¼
             } else if (fieldCount >= 15 && fieldCount <= 20 && stepsOfAMeasure < 6) {
                 F1toF6MDataField[fieldCount - 15].setText(String.valueOf(mdata[0]));
-                chart.pointValue[stepsOfAMeasure % 6] = mdata[0] * 10;  //³]©wÂIªº¼Æ­È
+                chart.pointValue[stepsOfAMeasure % 6] = mdata[0] * 10;  //è¨­å®šé»çš„æ•¸å€¼
             } else if (fieldCount >= 22 && fieldCount <= 27 && stepsOfAMeasure < 6) {
                 F1toF6MDataField[fieldCount - 16].setText(String.valueOf(mdata[0]));
-                chart.pointValue[stepsOfAMeasure % 6] = mdata[0] * 10;  //³]©wÂIªº¼Æ­È
+                chart.pointValue[stepsOfAMeasure % 6] = mdata[0] * 10;  //è¨­å®šé»çš„æ•¸å€¼
             } else {
             }
 
             try {
-                if (fieldCount == 0 || fieldCount == 7 || fieldCount == 14 || fieldCount == 21) { // ¹w³Æ¡B¥ª¥k»P¤â¸}¤Á´«®É¤£¼½©ñ
+                if (fieldCount == 0 || fieldCount == 7 || fieldCount == 14 || fieldCount == 21) { // é å‚™ã€å·¦å³èˆ‡æ‰‹è…³åˆ‡æ›æ™‚ä¸æ’­æ”¾
                     if (stepsOfAMeasure > -1)
                         music1_Player.play();
                     while (!music1_Player.isStopped()) {
@@ -1053,12 +1053,12 @@ class Cfunc1 {
                     stepsOfAMeasure = -1;
                     progressBar.setValue(0);
                 }
-                if (fieldCount != 0 && fieldCount != 7 && fieldCount != 14 && fieldCount != 21) { // ¥ª¥k»P¤â¸}¤Á´«®É¤£¼½©ñ
+                if (fieldCount != 0 && fieldCount != 7 && fieldCount != 14 && fieldCount != 21) { // å·¦å³èˆ‡æ‰‹è…³åˆ‡æ›æ™‚ä¸æ’­æ”¾
                     if (stepsOfAMeasure < 6) {
                         // System.out.println("Steps="+String.valueOf(stepsOfAMeasure));
                         progressBar.setValue(17 * (stepsOfAMeasure + 1));
-                        g = chart.getGraphics();       //¨ú±oµe¥¬
-                        chart.paintComponent(g);       //°õ¦æµe¹Ï
+                        g = chart.getGraphics();       //å–å¾—ç•«å¸ƒ
+                        chart.paintComponent(g);       //åŸ·è¡Œç•«åœ–
                         music2_Player.play();
                         while (!music2_Player.isStopped()) {
                             Thread.sleep(10);
@@ -1076,7 +1076,7 @@ class Cfunc1 {
 
     }
 
-    // ¨Ì·Ó¶Ç¤JªºfieldCount­È§â¶q´ú¸ê®ÆÅã¥Ü¨ì¹ïÀ³Äæ¦ì
+    // ä¾ç…§å‚³å…¥çš„fieldCountå€¼æŠŠé‡æ¸¬è³‡æ–™é¡¯ç¤ºåˆ°å°æ‡‰æ¬„ä½
     public synchronized void changePicture(int fieldCount) {
 
         if (fieldCount >= 1 && fieldCount < 7) {
@@ -1107,32 +1107,32 @@ class Cfunc1 {
             }
         } else if (fieldCount == 0) {
             positionPicLabel.setIcon(null);
-            positionPicLabel.setText("¹w³Æ´ú¶q¡e¥ª¤â¡f");
-            positionPicLabel.setFont(new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36));
+            positionPicLabel.setText("é å‚™æ¸¬é‡ã€”å·¦æ‰‹ã€•");
+            positionPicLabel.setFont(new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36));
             nextPositionPicLabel.setIcon(nextPositionIcon[0]);
         } else if (fieldCount == 7) {
             positionPicLabel.setIcon(null);
-            positionPicLabel.setText("¹w³Æ´ú¶q¡e¥k¤â¡f");
-            positionPicLabel.setFont(new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36));
+            positionPicLabel.setText("é å‚™æ¸¬é‡ã€”å³æ‰‹ã€•");
+            positionPicLabel.setFont(new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36));
             nextPositionPicLabel.setIcon(nextPositionIcon[0]);
         } else if (fieldCount == 14) {
             positionPicLabel.setIcon(null);
-            positionPicLabel.setText("¹w³Æ´ú¶q¡e¥ª¸}¡f");
-            positionPicLabel.setFont(new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36));
+            positionPicLabel.setText("é å‚™æ¸¬é‡ã€”å·¦è…³ã€•");
+            positionPicLabel.setFont(new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36));
             nextPositionPicLabel.setIcon(nextPositionIcon[6]);
         } else if (fieldCount == 21) {
             positionPicLabel.setIcon(null);
-            positionPicLabel.setText("¹w³Æ´ú¶q¡e¥k¸}¡f");
-            positionPicLabel.setFont(new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36));
+            positionPicLabel.setText("é å‚™æ¸¬é‡ã€”å³è…³ã€•");
+            positionPicLabel.setFont(new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36));
             nextPositionPicLabel.setIcon(nextPositionIcon[6]);
         } else if (fieldCount == 28) {
             positionPicLabel.setIcon(null);
-            positionPicLabel.setText("§¹¦¨´ú¶q");
-            positionPicLabel.setFont(new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36));
+            positionPicLabel.setText("å®Œæˆæ¸¬é‡");
+            positionPicLabel.setFont(new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36));
             nextPositionPicLabel.setIcon(null);
 
-            //¬O§_Àx¦s¸ê®Æ
-            int result = JOptionPane.showConfirmDialog(f, "¬O§_­nÀx¦s¥»¦¸´ú¶q¸ê®Æ¡H", "´ú¶q§¹¦¨", JOptionPane.YES_NO_OPTION);
+            //æ˜¯å¦å„²å­˜è³‡æ–™
+            int result = JOptionPane.showConfirmDialog(f, "æ˜¯å¦è¦å„²å­˜æœ¬æ¬¡æ¸¬é‡è³‡æ–™ï¼Ÿ", "æ¸¬é‡å®Œæˆ", JOptionPane.YES_NO_OPTION);
             if (result == JOptionPane.YES_OPTION) {
                 Date date = new Date();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HH:mm:ss");
@@ -1173,10 +1173,10 @@ class Cfunc1 {
         }
         stepsOfAMeasure = -1;
         progressBar.setValue(0);
-        for (int x = 0; x < chart.pointValue.length; x++) chart.pointValue[x] = -1; //²MªÅµe¹ÏÂI¼Æ¾Ú
+        for (int x = 0; x < chart.pointValue.length; x++) chart.pointValue[x] = -1; //æ¸…ç©ºç•«åœ–é»æ•¸æ“š
     }
 
-    //µn¤J«á±µ¦¬¨Ï¥ÎªÌ¦WºÙ
+    //ç™»å…¥å¾Œæ¥æ”¶ä½¿ç”¨è€…åç¨±
     public void setUser(String USER) {
         UserName = USER;
         MainUserNameLabel.setText(UserName);
@@ -1184,7 +1184,7 @@ class Cfunc1 {
         UserNameTextLabel.setText(UserName);
         UserNameTextLabel_edit.setText(UserName);
 
-        //±N¤U©Ô¿ï³æ¹w³]¿ï¤¤¬°¥Ø«e¨Ï¥ÎªÌ
+        //å°‡ä¸‹æ‹‰é¸å–®é è¨­é¸ä¸­ç‚ºç›®å‰ä½¿ç”¨è€…
         UserDataText = db.SelectUserDESC(UserName);
         ArrayList<String> backgroundOptionsList = new ArrayList<>();
         for (int i = 0; i < UserDataText.length; i++) {
@@ -1200,7 +1200,7 @@ class Cfunc1 {
         ptwo.add(backgroundComboBox);
     }
 
-    //¨ú±o¸ê®Æ®w¤¤¨C¤@µ§´ú¶q°O¿ı¨ì¯S©wÅÜ¼Æ
+    //å–å¾—è³‡æ–™åº«ä¸­æ¯ä¸€ç­†æ¸¬é‡è¨˜éŒ„åˆ°ç‰¹å®šè®Šæ•¸
     public void LogCal() {
         String RightHandNumber[] = new String[db.getRighthandResult().length];
         double[][] RightHandArrays = new double[RightHandNumber.length][];
@@ -1213,16 +1213,16 @@ class Cfunc1 {
         double[][] LeftHandArrays = new double[LeftHandNumber.length][];
 
 
-        //®É¶¡TimeArrays
+        //æ™‚é–“TimeArrays
         TimeNumber = db.getDateResult();
 
-        //¥ª¤â¼Æ­ÈLeftHandArrays
+        //å·¦æ‰‹æ•¸å€¼LeftHandArrays
         LeftHandNumber = db.getLefthandResult();
 
         for (int i = 0; i < LeftHandNumber.length; i++) {
             String[] stringArray = new String[LeftHandNumber.length];
             if (LeftHandNumber[i] != null) {
-                stringArray = LeftHandNumber[i].split(" "); // ¥h°£¦r¦ê¤¤ªºªÅ®æ
+                stringArray = LeftHandNumber[i].split(" "); // å»é™¤å­—ä¸²ä¸­çš„ç©ºæ ¼
             } else {
                 break;
             }
@@ -1233,13 +1233,13 @@ class Cfunc1 {
             }
         }
 
-        //¥ª¸}¼Æ­ÈLeftFootArrays
+        //å·¦è…³æ•¸å€¼LeftFootArrays
         LeftFootNumber = db.getLeftfootResult();
 
         for (int i = 0; i < LeftFootNumber.length; i++) {
             String[] stringArray = new String[LeftFootNumber.length];
             if (LeftFootNumber[i] != null) {
-                stringArray = LeftFootNumber[i].split(" "); // ¥h°£¦r¦ê¤¤ªºªÅ®æ
+                stringArray = LeftFootNumber[i].split(" "); // å»é™¤å­—ä¸²ä¸­çš„ç©ºæ ¼
             } else {
                 break;
             }
@@ -1251,13 +1251,13 @@ class Cfunc1 {
 
         }
 
-        //¥k¤â¼Æ­ÈRightHandArrays
+        //å³æ‰‹æ•¸å€¼RightHandArrays
         RightHandNumber = db.getRighthandResult();
 
         for (int i = 0; i < RightHandNumber.length; i++) {
             String[] stringArray = new String[RightHandNumber.length];
             if (RightHandNumber[i] != null) {
-                stringArray = RightHandNumber[i].split(" "); // ¥h°£¦r¦ê¤¤ªºªÅ®æ
+                stringArray = RightHandNumber[i].split(" "); // å»é™¤å­—ä¸²ä¸­çš„ç©ºæ ¼
             } else {
                 break;
             }
@@ -1269,13 +1269,13 @@ class Cfunc1 {
 
         }
 
-        //¥k¸}¼Æ­ÈRightFootArrays
+        //å³è…³æ•¸å€¼RightFootArrays
         RightFootNumber = db.getRightfootResult();
 
         for (int i = 0; i < RightFootNumber.length; i++) {
             String[] stringArray = new String[RightFootNumber.length];
             if (RightFootNumber[i] != null) {
-                stringArray = RightFootNumber[i].split(" "); // ¥h°£¦r¦ê¤¤ªºªÅ®æ
+                stringArray = RightFootNumber[i].split(" "); // å»é™¤å­—ä¸²ä¸­çš„ç©ºæ ¼
             } else {
                 break;
             }
@@ -1290,16 +1290,16 @@ class Cfunc1 {
 
         for (int j = 0; j < TimeNumber.length; j++) {
             if (DateResult[j] != null) {
-                //±N¤@µ§¸ê®Æ¶i¦æ¹Bºâ
+                //å°‡ä¸€ç­†è³‡æ–™é€²è¡Œé‹ç®—
                 double[] Log = new double[24];
-                //±N¸ê®Æ®w¤¤¤@µ§´ú¶q°O¿ı¦s¨ìLog[]¤º
+                //å°‡è³‡æ–™åº«ä¸­ä¸€ç­†æ¸¬é‡è¨˜éŒ„å­˜åˆ°Log[]å…§
                 for (int i = 0; i <= 5; i++) {
                     Log[i] = LeftHandArrays[j][i];
                     Log[i + 6] = LeftFootArrays[j][i];
                     Log[i + 12] = RightHandArrays[j][i];
                     Log[i + 18] = RightFootArrays[j][i];
                 }
-                // ¶}©l­pºâ¼Æ­È
+                // é–‹å§‹è¨ˆç®—æ•¸å€¼
                 System.out.print("\n");
                 mycal.Getnumber(Log);
                 System.out.print("\n");
@@ -1310,7 +1310,7 @@ class Cfunc1 {
                 mycal.CalDistance();
                 mycal.CheckTheData();
 
-                //¸ê®Æ®æ¦¡¤Æ ¥uÅã¥Ü¨ì¤p¼ÆÂI«á¤T¦ì
+                //è³‡æ–™æ ¼å¼åŒ– åªé¡¯ç¤ºåˆ°å°æ•¸é»å¾Œä¸‰ä½
                 String formattedAvg = String.format("%.3f", mycal.CSUM);
                 String formattedFRSUM = String.format("%.3f", mycal.CFRSUM);
                 String formattedYY = String.format("%.3f", mycal.CYY);
@@ -1318,7 +1318,7 @@ class Cfunc1 {
                 String formattedSTD = String.format("%.3f", mycal.CStandard);
 
 
-                //¶Ç°e¼Æ¾Ú¨ì¼Æ¾Ú­pºâtable
+                //å‚³é€æ•¸æ“šåˆ°æ•¸æ“šè¨ˆç®—table
                 if (DateResult[count] != null) {
                     table2.setValueAt(DateResult[count], count, 0);
                     table2.setValueAt(formattedAvg, count, 1);
@@ -1340,19 +1340,19 @@ class Cfunc1 {
     }
 
     public void LogCalOutPut() {
-        //®É¶¡TimeNumber
+        //æ™‚é–“TimeNumber
         String TimeNumber[] = new String[db.getDateResult().length];
         TimeNumber = db.getDateResult();
         System.out.println(TimeNumber[0]);
 
-        //¥ª¤â¼Æ­ÈLeftHandArrays
+        //å·¦æ‰‹æ•¸å€¼LeftHandArrays
         String LeftHandNumber[] = new String[db.getLefthandResult().length];
         double[][] LeftHandArrays = new double[LeftHandNumber.length][];
         LeftHandNumber = db.getLefthandResult();
         for (int i = 0; i < LeftHandNumber.length; i++) {
             String[] stringArray = new String[LeftHandNumber.length];
             if (LeftHandNumber[i] != null) {
-                stringArray = LeftHandNumber[i].split(" "); // ¥h°£¦r¦ê¤¤ªºªÅ®æ
+                stringArray = LeftHandNumber[i].split(" "); // å»é™¤å­—ä¸²ä¸­çš„ç©ºæ ¼
             } else {
                 break;
             }
@@ -1362,14 +1362,14 @@ class Cfunc1 {
             }
         }
 
-        //¥ª¸}¼Æ­ÈLeftFootArrays
+        //å·¦è…³æ•¸å€¼LeftFootArrays
         String LeftFootNumber[] = new String[db.getLeftfootResult().length];
         double[][] LeftFootArrays = new double[LeftFootNumber.length][];
         LeftFootNumber = db.getLeftfootResult();
         for (int i = 0; i < LeftFootNumber.length; i++) {
             String[] stringArray = new String[LeftFootNumber.length];
             if (LeftFootNumber[i] != null) {
-                stringArray = LeftFootNumber[i].split(" "); // ¥h°£¦r¦ê¤¤ªºªÅ®æ
+                stringArray = LeftFootNumber[i].split(" "); // å»é™¤å­—ä¸²ä¸­çš„ç©ºæ ¼
             } else {
                 break;
             }
@@ -1379,14 +1379,14 @@ class Cfunc1 {
             }
         }
 
-        //¥k¤â¼Æ­ÈRightHandArrays
+        //å³æ‰‹æ•¸å€¼RightHandArrays
         String RightHandNumber[] = new String[db.getRighthandResult().length];
         double[][] RightHandArrays = new double[RightHandNumber.length][];
         RightHandNumber = db.getRighthandResult();
         for (int i = 0; i < RightHandNumber.length; i++) {
             String[] stringArray = new String[RightHandNumber.length];
             if (RightHandNumber[i] != null) {
-                stringArray = RightHandNumber[i].split(" "); // ¥h°£¦r¦ê¤¤ªºªÅ®æ
+                stringArray = RightHandNumber[i].split(" "); // å»é™¤å­—ä¸²ä¸­çš„ç©ºæ ¼
             } else {
                 break;
             }
@@ -1397,14 +1397,14 @@ class Cfunc1 {
 
         }
 
-        //¥k¸}¼Æ­ÈRightFootArrays
+        //å³è…³æ•¸å€¼RightFootArrays
         String RightFootNumber[] = new String[db.getRightfootResult().length];
         double[][] RightFootArrays = new double[RightFootNumber.length][];
         RightFootNumber = db.getRightfootResult();
         for (int i = 0; i < RightFootNumber.length; i++) {
             String[] stringArray = new String[RightFootNumber.length];
             if (RightFootNumber[i] != null) {
-                stringArray = RightFootNumber[i].split(" "); // ¥h°£¦r¦ê¤¤ªºªÅ®æ
+                stringArray = RightFootNumber[i].split(" "); // å»é™¤å­—ä¸²ä¸­çš„ç©ºæ ¼
             } else {
                 break;
             }
@@ -1417,9 +1417,9 @@ class Cfunc1 {
 
         for (int j = 0; j < TimeNumber.length; j++) {
             if (TimeNumber[j] != null) {
-                //±N¤@µ§¸ê®Æ¶i¦æ¹Bºâ
+                //å°‡ä¸€ç­†è³‡æ–™é€²è¡Œé‹ç®—
                 double[] Log = new double[24];
-                // ¶}©l­pºâ¼Æ­È
+                // é–‹å§‹è¨ˆç®—æ•¸å€¼
                 for (int i = 0; i <= 5; i++) {
                     Log[i] = LeftHandArrays[j][i];
                     Log[i + 6] = LeftFootArrays[j][i];
@@ -1439,7 +1439,7 @@ class Cfunc1 {
                 mycal.CheckTheData();
                 mycal.ToMyString();
 
-                //¶Ç°e¼Æ¾Ú¨ìWriteFiles
+                //å‚³é€æ•¸æ“šåˆ°WriteFiles
                 Write.main(mycal.StrData, mycal.StrAvg, mycal.StrFRSUM, mycal.StrYY, mycal.StrLR, outputcount, mycal.StrSTD);
                 mycal.ToDefault();
 
@@ -1448,7 +1448,7 @@ class Cfunc1 {
     }
 
 //----------------------------------------------------------------------
-//¨Æ¥ó¶ÉÅ¥¾¹µ{¦¡°Ï
+//äº‹ä»¶å‚¾è½å™¨ç¨‹å¼å€
 //----------------------------------------------------------------------
 
     public ActionListener CpBtn = new ActionListener() {
@@ -1481,7 +1481,7 @@ class Cfunc1 {
                 RightHandResult = db.getRighthandResult();
                 RightFootResult = db.getRightfootResult();
 
-                //­×§ïtable1¤º¥i¥HÅã¥Üªº¸ê®Æ¦C¼Æ
+                //ä¿®æ”¹table1å…§å¯ä»¥é¡¯ç¤ºçš„è³‡æ–™åˆ—æ•¸
                 for (int row = 0; row < db.getDateResult().length; row++) {
                     if (DateResult[row] != null) {
                         table1.setValueAt(DateResult[row], row, 0);
@@ -1498,8 +1498,8 @@ class Cfunc1 {
                 GenderResult = db.getGenderResult();
                 BirthyearResult = db.getBirthyearResult();
                 CityResult = db.getCityResult();
-                if (CityResult.equals("«ÌªF¥«")) {
-                    CityResult = "«ÌªF¿¤";
+                if (CityResult.equals("å±æ±å¸‚")) {
+                    CityResult = "å±æ±ç¸£";
                 }
                 UserPhoneTextLabel.setText(PhoneReault);
                 UserGenderTextLabel.setText(GenderResult);
@@ -1620,9 +1620,9 @@ class Cfunc1 {
                 public synchronized void run() {
 
                     try {
-                        sp.write("2"); // °±¤îArduino¶Ç°e¸ê®Æªº±±¨î°T¸¹¬°"2"(¹w¨¾«e¤@¦¸¥¼°±¤î´ú¶q¡A¬G¥ı°±¤î«á¦A±Ò°Ê)
+                        sp.write("2"); // åœæ­¢Arduinoå‚³é€è³‡æ–™çš„æ§åˆ¶è¨Šè™Ÿç‚º"2"(é é˜²å‰ä¸€æ¬¡æœªåœæ­¢æ¸¬é‡ï¼Œæ•…å…ˆåœæ­¢å¾Œå†å•Ÿå‹•)
                         Thread.sleep(100);
-                        sp.write("1"); // ±Ò°ÊArduino¶Ç°e¸ê®Æªº±±¨î°T¸¹¬°"1"
+                        sp.write("1"); // å•Ÿå‹•Arduinoå‚³é€è³‡æ–™çš„æ§åˆ¶è¨Šè™Ÿç‚º"1"
                     } catch (InterruptedException ioe) {
                         ioe.printStackTrace();
                     }
@@ -1649,8 +1649,8 @@ class Cfunc1 {
                             Thread.sleep(timeInterval[fieldCount]);
                             if (pressStopMeasure == 0) {
                                 music3_Player.play();
-                                for (int x = 0; x < chart.pointValue.length; x++) chart.pointValue[x] = -1; //²MªÅµe¹ÏÂI¼Æ¾Ú
-                                g = chart.getGraphics();       //¨ú±oµe¥¬
+                                for (int x = 0; x < chart.pointValue.length; x++) chart.pointValue[x] = -1; //æ¸…ç©ºç•«åœ–é»æ•¸æ“š
+                                g = chart.getGraphics();       //å–å¾—ç•«å¸ƒ
                                 chart.paintComponent(g);
                             }
 
@@ -1660,13 +1660,13 @@ class Cfunc1 {
                             fieldCount = fieldCount + 1;
                             if (pressStopMeasure == 0)
                                 changePicture(fieldCount);
-                            stepsOfAMeasure = -1; // ¨C­Ó´ú¶q¤À³Î¦¨6­Ósteps
+                            stepsOfAMeasure = -1; // æ¯å€‹æ¸¬é‡åˆ†å‰²æˆ6å€‹steps
                             Thread.sleep(10);
 
                             if (fieldCount == 28) {
                                 positionPicLabel.setIcon(null);
-                                positionPicLabel.setText("§¹¦¨´ú¶q");
-                                positionPicLabel.setFont(new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36));
+                                positionPicLabel.setText("å®Œæˆæ¸¬é‡");
+                                positionPicLabel.setFont(new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36));
                                 thread_changeField_status = STOP;
                                 thread_readData_status = STOP;
                                 btn_start.setEnabled(true);
@@ -1681,8 +1681,8 @@ class Cfunc1 {
                 }
             });
 
-            thread_readData.start(); // §ì¨ú´ú¶q¸ê®Æªº°õ¦æºü±Ò°Ê
-            thread_changeField.start(); // ±Ò°Ê¦Û°ÊÅÜ´«´ú¶qÂIªº°õ¦æºü
+            thread_readData.start(); // æŠ“å–æ¸¬é‡è³‡æ–™çš„åŸ·è¡Œç·’å•Ÿå‹•
+            thread_changeField.start(); // å•Ÿå‹•è‡ªå‹•è®Šæ›æ¸¬é‡é»çš„åŸ·è¡Œç·’
 
             btn_start.setEnabled(false);
 
@@ -1700,7 +1700,7 @@ class Cfunc1 {
                 stepsOfAMeasure = -1;
                 progressBar.setValue(0);
                 clearDisplay();
-                sp.write("2"); // °±¤îArduino¶Ç°e¸ê®Æªº±±¨î°T¸¹¬°"2"
+                sp.write("2"); // åœæ­¢Arduinoå‚³é€è³‡æ–™çš„æ§åˆ¶è¨Šè™Ÿç‚º"2"
                 Thread.sleep(20); // test: 200, 20
                 stepsOfAMeasure = -1;
                 fieldCount = 0;
@@ -1719,11 +1719,11 @@ class Cfunc1 {
         }
     };
 
-    //¤Á´«¨Ï¥ÎªÌ
+    //åˆ‡æ›ä½¿ç”¨è€…
     public ActionListener SwitchUser = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
 
-            if ((String) backgroundComboBox.getSelectedItem() != "¿ï¾Ü¨Ï¥ÎªÌ") {
+            if ((String) backgroundComboBox.getSelectedItem() != "é¸æ“‡ä½¿ç”¨è€…") {
                 UserName = (String) backgroundComboBox.getSelectedItem();
                 MainUserNameLabel.setText(UserName);
                 UserNameLabel.setText(UserName);
@@ -1753,16 +1753,16 @@ class Cfunc1 {
                 PhoneNumberTextField.setEnabled(false);
 
                 db.CleanDate();
-                System.out.println("¨Ï¥ÎªÌ¤w¤Á´«¦¨¡G" + UserName);
+                System.out.println("ä½¿ç”¨è€…å·²åˆ‡æ›æˆï¼š" + UserName);
 
-            } else if (backgroundComboBox.getSelectedItem() == "¿ï¾Ü¨Ï¥ÎªÌ") {
+            } else if (backgroundComboBox.getSelectedItem() == "é¸æ“‡ä½¿ç”¨è€…") {
                 ChangePhoneNumber.setEnabled(false);
             }
 
         }
     };
 
-    //½s¿è¨Ï¥ÎªÌ¸ê®Æ
+    //ç·¨è¼¯ä½¿ç”¨è€…è³‡æ–™
     public ActionListener ChangePhoneNum = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -1774,15 +1774,15 @@ class Cfunc1 {
             Back.setVisible(true);
             PhoneNumberTextField.setEnabled(true);
 
-            //±q¸ê®Æ®w±µ¦¬¨Ï¥ÎªÌ¸ê®Æ
+            //å¾è³‡æ–™åº«æ¥æ”¶ä½¿ç”¨è€…è³‡æ–™
             CityResult = UserCityTextLabel.getText();
             BirthyearResult = UserBirthTextLabel.getText();
             GenderResult = UserGenderTextLabel.getText();
             PhoneReault = UserPhoneTextLabel.getText();
 
-            //¹w³]¿ï¤¤¨Ï¥ÎªÌ¸ê®Æ
+            //é è¨­é¸ä¸­ä½¿ç”¨è€…è³‡æ–™
             cityComboBox.setSelectedItem(CityResult);
-            int Birthyear = Integer.parseInt(BirthyearResult);//¦]¬°yearBox¤ºªºitem¸ê®Æ«¬ºA¬°int ©Ò¥H¥²¶·°µ«¬ºAªºÂà´«
+            int Birthyear = Integer.parseInt(BirthyearResult);//å› ç‚ºyearBoxå…§çš„itemè³‡æ–™å‹æ…‹ç‚ºint æ‰€ä»¥å¿…é ˆåšå‹æ…‹çš„è½‰æ›
             yearBox.setSelectedItem(Birthyear);
             genderBox.setSelectedItem(GenderResult);
             UserPhoneTextLabel.setText(PhoneReault);
@@ -1790,7 +1790,7 @@ class Cfunc1 {
         }
     };
 
-    //Àx¦s½s¿è«áªº¨Ï¥ÎªÌ¸ê®Æ
+    //å„²å­˜ç·¨è¼¯å¾Œçš„ä½¿ç”¨è€…è³‡æ–™
     public ActionListener SavePhoneNum = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -1803,7 +1803,7 @@ class Cfunc1 {
             Back.setVisible(false);
             PhoneNumberTextField.setEnabled(false);
 
-            //±N¸ê®Æ¶Ç¤J¸ê®Æ®w¤º
+            //å°‡è³‡æ–™å‚³å…¥è³‡æ–™åº«å…§
             data.setUser(UserName);
             data.setPhone(PhoneNumberTextField.getText());
             data.setBirth((Integer) yearBox.getSelectedItem());
@@ -1814,16 +1814,16 @@ class Cfunc1 {
             db.UpdateCity();
             db.UpdateGender();
 
-            //§ó·sÅã¥Ü¸ê®Æ
+            //æ›´æ–°é¡¯ç¤ºè³‡æ–™
             UserGenderTextLabel.setText(data.getGender());
             UserPhoneTextLabel.setText(data.getPhone());
             UserBirthTextLabel.setText(String.valueOf(data.getBirth()));
             UserCityTextLabel.setText(data.getCity());
-            JOptionPane.showMessageDialog(null, "¸ê®Æ­×§ï§¹¦¨¡I");
+            JOptionPane.showMessageDialog(null, "è³‡æ–™ä¿®æ”¹å®Œæˆï¼");
         }
     };
 
-    //¿ï¤¤¨Ï¥ÎªÌ
+    //é¸ä¸­ä½¿ç”¨è€…
     public ActionListener SelectUserBox = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             for (int row = 0; row < 20; row++) {
@@ -1837,15 +1837,15 @@ class Cfunc1 {
             ChangePhoneNumber.setEnabled(false);
             db.CleanDate();
 
-            //¿ï¤¤ªº´ú¶q¨Ï¥ÎªÌ
+            //é¸ä¸­çš„æ¸¬é‡ä½¿ç”¨è€…
             String SelectedUser = (String) backgroundComboBox.getSelectedItem();
             UserName = SelectedUser;
-            System.out.println("±N¬°¦¹¨Ï¥ÎªÌ´ú¶q:" + UserName);
+            System.out.println("å°‡ç‚ºæ­¤ä½¿ç”¨è€…æ¸¬é‡:" + UserName);
 
         }
     };
 
-    //µù¥U·s¨Ï¥ÎªÌ
+    //è¨»å†Šæ–°ä½¿ç”¨è€…
     public ActionListener Register = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
 
@@ -1855,8 +1855,8 @@ class Cfunc1 {
                 String gender = genderBox.getSelectedItem().toString();
                 String birthyear = yearBox.getSelectedItem().toString();
                 String city = cityComboBox.getSelectedItem().toString();
-                if (name.equals("") || phone.equals("") || gender.equals("½Ğ¿ï¾Ü") || birthyear.equals("") || city.equals("½Ğ¿ï¾Ü")) {
-                    JOptionPane.showMessageDialog(null, "©Ò¦³ªºÄæ¦ì³£­n¶ñ¼g!!");
+                if (name.equals("") || phone.equals("") || gender.equals("è«‹é¸æ“‡") || birthyear.equals("") || city.equals("è«‹é¸æ“‡")) {
+                    JOptionPane.showMessageDialog(null, "æ‰€æœ‰çš„æ¬„ä½éƒ½è¦å¡«å¯«!!");
                 } else {
                     RD.setName(name);
                     RD.setPhone(phone);
@@ -1865,17 +1865,17 @@ class Cfunc1 {
                     RD.setCity(city);
                     db.RegisterInsertData(RD);
 
-                    //¥[¤J¿ï¾Ü¨Ï¥ÎªÌÄæ¦ì¤¤
+                    //åŠ å…¥é¸æ“‡ä½¿ç”¨è€…æ¬„ä½ä¸­
                     backgroundComboBox.addItem(name);
 
-                    //²MªÅµù¥UÄæ¦ì
+                    //æ¸…ç©ºè¨»å†Šæ¬„ä½
                     userTextField.setText("");
                     phoneTextField.setText("");
                     genderBox.setSelectedIndex(0);
                     yearBox.setSelectedIndex(0);
                     cityComboBox.setSelectedIndex(0);
 
-                    //²MªÅÅÜ¼Æ
+                    //æ¸…ç©ºè®Šæ•¸
                     name = "";
                     phone = "";
                     gender = "";
@@ -1883,8 +1883,8 @@ class Cfunc1 {
                     city = "";
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "¨Ï¥ÎªÌ¤w¹F¤W­­¡]10¡^¡I", "¾Ş§@Äµ°T", JOptionPane.ERROR_MESSAGE);
-                //²MªÅµù¥UÄæ¦ì
+                JOptionPane.showMessageDialog(null, "ä½¿ç”¨è€…å·²é”ä¸Šé™ï¼ˆ10ï¼‰ï¼", "æ“ä½œè­¦è¨Š", JOptionPane.ERROR_MESSAGE);
+                //æ¸…ç©ºè¨»å†Šæ¬„ä½
                 userTextField.setText("");
                 phoneTextField.setText("");
                 genderBox.setSelectedIndex(0);
@@ -1894,43 +1894,43 @@ class Cfunc1 {
         }
     };
 
-    //§R°£¨Ï¥ÎªÌ
+    //åˆªé™¤ä½¿ç”¨è€…
     public ActionListener delUser = new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-            //¥[¤J¤G¦¸¸ß°İ ¥H§K»~§R
-            int result = JOptionPane.showConfirmDialog(f, "¬O§_­n§R°£¨Ï¥ÎªÌ¡A´ú¶q°O¿ı¤]·|§R°£¡H", "ª`·N!!!", JOptionPane.YES_NO_OPTION);
+            //åŠ å…¥äºŒæ¬¡è©¢å• ä»¥å…èª¤åˆª
+            int result = JOptionPane.showConfirmDialog(f, "æ˜¯å¦è¦åˆªé™¤ä½¿ç”¨è€…ï¼Œæ¸¬é‡è¨˜éŒ„ä¹Ÿæœƒåˆªé™¤ï¼Ÿ", "æ³¨æ„!!!", JOptionPane.YES_NO_OPTION);
             if (result == JOptionPane.YES_OPTION) {
-                data.setDeleteUser(UserName);//­n§R°£ªº¨Ï¥ÎªÌ
-                db.DeleteUser();    //§R°£¨Ï¥ÎªÌ
-                db.DeleteLog();     //§R°£´ú¶q°O¿ı
-                //°h¥X¨ìµn¤Jµe­±
+                data.setDeleteUser(UserName);//è¦åˆªé™¤çš„ä½¿ç”¨è€…
+                db.DeleteUser();    //åˆªé™¤ä½¿ç”¨è€…
+                db.DeleteLog();     //åˆªé™¤æ¸¬é‡è¨˜éŒ„
+                //é€€å‡ºåˆ°ç™»å…¥ç•«é¢
                 LoginFrame login = new LoginFrame();
                 f.dispose();
             }
         }
     };
 
-    //§é½u¹Ï
+    //æŠ˜ç·šåœ–
     class ClineChart extends JPanel {
 
-        String[] xScaleStr = {"0", "1", "2", "3", "4", "5"};  //x¶b¨è«×
-        String[] yScaleStr = {"0", "50", "100", "150", "200", "250"};     //y¶b¨è«×
-        int[] pointValue = new int[6];   //6­ÓÂIªº­È
-        int[] px = new int[6];    //ÂI¹ïÀ³ªº¹³¯Àx®y¼Ğ
-        int[] py = new int[6];    //ÂI¹ïÀ³ªº¹³¯Ày®y¼Ğ
+        String[] xScaleStr = {"0", "1", "2", "3", "4", "5"};  //xè»¸åˆ»åº¦
+        String[] yScaleStr = {"0", "50", "100", "150", "200", "250"};     //yè»¸åˆ»åº¦
+        int[] pointValue = new int[6];   //6å€‹é»çš„å€¼
+        int[] px = new int[6];    //é»å°æ‡‰çš„åƒç´ xåº§æ¨™
+        int[] py = new int[6];    //é»å°æ‡‰çš„åƒç´ yåº§æ¨™
 
 
         ClineChart() {
-            setSize(755, 280);    //ClineChart¥»¨­´N¬OJPanel¡Aª½±µ¹ï¨ä³]¤j¤p
+            setSize(755, 280);    //ClineChartæœ¬èº«å°±æ˜¯JPanelï¼Œç›´æ¥å°å…¶è¨­å¤§å°
             for (int i = 0; i < pointValue.length; i++)
-                pointValue[i] = -1;     //¹w³]-1¡A¤£·|µe¥X<0ªºÂI
+                pointValue[i] = -1;     //é è¨­-1ï¼Œä¸æœƒç•«å‡º<0çš„é»
         }
 
         public void paintComponent(Graphics g) {
             Graphics2D g2 = (Graphics2D) g;
 
             g2.setColor(new Color(238, 238, 238));
-            g2.fillRect(50, 40, 650, 280); // ¶ñ¤W­ì©lÃC¦â¡A§Y²MªÅ
+            g2.fillRect(50, 40, 650, 280); // å¡«ä¸ŠåŸå§‹é¡è‰²ï¼Œå³æ¸…ç©º
 
             int xAxisStart = 50;
             int xAxisEnd = 700;
@@ -1981,24 +1981,24 @@ class Cfunc1 {
                 g2.drawLine(xAxisStart, y, xAxisEnd, y); // Draw dashed lines for y-axis
             }
 
-            // µe§é½u¹Ï
+            // ç•«æŠ˜ç·šåœ–
             px[0] = xAxisStart;
             py[0] = yAxisStart;
             for (int i = 1; i < pointValue.length; i++) {
                 if (pointValue[i] >= 0) {
                     px[i] = xAxisStart + 116 * i;
                     py[i] = yAxisStart - (int) (0.116 * pointValue[i]);
-                    // ³Ğ«Ø¤@­Ó¤£¨Ï¥Îµê½u¼Ë¦¡ªº BasicStroke ª«¥ó
+                    // å‰µå»ºä¸€å€‹ä¸ä½¿ç”¨è™›ç·šæ¨£å¼çš„ BasicStroke ç‰©ä»¶
                     g2.setStroke(new BasicStroke(3.0f));
 
 
                     g2.setColor(Color.black);
                     g2.drawLine(px[i - 1], py[i - 1], px[i], py[i]);
 
-                    // µe¶Â¦â¹ê¤ß¤p¶ê§Î
+                    // ç•«é»‘è‰²å¯¦å¿ƒå°åœ“å½¢
                     if (xScaleStr[i].equals("5")) {
                         g2.setColor(MyColor1);
-                        int circleSize = 10; // ¶êªº¤j¤p
+                        int circleSize = 10; // åœ“çš„å¤§å°
                         g2.fillOval(px[i] - circleSize / 2, py[i] - circleSize / 2, circleSize, circleSize);
                     }
 

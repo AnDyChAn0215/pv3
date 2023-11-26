@@ -1,4 +1,4 @@
-//¶×¤J»İ­nªº¦UÃş®M¥ó
+//åŒ¯å…¥éœ€è¦çš„å„é¡å¥—ä»¶
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
@@ -9,25 +9,25 @@ import javax.swing.border.*;
 import java.text.DateFormat;
 import javax.swing.UIManager;
 import java.text.SimpleDateFormat;
-import javax.swing.plaf.FontUIResource; //­×§ïJOptionPane¦rÅé©Ò»İ®M¥ó
+import javax.swing.plaf.FontUIResource; //ä¿®æ”¹JOptionPaneå­—é«”æ‰€éœ€å¥—ä»¶
 import javax.swing.table.DefaultTableModel;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableCellRenderer;
 
-class Clogin_frame extends JFrame{      //¨t²Îªºµøµ¡
+class Clogin_frame extends JFrame{      //ç³»çµ±çš„è¦–çª—
 
-	CHCI_logo myLogo = new CHCI_logo();                 					 //Logo(¬°JPanel¡A¤º§t1­ÓLogo¼ĞÅÒ)     
-	CHCI_myLogin_pane myLogin_pane = new CHCI_myLogin_pane();       		 //µn¤J­¶­±(¬°JPanel¡A¤º§t¼ĞÅÒ¡A¤å¦rÄæ¦ì¡A«ö¶sµ¥)
-	CHCI_myRegister_pane myRegister_pane = new CHCI_myRegister_pane();   	 //µù¥U­¶­±(¬°JPanel¡A¤º§t¼ĞÅÒ¡A¤å¦rÄæ¦ì¡A«ö¶sµ¥)  
+	CHCI_logo myLogo = new CHCI_logo();                 					 //Logo(ç‚ºJPanelï¼Œå…§å«1å€‹Logoæ¨™ç±¤)     
+	CHCI_myLogin_pane myLogin_pane = new CHCI_myLogin_pane();       		 //ç™»å…¥é é¢(ç‚ºJPanelï¼Œå…§å«æ¨™ç±¤ï¼Œæ–‡å­—æ¬„ä½ï¼ŒæŒ‰éˆ•ç­‰)
+	CHCI_myRegister_pane myRegister_pane = new CHCI_myRegister_pane();   	 //è¨»å†Šé é¢(ç‚ºJPanelï¼Œå…§å«æ¨™ç±¤ï¼Œæ–‡å­—æ¬„ä½ï¼ŒæŒ‰éˆ•ç­‰)  
 	
-	//¨ú±o¿Ã¹õ¼e¡]w¡^»P°ª¡]h¡^
+	//å–å¾—è¢å¹•å¯¬ï¼ˆwï¼‰èˆ‡é«˜ï¼ˆhï¼‰
 	Toolkit kt = Toolkit.getDefaultToolkit();
 	Dimension dm = kt.getScreenSize();
 	int w = (int)dm.getWidth();
 	int h = (int)dm.getHeight(); 	 
    
-   //«Øºc¤l:Ãş§OClogin_frame
+   //å»ºæ§‹å­:é¡åˆ¥Clogin_frame
    public Clogin_frame(){
 	   
 	   	try {
@@ -36,19 +36,19 @@ class Clogin_frame extends JFrame{      //¨t²Îªºµøµ¡
             e.printStackTrace();
         }
 
-		add(myLogo);        		//±N[Logo]¥[¨ì¦¹µøµ¡¤¤
-		add(myLogin_pane);     		//±N[µn¤J­¶­±]¥[¨ì¦¹µøµ¡¤¤
-		add(myRegister_pane);   	//±N[µù¥U­¶­±]¥[¨ì¦¹µøµ¡¤¤
+		add(myLogo);        		//å°‡[Logo]åŠ åˆ°æ­¤è¦–çª—ä¸­
+		add(myLogin_pane);     		//å°‡[ç™»å…¥é é¢]åŠ åˆ°æ­¤è¦–çª—ä¸­
+		add(myRegister_pane);   	//å°‡[è¨»å†Šé é¢]åŠ åˆ°æ­¤è¦–çª—ä¸­
 
-		myLogin_pane.setVisible(true);   	  //¹w³][µn¤J¸ê®Æ]µe­±Åã¥Ü
-		myRegister_pane.setVisible(false);    //¹w³][µù¥U¸ê®Æ]µe­±ÁôÂÃ
+		myLogin_pane.setVisible(true);   	  //é è¨­[ç™»å…¥è³‡æ–™]ç•«é¢é¡¯ç¤º
+		myRegister_pane.setVisible(false);    //é è¨­[è¨»å†Šè³‡æ–™]ç•«é¢éš±è—
 		 		 
-		//¨t²Îµøµ¡ªº°ò¥»³]©w 
+		//ç³»çµ±è¦–çª—çš„åŸºæœ¬è¨­å®š 
 		setLayout(null);
 		setBounds((int)(0.25*w),(int)(0.25*h),(int)(0.5*w),(int)(0.5*h));
-		//µøµ¡¸m©ó¿Ã¹õ¤¤¥B¬°¼e°ª¤@¥b¤j¤p
+		//è¦–çª—ç½®æ–¼è¢å¹•ä¸­ä¸”ç‚ºå¯¬é«˜ä¸€åŠå¤§å°
 		setIconImage(new ImageIcon("images/logo.png").getImage());
-		setTitle("¨}¾Éµ¸¸gµ¸´ú¶q¨t²Î");
+		setTitle("è‰¯å°çµ¡ç¶“çµ¡æ¸¬é‡ç³»çµ±");
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

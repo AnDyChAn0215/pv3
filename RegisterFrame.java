@@ -15,16 +15,16 @@ public class RegisterFrame extends JFrame implements ActionListener {
     RegisterData RD = new RegisterData();
 
     public RegisterFrame() {
-        setTitle("µù¥U¨Ï¥ÎªÌ");
+        setTitle("è¨»å†Šä½¿ç”¨è€…");
         setSize(400, 500);
         setLocationRelativeTo(null);
         setLayout(new GridLayout(8, 2, 0, 40));
         getContentPane().setBackground(new Color(252, 252, 252));
 
-        Font labelFont = new Font("·L³n¥¿¶ÂÅé", Font.PLAIN, 14);
-        Font buttonFont = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 14);
+        Font labelFont = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.PLAIN, 14);
+        Font buttonFont = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 14);
 
-        userLabel = new JLabel("©m¦W:");
+        userLabel = new JLabel("å§“å:");
         userLabel.setFont(labelFont);
         add(userLabel);
 
@@ -32,7 +32,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         userTextField.setFont(labelFont);
         add(userTextField);
 
-        phoneLabel = new JLabel("¹q¸Ü¸¹½X:");
+        phoneLabel = new JLabel("é›»è©±è™Ÿç¢¼:");
         phoneLabel.setFont(labelFont);
         add(phoneLabel);
 
@@ -40,17 +40,17 @@ public class RegisterFrame extends JFrame implements ActionListener {
         phoneTextField.setFont(labelFont);
         add(phoneTextField);
 
-        genderLabel = new JLabel("©Ê§O:");
+        genderLabel = new JLabel("æ€§åˆ¥:");
         genderLabel.setFont(labelFont);
         add(genderLabel);
 
         genderBox = new JComboBox<>();
-        genderBox.addItem("½Ğ¿ï¾Ü");
-        genderBox.addItem("¨k");
-        genderBox.addItem("¤k");
+        genderBox.addItem("è«‹é¸æ“‡");
+        genderBox.addItem("ç”·");
+        genderBox.addItem("å¥³");
         add(genderBox);
 
-        yearJLabel = new JLabel("¥X¥Í¦~(¦è¤¸):");
+        yearJLabel = new JLabel("å‡ºç”Ÿå¹´(è¥¿å…ƒ):");
         yearJLabel.setFont(labelFont);
         add(yearJLabel);
 
@@ -58,7 +58,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         yearTextField.setFont(labelFont);
         add(yearTextField);
 
-        cityLable = new JLabel("«°¥«:");
+        cityLable = new JLabel("åŸå¸‚:");
         cityLable.setFont(labelFont);
         add(cityLable);
 
@@ -66,7 +66,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         cityTextField.setFont(labelFont);
         add(cityTextField);
 
-        registerButton = new JButton("µù¥U");
+        registerButton = new JButton("è¨»å†Š");
         registerButton.setFont(buttonFont);
         registerButton.setBackground(new Color(0, 157, 204));
         registerButton.setForeground(Color.white);
@@ -89,9 +89,9 @@ public class RegisterFrame extends JFrame implements ActionListener {
             String birthyear = yearTextField.getText();
             String city = cityTextField.getText();
 
-            if (name.equals("") || phone.equals("") || gender.equals("½Ğ¿ï¾Ü") || birthyear.equals("") || city.equals("")) {
+            if (name.equals("") || phone.equals("") || gender.equals("è«‹é¸æ“‡") || birthyear.equals("") || city.equals("")) {
                 statusLabel.setForeground(Color.red);
-                statusLabel.setText("©Ò¦³Äæ¦ì³£¥²¶·¶ñ¼g¡I");
+                statusLabel.setText("æ‰€æœ‰æ¬„ä½éƒ½å¿…é ˆå¡«å¯«ï¼");
             }
             else {
                 System.out.println(name);
@@ -101,7 +101,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
                 System.out.println(city);
 
                 if (db.CheckNamePhone(name,phone) == 1){
-                    JOptionPane.showMessageDialog(null,"¤w¦s¦bªº©m¦W¹q¸Ü!");
+                    JOptionPane.showMessageDialog(null,"å·²å­˜åœ¨çš„å§“åé›»è©±!");
                 }else {
                     RD.setName(name);
                     RD.setPhone(phone);

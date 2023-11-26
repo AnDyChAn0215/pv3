@@ -19,7 +19,7 @@ class DataBase {
     }
 
 
-    //ÅçÃÒµn¤J¸ê°T¬O§_¥¿½T
+    //é©—è­‰ç™»å…¥è³‡è¨Šæ˜¯å¦æ­£ç¢º
     public String[] LoginCheck(String account) {
 
         Connection connection;
@@ -33,11 +33,11 @@ class DataBase {
         String[] myResult = new String[2];
 
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -56,7 +56,7 @@ class DataBase {
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "¸ê®Æ®w¾Ş§@µo¥Í¨ä¥L¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "è³‡æ–™åº«æ“ä½œç™¼ç”Ÿå…¶ä»–éŒ¯èª¤ï¼");
         }
 
         myResult[0] = String.valueOf(Name);
@@ -65,7 +65,7 @@ class DataBase {
         return (myResult);
     }
 
-    //ÅçÃÒ¬O§_¤wµù¥U¹L
+    //é©—è­‰æ˜¯å¦å·²è¨»å†Šé
     public int CheckNamePhone(String Name, String Phone) {
         Connection connection;
         PreparedStatement statement;
@@ -73,11 +73,11 @@ class DataBase {
         String cmdData;
 
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -89,30 +89,30 @@ class DataBase {
             result = statement.executeQuery();
 
             while (result.next()) {
-                //¤w¦³±b¸¹
+                //å·²æœ‰å¸³è™Ÿ
                 return 1;
             }
 
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "¸ê®Æ®w¾Ş§@µo¥Í¨ä¥L¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "è³‡æ–™åº«æ“ä½œç™¼ç”Ÿå…¶ä»–éŒ¯èª¤ï¼");
         }
         return 0;
 
     }
 
-    //µù¥U±b¸¹
+    //è¨»å†Šå¸³è™Ÿ
     public void RegisterInsertData(RegisterData RegisterD) {
         Connection connection;
         PreparedStatement statement;
         String cmdData;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -129,16 +129,16 @@ class DataBase {
             statement.setString(5, RegisterD.getCity());
 
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "µù¥U¦¨¥\¡I");
+            JOptionPane.showMessageDialog(null, "è¨»å†ŠæˆåŠŸï¼");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "µù¥U¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "è¨»å†Šå¤±æ•—ï¼");
         }
 
     }
 
-    //¥H¿é¤Jªº¨Ï¥ÎªÌ¬°Àu¥ı Åã¥Ü©Ò¦³¨Ï¥ÎªÌ
+    //ä»¥è¼¸å…¥çš„ä½¿ç”¨è€…ç‚ºå„ªå…ˆ é¡¯ç¤ºæ‰€æœ‰ä½¿ç”¨è€…
     public String[] SelectUserDESC(String Name) {
         Connection connection;
         PreparedStatement statement;
@@ -149,11 +149,11 @@ class DataBase {
         String[] myResult = new String[10];
         int i = 0;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -164,14 +164,14 @@ class DataBase {
             result = statement.executeQuery();
 
             while (result.next()) {
-                //¦C¥X©Ò¦³ªº±b¸¹10­Ó
+                //åˆ—å‡ºæ‰€æœ‰çš„å¸³è™Ÿ10å€‹
                 theResult[i] = result.getString("name");
                 i++;
             }
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "¸ê®Æ®w¾Ş§@µo¥Í¨ä¥L¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "è³‡æ–™åº«æ“ä½œç™¼ç”Ÿå…¶ä»–éŒ¯èª¤ï¼");
         }
 
         for (int k = 0; k <= 9; k++) {
@@ -191,11 +191,11 @@ class DataBase {
 
         int Count = 0;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -213,13 +213,13 @@ class DataBase {
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "¸ê®Æ®w¾Ş§@µo¥Í¨ä¥L¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "è³‡æ–™åº«æ“ä½œç™¼ç”Ÿå…¶ä»–éŒ¯èª¤ï¼");
         }
 
         return Count;
     }
 
-    //¬d¸ß¨Ï¥ÎªÌ¸Ô²Ó¸ê°T
+    //æŸ¥è©¢ä½¿ç”¨è€…è©³ç´°è³‡è¨Š
     public void UserDetail(String Name) {
 
         Connection connection;
@@ -228,11 +228,11 @@ class DataBase {
         String cmdData;
 
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
         try {
             cmdData = "SELECT * FROM `user` WHERE name = ? ";
@@ -251,7 +251,7 @@ class DataBase {
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "¸ê®Æ®w¾Ş§@µo¥Í¨ä¥L¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "è³‡æ–™åº«æ“ä½œç™¼ç”Ÿå…¶ä»–éŒ¯èª¤ï¼");
         }
     }
 
@@ -271,7 +271,7 @@ class DataBase {
         return CityResult;
     }
 	
-    //¬d¸ß³Ìªñ´ú¶q°O¿ı
+    //æŸ¥è©¢æœ€è¿‘æ¸¬é‡è¨˜éŒ„
     public void UserLog(String Name) {
 
         Connection connection;
@@ -281,11 +281,11 @@ class DataBase {
 
         int i = 0;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
         try {
             cmdData = "SELECT * FROM `mdata` WHERE user = ? ORDER BY 1 DESC";
@@ -307,7 +307,7 @@ class DataBase {
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "¸ê®Æ®w¾Ş§@µo¥Í¨ä¥L¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "è³‡æ–™åº«æ“ä½œç™¼ç”Ÿå…¶ä»–éŒ¯èª¤ï¼");
         }
     }
 
@@ -347,18 +347,18 @@ class DataBase {
         return (RightfootResult);
     }
 
-    //¶Ç¤J¤@µ§¸ê®Æ
+    //å‚³å…¥ä¸€ç­†è³‡æ–™
     public void InsertData(Data aData) {
 
         Connection connection;
         PreparedStatement statement;
         String cmdData;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -376,26 +376,26 @@ class DataBase {
             statement.setString(6, aData.getRightfoot());
 
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "¼g¤J¸ê®Æ®w¦¨¥\¡I");
+            JOptionPane.showMessageDialog(null, "å¯«å…¥è³‡æ–™åº«æˆåŠŸï¼");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "¼g¤J¸ê®Æ®wµo¥Í¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "å¯«å…¥è³‡æ–™åº«ç™¼ç”ŸéŒ¯èª¤ï¼");
         }
     }
 
-    //­×§ï¨Ï¥ÎªÌ¹q¸Ü¸¹½X
+    //ä¿®æ”¹ä½¿ç”¨è€…é›»è©±è™Ÿç¢¼
     public void UpdatePhone() {
 
         Connection connection;
         PreparedStatement statement;
         String cmdData;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -406,25 +406,25 @@ class DataBase {
             statement.setString(1, Data.getPhone());
             statement.setString(2, Data.getUser());
             statement.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "­×§ï¦¨¥\¡I");
+//            JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸï¼");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "­×§ï¹q¸Ü¸ê®Æµo¥Í¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "ä¿®æ”¹é›»è©±è³‡æ–™ç™¼ç”ŸéŒ¯èª¤ï¼");
         }
     }
-    //­×§ï¨Ï¥ÎªÌ¥Í¤é¦~
+    //ä¿®æ”¹ä½¿ç”¨è€…ç”Ÿæ—¥å¹´
     public void UpdateBirth() {
 
         Connection connection;
         PreparedStatement statement;
         String cmdData;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -435,25 +435,25 @@ class DataBase {
             statement.setString(1, String.valueOf(Data.getBirth()));
             statement.setString(2, Data.getUser());
             statement.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "­×§ï¦¨¥\¡I");
+//            JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸï¼");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "­×§ï¥X¥Í¦~¸ê®Æµo¥Í¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "ä¿®æ”¹å‡ºç”Ÿå¹´è³‡æ–™ç™¼ç”ŸéŒ¯èª¤ï¼");
         }
     }
-    //­×§ï¨Ï¥ÎªÌ¥X¥Í¦a
+    //ä¿®æ”¹ä½¿ç”¨è€…å‡ºç”Ÿåœ°
     public void UpdateCity() {
 
         Connection connection;
         PreparedStatement statement;
         String cmdData;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -464,25 +464,25 @@ class DataBase {
             statement.setString(1, Data.getCity());
             statement.setString(2, Data.getUser());
             statement.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "­×§ï¦¨¥\¡I");
+//            JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸï¼");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "­×§ï¥X¥Í¦a¸ê®Æµo¥Í¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "ä¿®æ”¹å‡ºç”Ÿåœ°è³‡æ–™ç™¼ç”ŸéŒ¯èª¤ï¼");
         }
     }
-    //­×§ï¨Ï¥ÎªÌ©Ê§O
+    //ä¿®æ”¹ä½¿ç”¨è€…æ€§åˆ¥
     public void UpdateGender() {
 
         Connection connection;
         PreparedStatement statement;
         String cmdData;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -493,27 +493,27 @@ class DataBase {
             statement.setString(1, Data.getGender());
             statement.setString(2, Data.getUser());
             statement.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "­×§ï¦¨¥\¡I");
+//            JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸï¼");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "­×§ï©Ê§O¸ê®Æµo¥Í¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "ä¿®æ”¹æ€§åˆ¥è³‡æ–™ç™¼ç”ŸéŒ¯èª¤ï¼");
         }
     }
 
 
-    //§R°£¨Ï¥ÎªÌ
+    //åˆªé™¤ä½¿ç”¨è€…
     public void DeleteUser() {
 
         Connection connection;
         PreparedStatement statement;
         String cmdData;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -523,26 +523,26 @@ class DataBase {
             statement = connection.prepareStatement(cmdData);
             statement.setString(1, Data.getDeleteUser());
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "¨Ï¥ÎªÌ§R°£¦¨¥\¡I");
+            JOptionPane.showMessageDialog(null, "ä½¿ç”¨è€…åˆªé™¤æˆåŠŸï¼");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "­×§ï¸ê®Æµo¥Í¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "ä¿®æ”¹è³‡æ–™ç™¼ç”ŸéŒ¯èª¤ï¼");
         }
     }
 
-    //§R°£´ú¶q°O¿ı
+    //åˆªé™¤æ¸¬é‡è¨˜éŒ„
     public void DeleteLog() {
 
         Connection connection;
         PreparedStatement statement;
         String cmdData;
 
-        //¸ê®Æ®w«e¸m§@·~
+        //è³‡æ–™åº«å‰ç½®ä½œæ¥­
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "MySQLÅX°Êµ{¦¡¦w¸Ë¥¢±Ñ¡I");
+            JOptionPane.showMessageDialog(null, "MySQLé©…å‹•ç¨‹å¼å®‰è£å¤±æ•—ï¼");
         }
 
         try {
@@ -552,11 +552,11 @@ class DataBase {
             statement = connection.prepareStatement(cmdData);
             statement.setString(1, Data.getDeleteUser());
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "´ú¶q°O¿ı§R°£¦¨¥\¡I");
+            JOptionPane.showMessageDialog(null, "æ¸¬é‡è¨˜éŒ„åˆªé™¤æˆåŠŸï¼");
             statement.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "­×§ï¸ê®Æµo¥Í¿ù»~¡I");
+            JOptionPane.showMessageDialog(null, "ä¿®æ”¹è³‡æ–™ç™¼ç”ŸéŒ¯èª¤ï¼");
         }
     }
 	

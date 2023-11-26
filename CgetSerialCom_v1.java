@@ -16,7 +16,7 @@ class CgetSerialCom_v1
 	CgetSerialCom_v1(){
 
 		try{
-			portList = CommPortIdentifier.getPortIdentifiers();  //¶π¶Ê∑|¶L•Xstable library...
+			portList = CommPortIdentifier.getPortIdentifiers();  //Ê≠§Ë°åÊúÉÂç∞Âá∫stable library...
 			portCount = 0;
 			while (portList.hasMoreElements()){
 				portId = (CommPortIdentifier) portList.nextElement();

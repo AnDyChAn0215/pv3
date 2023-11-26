@@ -1,4 +1,4 @@
-//¶×¤J»İ­nªº¦UÃş®M¥ó
+//åŒ¯å…¥éœ€è¦çš„å„é¡å¥—ä»¶
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
@@ -7,46 +7,46 @@ import java.awt.Toolkit;
 import javax.swing.border.*;
 import javax.swing.UIManager;
 
-//¤H¾÷¤¬°Ê¼hÃş§O
+//äººæ©Ÿäº’å‹•å±¤é¡åˆ¥
 class CHCI_myLogin_pane extends JPanel{
 	 
-	JPanel p1 = new JPanel(); 	//µn¤J¼ĞÃD°Ï
-	JPanel p2 = new JPanel();	//¤å¦r®Ø°Ï
-	JPanel p3 = new JPanel();   //«ö¶s°Ï
+	JPanel p1 = new JPanel(); 	//ç™»å…¥æ¨™é¡Œå€
+	JPanel p2 = new JPanel();	//æ–‡å­—æ¡†å€
+	JPanel p3 = new JPanel();   //æŒ‰éˆ•å€
 	
-	//«Ø¥ß¹Ï¥Üª«¥ó
-	ImageIcon icon1 = new ImageIcon("images/name.png");				//©m¦W
-	ImageIcon icon2 = new ImageIcon("images/phone.png");		//¹q¸Ü¸¹½X
+	//å»ºç«‹åœ–ç¤ºç‰©ä»¶
+	ImageIcon icon1 = new ImageIcon("images/name.png");				//å§“å
+	ImageIcon icon2 = new ImageIcon("images/phone.png");		//é›»è©±è™Ÿç¢¼
 
-	Font font1 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 36); //«Ø¥ß¦r«¬ª«¥ófont1¬°·L³n¥¿¶ÂÅé¡B²Ê±×Åé¡B¦rÅé¤j¤p¬°36ÂIªº¦r
-	Font font2 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 20); 
-	Font font3 = new Font("·L³n¥¿¶ÂÅé", Font.BOLD, 16);
+	Font font1 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 36); //å»ºç«‹å­—å‹ç‰©ä»¶font1ç‚ºå¾®è»Ÿæ­£é»‘é«”ã€ç²—æ–œé«”ã€å­—é«”å¤§å°ç‚º36é»çš„å­—
+	Font font2 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 20); 
+	Font font3 = new Font("å¾®è»Ÿæ­£é»‘é«”", Font.BOLD, 16);
 
-	JLabel b0 = new JLabel("");			//´£¥Ü¤p¦r
-	JLabel b1 = new JLabel("µn¤J");
-	JLabel b2 = new JLabel(icon1);		//±b¸¹
-	JLabel b3 = new JLabel(icon2);		//±K½X
+	JLabel b0 = new JLabel("");			//æç¤ºå°å­—
+	JLabel b1 = new JLabel("ç™»å…¥");
+	JLabel b2 = new JLabel(icon1);		//å¸³è™Ÿ
+	JLabel b3 = new JLabel(icon2);		//å¯†ç¢¼
 	
 	JTextField tf1 = new JTextField();
 	JTextField tf2 = new JTextField();
                   
-	JButton btn0 = new JButton("³X«È");			  
-	JButton btn1 = new JButton("µn¤J");
-	JButton btn2 = new JButton("²MªÅ");
-	JButton btn3 = new JButton("µù¥U");
+	JButton btn0 = new JButton("è¨ªå®¢");			  
+	JButton btn1 = new JButton("ç™»å…¥");
+	JButton btn2 = new JButton("æ¸…ç©º");
+	JButton btn3 = new JButton("è¨»å†Š");
 	
 
-	Color color1 = new Color(0,47,73);		//¬Ó®aÂÅ
+	Color color1 = new Color(0,47,73);		//çš‡å®¶è—
 	Color color2 = new Color(255,255,255);
 		
-	//¨ú±o¿Ã¹õ¼e¡]w¡^»P°ª¡]h¡^
+	//å–å¾—è¢å¹•å¯¬ï¼ˆwï¼‰èˆ‡é«˜ï¼ˆhï¼‰
 	Toolkit kt = Toolkit.getDefaultToolkit();
 	Dimension dm = kt.getScreenSize();
 	int w = (int)dm.getWidth();
 	int h = (int)dm.getHeight(); 
 	
 	
-    //«Øºc¤l:Ãş§OCHCI_myLogin_pane
+    //å»ºæ§‹å­:é¡åˆ¥CHCI_myLogin_pane
     public CHCI_myLogin_pane(){
 		
 		try {
@@ -55,65 +55,65 @@ class CHCI_myLogin_pane extends JPanel{
             e.printStackTrace();
         }
 		 
-		//µn¤J¼ĞÃD°Ï
+		//ç™»å…¥æ¨™é¡Œå€
 		p1.setLayout(null);		
 		p1.setBounds(0, 0,(int)(0.25*w),(int)(0.08*h));
 		p1.setBackground(color2);
 		add(p1);
 		
-		//¤å¦r®Ø
+		//æ–‡å­—æ¡†
 		p2.setLayout(null);		
 		p2.setBounds(0, (int)(0.05*h),(int)(0.25*w),(int)(0.225*h));
 		p2.setBackground(color2);
 		add(p2);
 		
-		//«ö¶s°Ï
+		//æŒ‰éˆ•å€
 		p3.setLayout(null);		
 		p3.setBounds(0, (int)(0.275*h),(int)(0.25*w),(int)(0.2*h));
 		p3.setBackground(color2);
 		add(p3);
 		
-		//µn¤J¼ĞÃD°Ï		
-		//µn¤J
+		//ç™»å…¥æ¨™é¡Œå€		
+		//ç™»å…¥
 		b1.setLayout(null);
 		b1.setBounds(0, 0, (int)(0.25*w), (int)(0.08*h));
 		b1.setHorizontalAlignment(JTextField.CENTER);
 		b1.setFont(font1);
 		p1.add(b1);	 
 		
-		//¤å¦r®Ø°Ï
-		//©m¦W
+		//æ–‡å­—æ¡†å€
+		//å§“å
 		b2.setLayout(null);
 		b2.setBounds(0, (int)(0.051*h), (int)(0.0625*w), (int)(0.05*h));
 		p2.add(b2);
 		
-		//¹q¸Ü¸¹½X
+		//é›»è©±è™Ÿç¢¼
 		b3.setLayout(null);
 		b3.setBounds(0, (int)(0.151*h), (int)(0.0625*w), (int)(0.05*h));
 		p2.add(b3);
 		
-		//³]©w¤å¦rÄæ¦ì
+		//è¨­å®šæ–‡å­—æ¬„ä½
 		tf1.setLayout(null);
 		tf1.setBounds((int)(0.0625*w), (int)(0.051*h), (int)(0.15625*w),(int)(0.05*h));
 		tf1.setFont(font2);
 		tf1.setBackground(Color.white);
 		p2.add(tf1);
 		
-		//³]©w¹q¸Ü¸¹½XÄæ¦ì
+		//è¨­å®šé›»è©±è™Ÿç¢¼æ¬„ä½
 		tf2.setLayout(null);
 		tf2.setBounds((int)(0.0625*w), (int)(0.151*h), (int)(0.15625*w),(int)(0.05*h));
 		tf2.setFont(font2);
 		tf2.setBackground(Color.white);
 		p2.add(tf2);
 		
-		//Åã¥Üµn¤Jµ²ªG¥Î
+		//é¡¯ç¤ºç™»å…¥çµæœç”¨
 		b0.setLayout(null);
 		b0.setBounds((int)(0.0625*w), (int)(0.2015*h), (int)(0.15625*w),(int)(0.025*h));
 		b0.setFont(font3);
 		p2.add(b0);
 		
-		//«ö¶s°Ï		
-		//³]©w«ö¶s¡]³X«È¡^
+		//æŒ‰éˆ•å€		
+		//è¨­å®šæŒ‰éˆ•ï¼ˆè¨ªå®¢ï¼‰
 		btn0.setBounds((int)(0.02*w), (int)(0.1*h), (int)(0.2*w), (int)(0.05*h));
 		btn0.setFont(font2);
 		btn0.setForeground(Color.white);
@@ -121,7 +121,7 @@ class CHCI_myLogin_pane extends JPanel{
 		btn0.setFocusPainted(false);
 		p3.add(btn0);	
 		
-		//³]©w«ö¶s¡]µn¤J¡^
+		//è¨­å®šæŒ‰éˆ•ï¼ˆç™»å…¥ï¼‰
 		btn1.setBounds((int)(0.02*w), (int)(0.025*h), (int)(0.05*w), (int)(0.05*h));
 		btn1.setFont(font2);
 		btn1.setForeground(Color.white);
@@ -129,16 +129,16 @@ class CHCI_myLogin_pane extends JPanel{
 		btn1.setFocusPainted(false);
 		p3.add(btn1);
 		
-		//³]©w«ö¶s¡]²MªÅ¡^
+		//è¨­å®šæŒ‰éˆ•ï¼ˆæ¸…ç©ºï¼‰
 		btn2.setBounds((int)(0.095*w), (int)(0.025*h), (int)(0.05*w), (int)(0.05*h));
 		btn2.setFont(font2);
 		btn2.setForeground(Color.white);
 		btn2.setBackground(color1);
-		btn2.addActionListener(ProcessClearFields);   //[·s¼W¾Ç¥Í¸ê®Æ]¾Ş§@µe­±¤¤[²M°£]«ö¶s¥[¨ì[¨Æ¥ó¶ÉÅ¥µ{¦¡]
+		btn2.addActionListener(ProcessClearFields);   //[æ–°å¢å­¸ç”Ÿè³‡æ–™]æ“ä½œç•«é¢ä¸­[æ¸…é™¤]æŒ‰éˆ•åŠ åˆ°[äº‹ä»¶å‚¾è½ç¨‹å¼]
 		btn2.setFocusPainted(false);
 		p3.add(btn2);
 				
-		//³]©w«ö¶s¡]µù¥U¡^
+		//è¨­å®šæŒ‰éˆ•ï¼ˆè¨»å†Šï¼‰
 		btn3.setBounds((int)(0.17*w), (int)(0.025*h), (int)(0.05*w), (int)(0.05*h));
 		btn3.setFont(font2);
 		btn3.setForeground(Color.white);
@@ -153,7 +153,7 @@ class CHCI_myLogin_pane extends JPanel{
 
     }
 
-    //¤èªk:²MªÅ®e¾¹¤ºÄæ¦ì
+    //æ–¹æ³•:æ¸…ç©ºå®¹å™¨å…§æ¬„ä½
     public void clearPane(){
 
 		tf1.setText("");
@@ -162,7 +162,7 @@ class CHCI_myLogin_pane extends JPanel{
 
     }
 
-    //¨Æ¥ó¶ÉÅ¥µ{¦¡: ³B²zÂI«ö[²MªÅ]«ö¶s
+    //äº‹ä»¶å‚¾è½ç¨‹å¼: è™•ç†é»æŒ‰[æ¸…ç©º]æŒ‰éˆ•
     public ActionListener ProcessClearFields = new ActionListener(){
         public void actionPerformed(ActionEvent e){
      

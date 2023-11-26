@@ -1,4 +1,4 @@
-//¶×¤J»İ­nªº¦UÃş®M¥ó
+//åŒ¯å…¥éœ€è¦çš„å„é¡å¥—ä»¶
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
@@ -11,7 +11,7 @@ import javax.swing.UIManager;
 import java.text.SimpleDateFormat;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.PlainDocument;
-import javax.swing.plaf.FontUIResource; //­×§ïJOptionPane¦rÅé©Ò»İ®M¥ó
+import javax.swing.plaf.FontUIResource; //ä¿®æ”¹JOptionPaneå­—é«”æ‰€éœ€å¥—ä»¶
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import javax.swing.plaf.basic.BasicScrollBarUI;
@@ -24,125 +24,125 @@ public class LoginFrame extends JFrame {
     Data data = new Data();
 	RegisterData RD = new RegisterData();
 	
-	//«Ø¥ß¥»¨t²Î©Ò»İªº¦U­Óª«¥ó
-    Clogin_frame  myFrame = new Clogin_frame(); 				//µn¤J¼Ò²Õ¡]myFrame,¸Ì­±¤S§t¦³¡GmyLogo, myLogin_pane, myRegister_pane¡^
+	//å»ºç«‹æœ¬ç³»çµ±æ‰€éœ€çš„å„å€‹ç‰©ä»¶
+    Clogin_frame  myFrame = new Clogin_frame(); 				//ç™»å…¥æ¨¡çµ„ï¼ˆmyFrame,è£¡é¢åˆå«æœ‰ï¼šmyLogo, myLogin_pane, myRegister_paneï¼‰
 	
-	//¨ú±o¿Ã¹õ¼e¡]w¡^»P°ª¡]h¡^
+	//å–å¾—è¢å¹•å¯¬ï¼ˆwï¼‰èˆ‡é«˜ï¼ˆhï¼‰
 	Toolkit kt = Toolkit.getDefaultToolkit();
 	Dimension dm = kt.getScreenSize();
 	int w = (int)dm.getWidth();
 	int h = (int)dm.getHeight(); 	 
    
-   //«Øºc¤l:Ãş§OClogin_frame
+   //å»ºæ§‹å­:é¡åˆ¥Clogin_frame
    public LoginFrame(){
-	   System.out.println("¥Ø«e¨Ï¥ÎªÌ¼Æ¶q:"+db.CountUser()+"/10");
+	   System.out.println("ç›®å‰ä½¿ç”¨è€…æ•¸é‡:"+db.CountUser()+"/10");
 
-		myFrame.myLogin_pane.tf1.addKeyListener(LoginSelection);             						//µn¤J­¶­±©m¦W¿é¤J®Ø
-		myFrame.myLogin_pane.tf2.addKeyListener(LoginSelection);             						//µn¤J­¶­±¹q¸Ü¸¹½X¿é¤J®Ø
-	   	myFrame.myLogin_pane.btn0.addActionListener(ProcessLoginSelection);             			//µn¤J­¶­±µn¤J«ö¶s
-		myFrame.myLogin_pane.btn1.addActionListener(ProcessLoginSelection);             			//µn¤J­¶­±µn¤J«ö¶s
-		myFrame.myLogin_pane.btn3.addActionListener(ProcessFunSelection);               			//µn¤J­¶­±µù¥U«ö¶s¡]¤Á´«­¶­±¡^		
-        myFrame.myRegister_pane.btn3.addActionListener(ProcessFunSelection);      	    			//µù¥U­¶­±ªğ¦^«ö¶s¡]¤Á´«­¶­±¡^
-		myFrame.myRegister_pane.btn1.addActionListener(ProcessSaveStaffInformation);    			//µù¥U­¶­±µù¥U«ö¶s¡]Àx¦sµù¥U¸ê®Æ¡^
+		myFrame.myLogin_pane.tf1.addKeyListener(LoginSelection);             						//ç™»å…¥é é¢å§“åè¼¸å…¥æ¡†
+		myFrame.myLogin_pane.tf2.addKeyListener(LoginSelection);             						//ç™»å…¥é é¢é›»è©±è™Ÿç¢¼è¼¸å…¥æ¡†
+	   	myFrame.myLogin_pane.btn0.addActionListener(ProcessLoginSelection);             			//ç™»å…¥é é¢ç™»å…¥æŒ‰éˆ•
+		myFrame.myLogin_pane.btn1.addActionListener(ProcessLoginSelection);             			//ç™»å…¥é é¢ç™»å…¥æŒ‰éˆ•
+		myFrame.myLogin_pane.btn3.addActionListener(ProcessFunSelection);               			//ç™»å…¥é é¢è¨»å†ŠæŒ‰éˆ•ï¼ˆåˆ‡æ›é é¢ï¼‰		
+        myFrame.myRegister_pane.btn3.addActionListener(ProcessFunSelection);      	    			//è¨»å†Šé é¢è¿”å›æŒ‰éˆ•ï¼ˆåˆ‡æ›é é¢ï¼‰
+		myFrame.myRegister_pane.btn1.addActionListener(ProcessSaveStaffInformation);    			//è¨»å†Šé é¢è¨»å†ŠæŒ‰éˆ•ï¼ˆå„²å­˜è¨»å†Šè³‡æ–™ï¼‰
 
     }
 
 //----------------------------------------------------------------------
-//¤èªkµ{¦¡°Ï
+//æ–¹æ³•ç¨‹å¼å€
 //----------------------------------------------------------------------
-	//¨Æ¥ó¶ÉÅ¥¾¹µ{¦¡¡G³B²zµn¤J«ö¶s
+	//äº‹ä»¶å‚¾è½å™¨ç¨‹å¼ï¼šè™•ç†ç™»å…¥æŒ‰éˆ•
 	public ActionListener ProcessLoginSelection = new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			if( e.getSource() == myFrame.myLogin_pane.btn1 ){
-				String accountString = myFrame.myLogin_pane.tf1.getText().trim();  			//¨ú±o[µn¤J¸ê®Æ]¤¤ªº[±b¸¹¦r¦ê]
-				String passwordString = myFrame.myLogin_pane.tf2.getText().trim(); 			//¨ú±o[µn¤J¸ê®Æ]¤¤ªº[±K½X¦r¦ê]
-				if(  (accountString.length() > 0) && (passwordString.length() > 0) ){    	//¦pªG[©m¦W¦r¦ê]ªø«×¤j©ó0,§Y¦³¿é¤J©m¦W¸ê®Æ,¤~¶i¤J¬d¸ß³B²z
-					String[] loginResult = db.LoginCheck(accountString);   					//©I¥s[¸ê®Æ®w¾Ş§@¦s¨úª«¥ó(myDBMA)]ªº¬d¸ß¾Ç¥Í¬ö¿ı¤èªk(findRD_in_TB_sttaff())¥h¬d¸ß­û¤u¬ö¿ı,¨Ã¦^¶ÇÀx¦s¨ìloginResult¤¤
+				String accountString = myFrame.myLogin_pane.tf1.getText().trim();  			//å–å¾—[ç™»å…¥è³‡æ–™]ä¸­çš„[å¸³è™Ÿå­—ä¸²]
+				String passwordString = myFrame.myLogin_pane.tf2.getText().trim(); 			//å–å¾—[ç™»å…¥è³‡æ–™]ä¸­çš„[å¯†ç¢¼å­—ä¸²]
+				if(  (accountString.length() > 0) && (passwordString.length() > 0) ){    	//å¦‚æœ[å§“åå­—ä¸²]é•·åº¦å¤§æ–¼0,å³æœ‰è¼¸å…¥å§“åè³‡æ–™,æ‰é€²å…¥æŸ¥è©¢è™•ç†
+					String[] loginResult = db.LoginCheck(accountString);   					//å‘¼å«[è³‡æ–™åº«æ“ä½œå­˜å–ç‰©ä»¶(myDBMA)]çš„æŸ¥è©¢å­¸ç”Ÿç´€éŒ„æ–¹æ³•(findRD_in_TB_sttaff())å»æŸ¥è©¢å“¡å·¥ç´€éŒ„,ä¸¦å›å‚³å„²å­˜åˆ°loginResultä¸­
 					if( ( accountString.equals(loginResult[0]) ) && ( passwordString.equals(loginResult[1]) ) ){
-						myFrame.myLogin_pane.b0.setText("µn¤J¦¨¥\");							
+						myFrame.myLogin_pane.b0.setText("ç™»å…¥æˆåŠŸ");							
 						myFrame.myLogin_pane.b0.setForeground(Color.black);
 						myFrame.myLogin_pane.b0.setHorizontalAlignment(JLabel.RIGHT);
-						myFrame.setVisible(false);		//ÁôÂÃµn¤Jµe­±
+						myFrame.setVisible(false);		//éš±è—ç™»å…¥ç•«é¢
 						Cfunc1 mainFrame = new Cfunc1();		
 						mainFrame.setUser(loginResult[0]);
 						dispose();
 					}else{
-						myFrame.myLogin_pane.b0.setText("±b±K¿ù»~");
+						myFrame.myLogin_pane.b0.setText("å¸³å¯†éŒ¯èª¤");
 						myFrame.myLogin_pane.b0.setForeground(Color.red);
 						myFrame.myLogin_pane.b0.setHorizontalAlignment(JLabel.RIGHT);
 					}
 
 				} else {
-                JOptionPane.showMessageDialog(null,"¥¼§¹¾ã¿é¤Jµn¤J¸ê®Æ¡A½Ğ¶ñ¼g«á¦Aµn¤J¡I","¾Ş§@Äµ°T",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"æœªå®Œæ•´è¼¸å…¥ç™»å…¥è³‡æ–™ï¼Œè«‹å¡«å¯«å¾Œå†ç™»å…¥ï¼","æ“ä½œè­¦è¨Š",JOptionPane.ERROR_MESSAGE);
 				}
 			}else if (e.getSource() == myFrame.myLogin_pane.btn0) {
-				myFrame.setVisible(false);		//ÁôÂÃµn¤Jµe­±
+				myFrame.setVisible(false);		//éš±è—ç™»å…¥ç•«é¢
 
 				Cfunc1 mainFrame = new Cfunc1();
 
-				mainFrame.setUser("³X«È");
+				mainFrame.setUser("è¨ªå®¢");
 				dispose();
 			}
 		}
-	};		//ª`·N¡G¨Æ¥ó¶ÉÅ¥¾¹µ{¦¡µ²§À¦³";"	
+	};		//æ³¨æ„ï¼šäº‹ä»¶å‚¾è½å™¨ç¨‹å¼çµå°¾æœ‰";"	
 
-    //¨Æ¥ó¶ÉÅ¥µ{¦¡¡G³B²zµn¤J­¶¤Îµù¥U­¶«ö¶s
+    //äº‹ä»¶å‚¾è½ç¨‹å¼ï¼šè™•ç†ç™»å…¥é åŠè¨»å†Šé æŒ‰éˆ•
     public ActionListener ProcessFunSelection = new ActionListener(){
         public void actionPerformed(ActionEvent e){
 			
             if( e.getSource() == myFrame.myLogin_pane.btn3 ){
 				
 				if( db.CountUser() < 10 ){
-					myFrame.myLogin_pane.setVisible(false);		     //ÁôÂÃµn¤J­¶­± 
-					myFrame.myLogin_pane.clearPane();                //²MªÅµn¤J­¶­±   
-					myFrame.myRegister_pane.setVisible(true);		 //Åã¥Üµù¥U­¶­±
-					myFrame.myRegister_pane.clearPane();             //²MªÅµù¥U­¶­±				
+					myFrame.myLogin_pane.setVisible(false);		     //éš±è—ç™»å…¥é é¢ 
+					myFrame.myLogin_pane.clearPane();                //æ¸…ç©ºç™»å…¥é é¢   
+					myFrame.myRegister_pane.setVisible(true);		 //é¡¯ç¤ºè¨»å†Šé é¢
+					myFrame.myRegister_pane.clearPane();             //æ¸…ç©ºè¨»å†Šé é¢				
 				}else{
-					JOptionPane.showMessageDialog(null,"¨Ï¥ÎªÌ¤w¹F¤W­­¡]10¡^¡I","¾Ş§@Äµ°T",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"ä½¿ç”¨è€…å·²é”ä¸Šé™ï¼ˆ10ï¼‰ï¼","æ“ä½œè­¦è¨Š",JOptionPane.ERROR_MESSAGE);
 				}	
 				
 			}
             if( e.getSource() == myFrame.myRegister_pane.btn3 ){
 				
-				myFrame.myRegister_pane.setVisible(false);		 	 //ÁôÂÃµù¥U­¶­±
-                myFrame.myRegister_pane.clearPane();             	 //²MªÅµù¥U­¶­±
-				myFrame.myLogin_pane.setVisible(true);		     	 //Åã¥Üµn¤J­¶­± 
-				myFrame.myLogin_pane.clearPane();                	 //²MªÅµn¤J­¶­±   
+				myFrame.myRegister_pane.setVisible(false);		 	 //éš±è—è¨»å†Šé é¢
+                myFrame.myRegister_pane.clearPane();             	 //æ¸…ç©ºè¨»å†Šé é¢
+				myFrame.myLogin_pane.setVisible(true);		     	 //é¡¯ç¤ºç™»å…¥é é¢ 
+				myFrame.myLogin_pane.clearPane();                	 //æ¸…ç©ºç™»å…¥é é¢   
 
             }
         }    
     };
 
-    //¨Æ¥ó¶ÉÅ¥µ{¦¡¡G³B²zµù¥U¸ê®ÆÀx¦s
+    //äº‹ä»¶å‚¾è½ç¨‹å¼ï¼šè™•ç†è¨»å†Šè³‡æ–™å„²å­˜
     public ActionListener ProcessSaveStaffInformation = new ActionListener(){
         public void actionPerformed(ActionEvent e){
              
 			if( e.getSource() == myFrame.myRegister_pane.btn1 && db.CountUser() < 10){
 				
-            boolean checkPass = true;            	//¥Î¨Ó°O¿ı[¿é¤Jªºµù¥U¸ê®Æ]ÀË¬dµ²ªG
+            boolean checkPass = true;            	//ç”¨ä¾†è¨˜éŒ„[è¼¸å…¥çš„è¨»å†Šè³‡æ–™]æª¢æŸ¥çµæœ
 			
-            String nameString = myFrame.myRegister_pane.tf1.getText().trim();  						//¨ú±o[¿é¤Jªºµù¥U¸ê®Æ]¤¤ªº[©m¦W¦r¦ê]
-            String phoneString = myFrame.myRegister_pane.tf2.getText().trim(); 		 				//¨ú±o[¿é¤Jªºµù¥U¸ê®Æ]¤¤ªº[¹q¸Ü¦r¦ê] (µù:trim()¤èªk·|§â¦r¦ê«á­±ªÅ¥Õ°£±¼)
-            String cityString = myFrame.myRegister_pane.cbox1.getSelectedItem().toString();  		//¨ú±o[¿é¤Jªºµù¥U¸ê®Æ]¤¤ªº[«°¥«¦r¦ê]
-			String birthyearString = myFrame.myRegister_pane.cbox2.getSelectedItem().toString(); 	//¨ú±o[¿é¤Jªºµù¥U¸ê®Æ]¤¤ªº[¥X¥Í¦~¡]¦è¤¸¡^¦r¦ê]
-			String genderString = myFrame.myRegister_pane.cbox3.getSelectedItem().toString();  	 	//¨ú±o[¿é¤Jªºµù¥U¸ê®Æ]¤¤ªº[©Ê§O¦r¦ê]
+            String nameString = myFrame.myRegister_pane.tf1.getText().trim();  						//å–å¾—[è¼¸å…¥çš„è¨»å†Šè³‡æ–™]ä¸­çš„[å§“åå­—ä¸²]
+            String phoneString = myFrame.myRegister_pane.tf2.getText().trim(); 		 				//å–å¾—[è¼¸å…¥çš„è¨»å†Šè³‡æ–™]ä¸­çš„[é›»è©±å­—ä¸²] (è¨»:trim()æ–¹æ³•æœƒæŠŠå­—ä¸²å¾Œé¢ç©ºç™½é™¤æ‰)
+            String cityString = myFrame.myRegister_pane.cbox1.getSelectedItem().toString();  		//å–å¾—[è¼¸å…¥çš„è¨»å†Šè³‡æ–™]ä¸­çš„[åŸå¸‚å­—ä¸²]
+			String birthyearString = myFrame.myRegister_pane.cbox2.getSelectedItem().toString(); 	//å–å¾—[è¼¸å…¥çš„è¨»å†Šè³‡æ–™]ä¸­çš„[å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰å­—ä¸²]
+			String genderString = myFrame.myRegister_pane.cbox3.getSelectedItem().toString();  	 	//å–å¾—[è¼¸å…¥çš„è¨»å†Šè³‡æ–™]ä¸­çš„[æ€§åˆ¥å­—ä¸²]
 				
-				if(  nameString.length() == 0 ){        //ÀË¬dnameString¬O§_¦³¿é¤J¥ô¦ó¦r¤¸,length()¬°­pºâ¦r¦êªø«×¤èªk,­Yªø«×¬°0«h¥¼¿é¤J¸ê®Æ
+				if(  nameString.length() == 0 ){        //æª¢æŸ¥nameStringæ˜¯å¦æœ‰è¼¸å…¥ä»»ä½•å­—å…ƒ,length()ç‚ºè¨ˆç®—å­—ä¸²é•·åº¦æ–¹æ³•,è‹¥é•·åº¦ç‚º0å‰‡æœªè¼¸å…¥è³‡æ–™
 					checkPass = false;
-					JOptionPane.showMessageDialog(null,"¡i¨Ï¥ÎªÌ©m¦W¡jªÅ¥Õ¥¼¿é¤J¸ê®Æ¡I","¾Ş§@Äµ°T",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"ã€ä½¿ç”¨è€…å§“åã€‘ç©ºç™½æœªè¼¸å…¥è³‡æ–™ï¼","æ“ä½œè­¦è¨Š",JOptionPane.ERROR_MESSAGE);
 				}
 	
-				if(  phoneString.length() == 0 ){       //ÀË¬dphoneString¬O§_¦³¿é¤J¥ô¦ó¦r¤¸,length()¬°­pºâ¦r¦êªø«×¤èªk,­Yªø«×¬°0«h¥¼¿é¤J¸ê®Æ
+				if(  phoneString.length() == 0 ){       //æª¢æŸ¥phoneStringæ˜¯å¦æœ‰è¼¸å…¥ä»»ä½•å­—å…ƒ,length()ç‚ºè¨ˆç®—å­—ä¸²é•·åº¦æ–¹æ³•,è‹¥é•·åº¦ç‚º0å‰‡æœªè¼¸å…¥è³‡æ–™
 					checkPass = false;
-					JOptionPane.showMessageDialog(null,"¡i¨Ï¥ÎªÌ¹q¸Ü¡jªÅ¥Õ¥¼¿é¤J¸ê®Æ¡I","¾Ş§@Äµ°T",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"ã€ä½¿ç”¨è€…é›»è©±ã€‘ç©ºç™½æœªè¼¸å…¥è³‡æ–™ï¼","æ“ä½œè­¦è¨Š",JOptionPane.ERROR_MESSAGE);
 				}
 				
 				if (db.CheckNamePhone(nameString, phoneString) == 1){
 					checkPass = false;
-                    JOptionPane.showMessageDialog(null,"¤w¦s¦bªº©m¦W¹q¸Ü¡I");
+                    JOptionPane.showMessageDialog(null,"å·²å­˜åœ¨çš„å§“åé›»è©±ï¼");
 				}
 	
-				//¦pªG¤W­z¤T­ÓÀË¬d³£¨Sµo²{¿ù»~,«hcheckPass·|ºû«ùtrue,§Y³q¹LÀË¬d,¦]¦¹±N­û¤uªºÂ¾¦ì¡A©m¦W¡A±b¸¹¡A±K½X³]©w¨ìmyRegisterª«¥ó¤¤¹ïÀ³Äİ©Ê½è  
+				//å¦‚æœä¸Šè¿°ä¸‰å€‹æª¢æŸ¥éƒ½æ²’ç™¼ç¾éŒ¯èª¤,å‰‡checkPassæœƒç¶­æŒtrue,å³é€šéæª¢æŸ¥,å› æ­¤å°‡å“¡å·¥çš„è·ä½ï¼Œå§“åï¼Œå¸³è™Ÿï¼Œå¯†ç¢¼è¨­å®šåˆ°myRegisterç‰©ä»¶ä¸­å°æ‡‰å±¬æ€§è³ª  
 				if( checkPass == true ){
 					
 					RD.setName(nameString);
@@ -154,42 +154,42 @@ public class LoginFrame extends JFrame {
 					myFrame.myRegister_pane.tf1.setText(""); 
 					myFrame.myRegister_pane.tf2.setText(""); 
 					
-					db.RegisterInsertData(RD);//±Nµù¥Uª«¥ó¶Ç¤J[¸ê®Æ®w¾Ş§@¦s¨úª«¥ó(db)]ªºÀx¦s¨Ï¥ÎªÌ¬ö¿ı¤èªk(RegisterInsertData())¥hÀx¦s¨Ï¥ÎªÌ¬ö¿ı¨ì¸ê®Æ®w
+					db.RegisterInsertData(RD);//å°‡è¨»å†Šç‰©ä»¶å‚³å…¥[è³‡æ–™åº«æ“ä½œå­˜å–ç‰©ä»¶(db)]çš„å„²å­˜ä½¿ç”¨è€…ç´€éŒ„æ–¹æ³•(RegisterInsertData())å»å„²å­˜ä½¿ç”¨è€…ç´€éŒ„åˆ°è³‡æ–™åº«
 				}
 			}else{
-				JOptionPane.showMessageDialog(null,"¨Ï¥ÎªÌ¤w¹F¤W­­¡]10¡^¡I","¾Ş§@Äµ°T",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,"ä½¿ç”¨è€…å·²é”ä¸Šé™ï¼ˆ10ï¼‰ï¼","æ“ä½œè­¦è¨Š",JOptionPane.ERROR_MESSAGE);
 				myFrame.myRegister_pane.clearPane();
 			}  
 		}
     };
 	
-	//«öÁä¶ÉÅ¥¾¹µ{¦¡¡G³B²zµn¤J«ö¶s
+	//æŒ‰éµå‚¾è½å™¨ç¨‹å¼ï¼šè™•ç†ç™»å…¥æŒ‰éˆ•
 	public KeyListener LoginSelection = new KeyAdapter(){
 		@Override
 		public void keyTyped(KeyEvent e){
 			if( e.getKeyChar() == KeyEvent.VK_ENTER ){
-				String accountString = myFrame.myLogin_pane.tf1.getText().trim();  			//¨ú±o[µn¤J¸ê®Æ]¤¤ªº[±b¸¹¦r¦ê]
-				String passwordString = myFrame.myLogin_pane.tf2.getText().trim(); 			//¨ú±o[µn¤J¸ê®Æ]¤¤ªº[±K½X¦r¦ê]
-				if(  (accountString.length() > 0) && (passwordString.length() > 0) ){    	//¦pªG[©m¦W¦r¦ê]ªø«×¤j©ó0,§Y¦³¿é¤J©m¦W¸ê®Æ,¤~¶i¤J¬d¸ß³B²z
-					String[] loginResult = db.LoginCheck(accountString);   					//©I¥s[¸ê®Æ®w¾Ş§@¦s¨úª«¥ó(myDBMA)]ªº¬d¸ß¾Ç¥Í¬ö¿ı¤èªk(findRD_in_TB_sttaff())¥h¬d¸ß­û¤u¬ö¿ı,¨Ã¦^¶ÇÀx¦s¨ìloginResult¤¤
+				String accountString = myFrame.myLogin_pane.tf1.getText().trim();  			//å–å¾—[ç™»å…¥è³‡æ–™]ä¸­çš„[å¸³è™Ÿå­—ä¸²]
+				String passwordString = myFrame.myLogin_pane.tf2.getText().trim(); 			//å–å¾—[ç™»å…¥è³‡æ–™]ä¸­çš„[å¯†ç¢¼å­—ä¸²]
+				if(  (accountString.length() > 0) && (passwordString.length() > 0) ){    	//å¦‚æœ[å§“åå­—ä¸²]é•·åº¦å¤§æ–¼0,å³æœ‰è¼¸å…¥å§“åè³‡æ–™,æ‰é€²å…¥æŸ¥è©¢è™•ç†
+					String[] loginResult = db.LoginCheck(accountString);   					//å‘¼å«[è³‡æ–™åº«æ“ä½œå­˜å–ç‰©ä»¶(myDBMA)]çš„æŸ¥è©¢å­¸ç”Ÿç´€éŒ„æ–¹æ³•(findRD_in_TB_sttaff())å»æŸ¥è©¢å“¡å·¥ç´€éŒ„,ä¸¦å›å‚³å„²å­˜åˆ°loginResultä¸­
 					if( ( accountString.equals(loginResult[0]) ) && ( passwordString.equals(loginResult[1]) ) ){
-						myFrame.myLogin_pane.b0.setText("µn¤J¦¨¥\");							
+						myFrame.myLogin_pane.b0.setText("ç™»å…¥æˆåŠŸ");							
 						myFrame.myLogin_pane.b0.setForeground(Color.black);
 						myFrame.myLogin_pane.b0.setHorizontalAlignment(JLabel.RIGHT);
-						myFrame.setVisible(false);		//ÁôÂÃµn¤Jµe­±
+						myFrame.setVisible(false);		//éš±è—ç™»å…¥ç•«é¢
 						Cfunc1 mainFrame = new Cfunc1();		
 						mainFrame.setUser(loginResult[0]);
 						dispose();
 					}else{
-						myFrame.myLogin_pane.b0.setText("±b±K¿ù»~");
+						myFrame.myLogin_pane.b0.setText("å¸³å¯†éŒ¯èª¤");
 						myFrame.myLogin_pane.b0.setForeground(Color.red);
 						myFrame.myLogin_pane.b0.setHorizontalAlignment(JLabel.RIGHT);
 					}
 
 				} else {
-                JOptionPane.showMessageDialog(null,"¥¼§¹¾ã¿é¤Jµn¤J¸ê®Æ¡A½Ğ¶ñ¼g«á¦Aµn¤J¡I","¾Ş§@Äµ°T",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"æœªå®Œæ•´è¼¸å…¥ç™»å…¥è³‡æ–™ï¼Œè«‹å¡«å¯«å¾Œå†ç™»å…¥ï¼","æ“ä½œè­¦è¨Š",JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
-	};		//ª`·N¡G¨Æ¥ó¶ÉÅ¥¾¹µ{¦¡µ²§À¦³";"	
+	};		//æ³¨æ„ï¼šäº‹ä»¶å‚¾è½å™¨ç¨‹å¼çµå°¾æœ‰";"	
 }

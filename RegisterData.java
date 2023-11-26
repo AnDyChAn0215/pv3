@@ -1,4 +1,4 @@
-//¶×¤J»İ­nªº¦UÃş®M¥ó
+//åŒ¯å…¥éœ€è¦çš„å„é¡å¥—ä»¶
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
@@ -7,18 +7,18 @@ import java.awt.Toolkit;
 import javax.swing.border.*;
 
 
-//°İÃD»â°ì¼hÃş§O
-//RegisterData: Class ProblemDomain_register (µù¥UÃş§O)
+//å•é¡Œé ˜åŸŸå±¤é¡åˆ¥
+//RegisterData: Class ProblemDomain_register (è¨»å†Šé¡åˆ¥)
 
 class RegisterData{                    
 	
-    private String name;   	    //Äİ©Ê:©m¦W¦r¦ê
-    private String phone;    	//Äİ©Ê:¹q¸Ü¦r¦ê
-    private String city;   		//Äİ©Ê:«°¥«¦r¦ê
-	private String birthyear;   //Äİ©Ê:¥X¥Í¦~¡]¦è¤¸¡^¦r¦ê
-	private String gender;   	//Äİ©Ê:©Ê§O¦r¦ê
+    private String name;   	    //å±¬æ€§:å§“åå­—ä¸²
+    private String phone;    	//å±¬æ€§:é›»è©±å­—ä¸²
+    private String city;   		//å±¬æ€§:åŸå¸‚å­—ä¸²
+	private String birthyear;   //å±¬æ€§:å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰å­—ä¸²
+	private String gender;   	//å±¬æ€§:æ€§åˆ¥å­—ä¸²
     
-    //«Øºc¤l:Ãş§OCPD_register
+    //å»ºæ§‹å­:é¡åˆ¥CPD_register
     public RegisterData(){
 		
 		name = "";
@@ -29,44 +29,44 @@ class RegisterData{
 		
     }
 
-    //¤èªk:³]©w©m¦W
+    //æ–¹æ³•:è¨­å®šå§“å
     public void setName(String Name){
         name = Name;
     }
-	//¤èªk:³]©w¹q¸Ü
+	//æ–¹æ³•:è¨­å®šé›»è©±
     public void setPhone(String Phone){
         phone = Phone;
     }
-	//¤èªk:³]©w«°¥«
+	//æ–¹æ³•:è¨­å®šåŸå¸‚
     public void setCity(String City){
         city = City;
     }
-	//¤èªk:³]©w¥X¥Í¦~¡]¦è¤¸¡^
+	//æ–¹æ³•:è¨­å®šå‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
     public void setBirthyear(String Birthyear){
         birthyear = Birthyear;
     }
-	//¤èªk:³]©w©Ê§O
+	//æ–¹æ³•:è¨­å®šæ€§åˆ¥
     public void setGender(String Gender){
         gender = Gender;
     }
 	
-	//¤èªk:¨ú±o©m¦W
+	//æ–¹æ³•:å–å¾—å§“å
     public String getName(){
         return( name );
     }
-    //¤èªk:¨ú±o¹q¸Ü
+    //æ–¹æ³•:å–å¾—é›»è©±
     public String getPhone(){
         return( phone );
     }
-    //¤èªk:¨ú±o«°¥«
+    //æ–¹æ³•:å–å¾—åŸå¸‚
     public String getCity(){
         return( city );
     }
-    //¤èªk:¨ú±o¥X¥Í¦~¡]¦è¤¸¡^
+    //æ–¹æ³•:å–å¾—å‡ºç”Ÿå¹´ï¼ˆè¥¿å…ƒï¼‰
     public String getBirthyear(){
         return( birthyear );
     }	
-	//¤èªk:¨ú±o©Ê§O
+	//æ–¹æ³•:å–å¾—æ€§åˆ¥
 	public String getGender(){
         return( gender );
     }

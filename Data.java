@@ -1,4 +1,4 @@
-//¶×¤J»İ­nªº¦UÃş®M¥ó
+//åŒ¯å…¥éœ€è¦çš„å„é¡å¥—ä»¶
 import java.awt.*;
 import java.sql.*;
 import javax.print.attribute.standard.Chromaticity;
@@ -107,7 +107,7 @@ class Data {
         return Gender;
     }
 	
-	//¹w¯d§R°£¨Ï¥ÎªÌ
+	//é ç•™åˆªé™¤ä½¿ç”¨è€…
     public void setDeleteUser(String DELETEUSER){
         DeleteUser = DELETEUSER;
     }

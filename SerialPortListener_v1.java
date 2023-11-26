@@ -25,8 +25,8 @@ import java.util.TooManyListenersException;
 
 public class SerialPortListener_v1 implements Runnable, SerialPortEventListener {
 
-	private String appName = "¦ê¦C°ğ";
-	private int timeout = 2000;          //¶}±Ò¦ê¦C°ğªºµ¥«İ®É¶¡
+	private String appName = "ä¸²åˆ—åŸ ";
+	private int timeout = 2000;          //é–‹å•Ÿä¸²åˆ—åŸ çš„ç­‰å¾…æ™‚é–“
 	private int threadTime = 0;
 
 	private CommPortIdentifier commPort;
@@ -34,22 +34,22 @@ public class SerialPortListener_v1 implements Runnable, SerialPortEventListener 
 	private InputStream inputStream;
 	private OutputStream outputStream;
 
-	int[] myMdata = {0};  //§Q¥Î°}¦C¶Ç»¼´ú¶q¼Æ¾Ú
+	int[] myMdata = {0};  //åˆ©ç”¨é™£åˆ—å‚³éæ¸¬é‡æ•¸æ“š
 	String readStr = "";
 
 	SerialPortListener_v1(int[] mdata){
 		myMdata = mdata;
 	}
 
-	//¦C¥X©Ò¦³¥i¥Îªº¦ê¦C°ğ
+	//åˆ—å‡ºæ‰€æœ‰å¯ç”¨çš„ä¸²åˆ—åŸ 
 	@SuppressWarnings("rawtypes")
 	public void listPort(){
 		CommPortIdentifier cpid;
 		Enumeration en = CommPortIdentifier.getPortIdentifiers();
-		System.out.println("¦C¥X¥ş³¡¦ê¦C°ğ¡G");
+		System.out.println("åˆ—å‡ºå…¨éƒ¨ä¸²åˆ—åŸ ï¼š");
 		while(en.hasMoreElements()){
 			cpid = (CommPortIdentifier)en.nextElement();
-			//ÀË¬d¬O§_¬°¦ê¦C°ğ
+			//æª¢æŸ¥æ˜¯å¦ç‚ºä¸²åˆ—åŸ 
 			if(cpid.getPortType() == CommPortIdentifier.PORT_SERIAL){
 				System.out.println(cpid.getName());
 			}
@@ -70,12 +70,12 @@ public class SerialPortListener_v1 implements Runnable, SerialPortEventListener 
 		}
 
 		if(commPort == null)
-			System.out.println("µLªk§ä¦W¦r¬°"+portName+"ªº³q°T°ğ¡I");
+			System.out.println("ç„¡æ³•æ‰¾åå­—ç‚º"+portName+"çš„é€šè¨ŠåŸ ï¼");
 		else{
 			try{
 				serialPort = (SerialPort)commPort.open(appName, timeout);
 			}catch(PortInUseException e){
-				throw new RuntimeException(String.format("ºİ¤f'%1$s'¥¿¦b¨Ï¥Î¤¤¡I",commPort.getName()));
+				throw new RuntimeException(String.format("ç«¯å£'%1$s'æ­£åœ¨ä½¿ç”¨ä¸­ï¼",commPort.getName()));
 			}
 		}
 	}
@@ -96,7 +96,7 @@ public class SerialPortListener_v1 implements Runnable, SerialPortEventListener 
 			outputStream.write(message.getBytes());
 			outputStream.close();
 		}catch(IOException e){
-			throw new RuntimeException("¦V¦ê¦C°ğ¶Ç°e¸ê®Æ¥¢±Ñ¡G"+e.getMessage());
+			throw new RuntimeException("å‘ä¸²åˆ—åŸ å‚³é€è³‡æ–™å¤±æ•—ï¼š"+e.getMessage());
 		}
 	}
 
@@ -105,14 +105,14 @@ public class SerialPortListener_v1 implements Runnable, SerialPortEventListener 
 		try{
 			inputStream = new BufferedInputStream(serialPort.getInputStream());
 		}catch(IOException e){
-			throw new RuntimeException("µLªk±q¦ê¦C°ğªºInputStreamÅª¥X­ì¦]¡G"+e.getMessage());
+			throw new RuntimeException("ç„¡æ³•å¾ä¸²åˆ—åŸ çš„InputStreamè®€å‡ºåŸå› ï¼š"+e.getMessage());
 		}
 
 		try{
 			serialPort.addEventListener(this);
 			serialPort.notifyOnDataAvailable(true);
 			serialPort.setSerialPortParams(9600,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
-			//System.out.println("checkpoint1:  ¦¨¥\¦P¨B³s±µArduino");
+			//System.out.println("checkpoint1:  æˆåŠŸåŒæ­¥é€£æ¥Arduino");
 		}catch(TooManyListenersException e){
 			throw new RuntimeException(e.getMessage());
 		} catch (UnsupportedCommOperationException e) {
@@ -156,14 +156,14 @@ public class SerialPortListener_v1 implements Runnable, SerialPortEventListener 
 					while (inputStream.available() > 0 ) {
 						inputStream.read(readBuffer);
 						readStr += new String(readBuffer).trim();
-						//System.out.println("----------USB-readBuffer­ì©l¼Æ¾Ú:"+readStr);  //¤ñ¹ïArduino¼Æ­È¥Î¡A½T»{µL»~«á¥iµù¸Ñ±¼
+						//System.out.println("----------USB-readBufferåŸå§‹æ•¸æ“š:"+readStr);  //æ¯”å°Arduinoæ•¸å€¼ç”¨ï¼Œç¢ºèªç„¡èª¤å¾Œå¯è¨»è§£æ‰
 					}
 					int begin = readStr.lastIndexOf("b");
 					int end = readStr.lastIndexOf("e");
 					if(  begin > -1 &&  end > -1 && end > begin){
 						String dataStr = readStr.substring(begin+1,end);
 						myMdata[0] = Integer.parseInt(dataStr);
-						//System.out.println("-----¥¿½T§ì¨ì¼Æ¾Ú:"+myMdata[0]);  //¥Î¨Ó¤ñ¹ï³nÅé»PArduino¼Æ­È¥Î¡A½T»{µL»~«á¥iµù¸Ñ±¼
+						//System.out.println("-----æ­£ç¢ºæŠ“åˆ°æ•¸æ“š:"+myMdata[0]);  //ç”¨ä¾†æ¯”å°è»Ÿé«”èˆ‡Arduinoæ•¸å€¼ç”¨ï¼Œç¢ºèªç„¡èª¤å¾Œå¯è¨»è§£æ‰
 						readStr="";
 					}
 				} catch (IOException e) {

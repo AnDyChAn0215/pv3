@@ -4,11 +4,11 @@ public class WriteFiles {
 
     public void main(String data,String avg, String FRSUM, String YY, String LR, int count ,String Distance) {
         try {
-            String FileName = "output";    //¦b³o¸Ì­×§ïÀÉ®×¦WºÙ
-            FileWriter fWrite = new FileWriter("./" + FileName + ".txt",true);  //¦b³o¸Ì­×§ï¦ì§}
+            String FileName = "output";    //åœ¨é€™è£¡ä¿®æ”¹æª”æ¡ˆåç¨±
+            FileWriter fWrite = new FileWriter("./" + FileName + ".txt",true);  //åœ¨é€™è£¡ä¿®æ”¹ä½å€
             BufferedWriter fOut = new BufferedWriter(fWrite);
 
-            fOut.write("²Ä" + count + "µ§¸ê®Æ");
+            fOut.write("ç¬¬" + count + "ç­†è³‡æ–™");
             fOut.newLine();
             fOut.write(avg);
             fOut.write(" ");
@@ -23,9 +23,9 @@ public class WriteFiles {
             fOut.flush();
 
             fOut.close();
-            System.out.println("ÀÉ®×¼g¤J¦¨¥\!");
+            System.out.println("æª”æ¡ˆå¯«å…¥æˆåŠŸ!");
         } catch (Exception e) {
-            System.out.println("ÀÉ®×³B²z¦³»~!");
+            System.out.println("æª”æ¡ˆè™•ç†æœ‰èª¤!");
         }
 
     }

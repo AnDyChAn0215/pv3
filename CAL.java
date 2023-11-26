@@ -1,29 +1,29 @@
 
 public class CAL {
-    double[] j = new double[24]; // ¥Î©óÀx¦s¶Ç¤Jªº¼Æ¦r
+    double[] j = new double[24]; // ç”¨æ–¼å„²å­˜å‚³å…¥çš„æ•¸å­—
     String StrData = "";
     String StrAvg;
     String StrFRSUM;
     String StrYY;
     String StrLR;
     String StrSTD;
-    // ¥­§¡­È
+    // å¹³å‡å€¼
     double sum = 0;
-    // µê¹ê­È = HSUM/FSUM
+    // è™›å¯¦å€¼ = HSUM/FSUM
     double FRSUM = 0;
     double HSUM = 0;
     double FSUM = 0;
-    // ³±¶§­È = PSUM/NSUM
+    // é™°é™½å€¼ = PSUM/NSUM
     double YY = 0;
     double PSUM = 0;
     double NSUM = 0;
-    // ¥ª¥k­È = LSUM/RSUM
+    // å·¦å³å€¼ = LSUM/RSUM
     double LR = 0;
     double LSUM = 0;
     double RSUM = 0;
-    //²z·Q­È
+    //ç†æƒ³å€¼
     double Standard = 0;
-    //¥Î©óÀx¦s°®²bªº¼Æ­È
+    //ç”¨æ–¼å„²å­˜ä¹¾æ·¨çš„æ•¸å€¼
     double CSUM = 0;
     double CFRSUM = 0;
     double CYY = 0;
@@ -32,7 +32,7 @@ public class CAL {
 
 
     public void Getnumber(double[] myArray) {
-        System.out.println("±µ¦¬¨ìªº¼Æ­È:");
+        System.out.println("æ¥æ”¶åˆ°çš„æ•¸å€¼:");
         for (int n = 0; n <= 23; n++) {
             j[n] = myArray[n];
 
@@ -41,7 +41,7 @@ public class CAL {
     }
 
     public void avg() {
-        // ¥­§¡­È
+        // å¹³å‡å€¼
         for (int n = 0; n <= 23; n++) {
             sum = sum + j[n];
         }
@@ -49,7 +49,7 @@ public class CAL {
     }
 
     public void FR() {
-        // µê¹ê­È
+        // è™›å¯¦å€¼
         for (int n = 0; n <= 11; n++) {
             HSUM = HSUM + j[n];
         }
@@ -60,7 +60,7 @@ public class CAL {
     }
 
     public void YY() {
-        // ³±¶§­È
+        // é™°é™½å€¼
         for (int n = 0; n <= 2; n++) {
             PSUM = PSUM + j[n];
         }
@@ -89,7 +89,7 @@ public class CAL {
     }
 
     public void LR() {
-        // ¥ª¥k­È
+        // å·¦å³å€¼
         for (int n = 0; n <= 5; n++) {
             LSUM = LSUM + j[n];
         }
@@ -105,9 +105,9 @@ public class CAL {
         LR = LSUM / RSUM;
     }
 
-    //­pºâ»P²z·Q­Èªº¶ZÂ÷
+    //è¨ˆç®—èˆ‡ç†æƒ³å€¼çš„è·é›¢
     public void CalDistance() {
-        //x=µê¹ê­È y=¥ª¥k­È z=³±¶§­È
+        //x=è™›å¯¦å€¼ y=å·¦å³å€¼ z=é™°é™½å€¼
         double calFRSM, calYY, calLR;
         calFRSM = (FRSUM - 1);
         calFRSM = Math.pow(calFRSM, 2);
@@ -116,10 +116,10 @@ public class CAL {
         calLR = (LR - 1);
         calLR = Math.pow(calLR, 2);
         Standard = Math.sqrt(calFRSM + calYY + calLR);
-        //System.out.println("­pºâ«á¶ZÂ÷"+Standard);
+        //System.out.println("è¨ˆç®—å¾Œè·é›¢"+Standard);
     }
 
-    //ÅÜ¼Æ­«¸m
+    //è®Šæ•¸é‡ç½®
     public void ToDefault() {
         StrData = "";
         StrAvg = "";
@@ -127,21 +127,21 @@ public class CAL {
         StrYY = "";
         StrLR = "";
         StrSTD = "";
-        // ¥­§¡­È
+        // å¹³å‡å€¼
         sum = 0;
-        // µê¹ê­È = HSUM/FSUM
+        // è™›å¯¦å€¼ = HSUM/FSUM
         FRSUM = 0;
         HSUM = 0;
         FSUM = 0;
-        // ³±¶§­È = PSUM/NSUM
+        // é™°é™½å€¼ = PSUM/NSUM
         YY = 0;
         PSUM = 0;
         NSUM = 0;
-        // ¥ª¥k­È = LSUM/RSUM
+        // å·¦å³å€¼ = LSUM/RSUM
         LR = 0;
         LSUM = 0;
         RSUM = 0;
-        //²z·Q­È
+        //ç†æƒ³å€¼
         Standard = 0;
 
         CSUM = 0;
@@ -151,7 +151,7 @@ public class CAL {
         CStandard = 0;
     }
 
-    //¸ê®Æ³B²z
+    //è³‡æ–™è™•ç†
     public void CheckTheData() {
         if (FRSUM > 0.25 && YY > 0.25 && LR > 0.25) {
             if (FRSUM < 3.5 && YY < 3.5 && LR < 3.5) {
@@ -169,7 +169,7 @@ public class CAL {
         }
     }
 
-    //¥Î¨Ó±NDoubleªº¼Æ­ÈÂà´«¦¨¦r¦ê
+    //ç”¨ä¾†å°‡Doubleçš„æ•¸å€¼è½‰æ›æˆå­—ä¸²
     public void ToMyString() {
         StrAvg = Double.toString(CSUM);
         StrFRSUM = Double.toString(CFRSUM);
@@ -184,10 +184,10 @@ public class CAL {
     }
 
     public void showdetail() {
-        System.out.println("¥­§¡­È:" + StrAvg);
-        System.out.println("µê¹ê­È:" + StrFRSUM);
-        System.out.println("³±¶§­È:" + StrYY);
-        System.out.println("¥ª¥k­È:" + StrLR);
-        System.out.println("»P²z·Q­È¶ZÂ÷:" + StrSTD);
+        System.out.println("å¹³å‡å€¼:" + StrAvg);
+        System.out.println("è™›å¯¦å€¼:" + StrFRSUM);
+        System.out.println("é™°é™½å€¼:" + StrYY);
+        System.out.println("å·¦å³å€¼:" + StrLR);
+        System.out.println("èˆ‡ç†æƒ³å€¼è·é›¢:" + StrSTD);
     }
 }

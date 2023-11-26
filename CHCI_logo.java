@@ -1,4 +1,4 @@
-//¶×¤J»İ­nªº¦UÃş®M¥ó
+//åŒ¯å…¥éœ€è¦çš„å„é¡å¥—ä»¶
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
@@ -12,21 +12,21 @@ import javax.swing.text.PlainDocument;
 
 class CHCI_logo extends JPanel{    
 
-	//«Ø¥ß¹Ï¥Üª«¥ó
+	//å»ºç«‹åœ–ç¤ºç‰©ä»¶
 	ImageIcon icon1 = new ImageIcon("images/logo.png");   
 
 	JLabel b1 = new JLabel(icon1);	
 	
-	Color color1 = new Color(0,47,73);		//¬Ó®aÂÅ
+	Color color1 = new Color(0,47,73);		//çš‡å®¶è—
 	Color color2 = new Color(255,255,255);
 		
-	//¨ú±o¿Ã¹õ¼e¡]w¡^»P°ª¡]h¡^
+	//å–å¾—è¢å¹•å¯¬ï¼ˆwï¼‰èˆ‡é«˜ï¼ˆhï¼‰
 	Toolkit kt = Toolkit.getDefaultToolkit();
 	Dimension dm = kt.getScreenSize();
 	int w = (int)dm.getWidth();
 	int h = (int)dm.getHeight(); 
    
-    //«Øºc¤l:Ãş§OCHCI_logo
+    //å»ºæ§‹å­:é¡åˆ¥CHCI_logo
     public CHCI_logo(){
 		
 		try {
