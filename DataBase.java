@@ -413,6 +413,7 @@ class DataBase {
             JOptionPane.showMessageDialog(null, "修改電話資料發生錯誤！");
         }
     }
+
     //修改使用者生日年
     public void UpdateBirth() {
 
@@ -442,6 +443,7 @@ class DataBase {
             JOptionPane.showMessageDialog(null, "修改出生年資料發生錯誤！");
         }
     }
+
     //修改使用者出生地
     public void UpdateCity() {
 
@@ -471,6 +473,7 @@ class DataBase {
             JOptionPane.showMessageDialog(null, "修改出生地資料發生錯誤！");
         }
     }
+
     //修改使用者性別
     public void UpdateGender() {
 

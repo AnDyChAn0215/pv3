@@ -10,7 +10,7 @@
 ------------------------------------*/
 
 public class pv3 {
-	public static void main(String[] args) {
-		LoginFrame Login = new LoginFrame();
-	}
+    public static void main(String[] args) {
+        LoginFrame Login = new LoginFrame();
+    }
 }

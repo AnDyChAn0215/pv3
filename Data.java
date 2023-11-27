@@ -1,4 +1,5 @@
 //匯入需要的各類套件
+
 import java.awt.*;
 import java.sql.*;
 import javax.print.attribute.standard.Chromaticity;
@@ -16,12 +17,12 @@ class Data {
     private String rightfoot;
     private static String phone;
     private static int Birth;
-    private  static String City;
-    private  static String Gender;
+    private static String City;
+    private static String Gender;
     private static String DeleteUser;
 
 
-    public Data(){
+    public Data() {
         datetime = "";
         user = "";
         lefthand = "";
@@ -34,84 +35,92 @@ class Data {
         Gender = "";
     }
 
-    public void setDatetime(String DateTime){
+    public void setDatetime(String DateTime) {
         datetime = DateTime;
     }
 
-    public String getDatetime(){
+    public String getDatetime() {
         return datetime;
     }
 
-    public void setUser(String USER){
+    public void setUser(String USER) {
         user = USER;
     }
 
-    public static String getUser(){
+    public static String getUser() {
         return user;
     }
 
-    public void setLefthand(String LeftHand){
+    public void setLefthand(String LeftHand) {
         lefthand = LeftHand;
     }
 
-    public String getLefthand(){
+    public String getLefthand() {
         return lefthand;
     }
 
-    public void setLeftfoot(String LeftFoot){
+    public void setLeftfoot(String LeftFoot) {
         leftfoot = LeftFoot;
     }
 
-    public String getLeftfoot(){
+    public String getLeftfoot() {
         return leftfoot;
     }
 
-    public void setRighthand(String RightHand){
+    public void setRighthand(String RightHand) {
         righthand = RightHand;
     }
 
-    public String getRighthand(){
+    public String getRighthand() {
         return righthand;
     }
 
-    public void setRightfoot(String RightFoot){
+    public void setRightfoot(String RightFoot) {
         rightfoot = RightFoot;
     }
 
-    public String getRightfoot(){
+    public String getRightfoot() {
         return rightfoot;
     }
 
-    public void setPhone(String Phone){
+    public void setPhone(String Phone) {
         phone = Phone;
     }
-    public static String getPhone(){
+
+    public static String getPhone() {
         return phone;
     }
-    public void setBirth(int BIRTH){
+
+    public void setBirth(int BIRTH) {
         Birth = BIRTH;
     }
-    public static int getBirth(){
+
+    public static int getBirth() {
         return Birth;
     }
-    public void setcity(String CITY){
+
+    public void setcity(String CITY) {
         City = CITY;
     }
-    public static String getCity(){
+
+    public static String getCity() {
         return City;
     }
-    public void setGender(String GENDER){
+
+    public void setGender(String GENDER) {
         Gender = GENDER;
     }
-    public static String getGender(){
+
+    public static String getGender() {
         return Gender;
     }
 
     //預留刪除使用者
-    public void setDeleteUser(String DELETEUSER){
+    public void setDeleteUser(String DELETEUSER) {
         DeleteUser = DELETEUSER;
     }
-    public static String getDeleteUser(){
+
+    public static String getDeleteUser() {
         return DeleteUser;
     }
 }

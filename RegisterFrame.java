@@ -4,8 +4,8 @@ import java.awt.event.*;
 
 public class RegisterFrame extends JFrame implements ActionListener {
 
-    private JLabel userLabel, genderLabel, cityLable, phoneLabel,yearJLabel,statusLabel;
-    private JTextField userTextField, phoneTextField,yearTextField,cityTextField;
+    private JLabel userLabel, genderLabel, cityLable, phoneLabel, yearJLabel, statusLabel;
+    private JTextField userTextField, phoneTextField, yearTextField, cityTextField;
     private JPasswordField passwordField;
     private JButton registerButton;
     private JComboBox genderBox;
@@ -92,17 +92,16 @@ public class RegisterFrame extends JFrame implements ActionListener {
             if (name.equals("") || phone.equals("") || gender.equals("請選擇") || birthyear.equals("") || city.equals("")) {
                 statusLabel.setForeground(Color.red);
                 statusLabel.setText("所有欄位都必須填寫！");
-            }
-            else {
+            } else {
                 System.out.println(name);
                 System.out.println(phone);
                 System.out.println(gender);
                 System.out.println(birthyear);
                 System.out.println(city);
 
-                if (db.CheckNamePhone(name,phone) == 1){
-                    JOptionPane.showMessageDialog(null,"已存在的姓名電話!");
-                }else {
+                if (db.CheckNamePhone(name, phone) == 1) {
+                    JOptionPane.showMessageDialog(null, "已存在的姓名電話!");
+                } else {
                     RD.setName(name);
                     RD.setPhone(phone);
                     RD.setGender(gender);

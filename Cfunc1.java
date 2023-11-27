@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.sql.*;
 import java.util.*;
 import javax.swing.*;
 import java.util.Date;
@@ -8,18 +7,12 @@ import java.awt.Dimension;
 import javax.swing.UIManager;
 import javax.swing.text.*;
 import javax.swing.table.*;
-import javax.swing.border.*;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import javax.swing.plaf.FontUIResource; //修改JOptionPane字體所需套件
 import javax.swing.table.DefaultTableModel;
-import javax.swing.plaf.basic.BasicScrollBarUI;
-import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableCellRenderer;
+
 //播放MP3音樂所需套件
-//import com.sun.scenario.effect.Offset;
 import jaco.mp3.player.MP3Player;
-import org.jfree.layout.CenterLayout;
 
 import java.io.File;
 
@@ -37,31 +30,12 @@ class Cfunc1 {
     ImageIcon iconout = new ImageIcon("images/signout.png");
     ImageIcon iconuser = new ImageIcon("images/user.png");
     ImageIcon iconhome = new ImageIcon("images/home.png");
-    ImageIcon icondata = new ImageIcon("images/analytics.png");
-    ImageIcon iconsearch = new ImageIcon("images/search.png");
     ImageIcon heartIcon = new ImageIcon("images/result.png");
     ImageIcon cliptIcon = new ImageIcon("images/calculation.png");
 
     JButton btn_f = new JButton("首頁", iconhome);
     JButton btn_a = new JButton("用戶管理", iconuser);
     JButton btn_out = new JButton("登出", iconout);
-
-    Font ft1 = new Font("微軟正黑體", Font.BOLD, 24);        //內頁文字格式
-    Font ft2 = new Font("微軟正黑體", Font.BOLD, 38);        //抬頭文字格式
-    Font ft3 = new Font("微軟正黑體", Font.BOLD, 18);        //按鈕文字格式
-    Font ft4 = new Font("微軟正黑體", Font.BOLD, 60);        //背景文字
-
-    JLabel d1 = new JLabel("職位");        //帳戶
-    JLabel d2 = new JLabel("姓名");        //帳戶
-    JLabel d3 = new JLabel("帳號");        //帳戶
-    JLabel d4 = new JLabel("密碼");        //帳戶
-
-    JButton btnd1 = new JButton("輸出");        //帳戶
-    JButton btnd2 = new JButton("刪除");        //帳戶
-    JButton btnd3 = new JButton("清空");        //帳戶
-
-    JTextField tfd1 = new JTextField();            //帳戶
-
 
     //原程式部分---------------------------------------------------------------------------------
 
@@ -122,9 +96,6 @@ class Cfunc1 {
     Font labelFont = new Font("微軟正黑體", Font.BOLD, 20);
     Font buttonFont = new Font("微軟正黑體", Font.BOLD, 18);
     Font tabFont = new Font("微軟正黑體", Font.BOLD, 20);
-
-
-    JTabbedPane tabbedPane = new JTabbedPane();
 
     JMenuBar menuBar = new JMenuBar();
     JMenu portMenu = new JMenu("連接硬體設定");
@@ -246,8 +217,6 @@ class Cfunc1 {
     String[][] data1 = new String[200][5];
     String[] title2 = {"時間", "平均值", "虛實值", "陰陽值", "左右值", "理想值距離"};
     String[][] data2 = new String[200][6];
-    String[] title3 = {"時間", "左手數值", "左腳數值", "右手數值", "右腳數值"};
-    String[][] data3 = new String[20][5];
 
     // Create a DefaultTableModel
     DefaultTableModel model = new DefaultTableModel(data1, title1);
@@ -326,10 +295,6 @@ class Cfunc1 {
     //折線圖
     ClineChart chart = new ClineChart();
     Graphics g;
-
-    int[] pointValue = new int[6];   //6個點的值
-    int[] px = new int[6];    //點對應的像素x座標
-    int[] py = new int[6];    //點對應的像素y座標
 
     WriteFiles Write = new WriteFiles();
 
@@ -1494,10 +1459,10 @@ class Cfunc1 {
                 LogCal();
 
                 //當使用者為訪客時，將編輯按鈕設為不可點選
-                if (UserName.equals("訪客")){
+                if (UserName.equals("訪客")) {
                     ChangePhoneNumber.setEnabled(false);
                     Delete.setEnabled(false);
-                }else {
+                } else {
                     PhoneReault = db.getPhoneResult();
                     GenderResult = db.getGenderResult();
                     BirthyearResult = db.getBirthyearResult();
@@ -1511,7 +1476,6 @@ class Cfunc1 {
                     PhoneNumberTextField.setEnabled(false);
                     db.CleanDate();
                 }
-
 
 
             }
