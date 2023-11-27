@@ -119,6 +119,6 @@ public class RegisterFrame extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         RegisterFrame registerFrame = new RegisterFrame();
-        
+
     }
 }

@@ -32,11 +32,10 @@ public class CAL {
 
 
     public void Getnumber(double[] myArray) {
-        System.out.println("接收到的數值:");
+//        System.out.println("接收到的數值:");
         for (int n = 0; n <= 23; n++) {
             j[n] = myArray[n];
-
-            System.out.print(j[n] + " ");
+//            System.out.print(j[n] + " ");
         }
     }
 

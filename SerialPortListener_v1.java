@@ -1,5 +1,3 @@
-
-
 import java.util.Random;
 
 import gnu.io.CommPortIdentifier;

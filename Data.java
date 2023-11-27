@@ -18,7 +18,7 @@ class Data {
     private static int Birth;
     private  static String City;
     private  static String Gender;
-	private static String DeleteUser;
+    private static String DeleteUser;
 
 
     public Data(){
@@ -28,7 +28,7 @@ class Data {
         leftfoot = "";
         righthand = "";
         rightfoot = "";
-		DeleteUser = "";
+        DeleteUser = "";
         Birth = 0;
         City = "";
         Gender = "";
@@ -106,12 +106,12 @@ class Data {
     public static String getGender(){
         return Gender;
     }
-	
-	//預留刪除使用者
+
+    //預留刪除使用者
     public void setDeleteUser(String DELETEUSER){
         DeleteUser = DELETEUSER;
     }
     public static String getDeleteUser(){
         return DeleteUser;
-    }	
+    }
 }

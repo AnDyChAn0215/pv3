@@ -262,15 +262,15 @@ class DataBase {
     public String getGenderResult() {
         return GenderResult;
     }
-	
+
     public String getBirthyearResult() {
         return BirthyearResult;
     }
-	
+
     public String getCityResult() {
         return CityResult;
     }
-	
+
     //查詢最近測量記錄
     public void UserLog(String Name) {
 
@@ -559,5 +559,5 @@ class DataBase {
             JOptionPane.showMessageDialog(null, "修改資料發生錯誤！");
         }
     }
-	
+
 }

@@ -33,7 +33,6 @@ class Cfunc1 {
     JPanel pone = new JPanel();    //頁籤按鈕區
     JPanel ptwo = new JPanel();    //測量區
     JPanel pthr = new JPanel();    //測量結果區
-    JPanel pfou = new JPanel();    //用戶管理區
 
     ImageIcon iconout = new ImageIcon("images/signout.png");
     ImageIcon iconuser = new ImageIcon("images/user.png");
@@ -79,7 +78,6 @@ class Cfunc1 {
     String[] portList = getCom.getComPortList();                 // 存放取得的usb通訊埠
 
     // 計算方法
-    double[] number = new double[24];
     CAL mycal = new CAL();
     Data data = new Data();
     DataBase db = new DataBase();
@@ -1198,6 +1196,7 @@ class Cfunc1 {
         backgroundComboBox.setBounds(190, 80, 130, 50);
         backgroundComboBox.addActionListener(SelectUserBox);
         ptwo.add(backgroundComboBox);
+
     }
 
     //取得資料庫中每一筆測量記錄到特定變數
@@ -1300,9 +1299,9 @@ class Cfunc1 {
                     Log[i + 18] = RightFootArrays[j][i];
                 }
                 // 開始計算數值
-                System.out.print("\n");
+//                System.out.print("\n");
                 mycal.Getnumber(Log);
-                System.out.print("\n");
+//                System.out.print("\n");
                 mycal.avg();
                 mycal.FR();
                 mycal.YY();
@@ -1428,9 +1427,9 @@ class Cfunc1 {
                 }
                 outputcount++;
 
-                System.out.print("\n");
+//                System.out.print("\n");
                 mycal.Getnumber(Log);
-                System.out.print("\n");
+//                System.out.print("\n");
                 mycal.avg();
                 mycal.FR();
                 mycal.YY();
@@ -1494,22 +1493,26 @@ class Cfunc1 {
 
                 LogCal();
 
-                PhoneReault = db.getPhoneResult();
-                GenderResult = db.getGenderResult();
-                BirthyearResult = db.getBirthyearResult();
-                CityResult = db.getCityResult();
-                if (CityResult.equals("屏東市")) {
-                    CityResult = "屏東縣";
+                //當使用者為訪客時，將編輯按鈕設為不可點選
+                if (UserName.equals("訪客")){
+                    ChangePhoneNumber.setEnabled(false);
+                    Delete.setEnabled(false);
+                }else {
+                    PhoneReault = db.getPhoneResult();
+                    GenderResult = db.getGenderResult();
+                    BirthyearResult = db.getBirthyearResult();
+                    CityResult = db.getCityResult();
+                    UserPhoneTextLabel.setText(PhoneReault);
+                    UserGenderTextLabel.setText(GenderResult);
+                    UserBirthTextLabel.setText(BirthyearResult);
+                    UserCityTextLabel.setText(CityResult);
+                    PhoneNumberTextField.setText(PhoneReault);
+                    ChangePhoneNumber.setEnabled(true);
+                    PhoneNumberTextField.setEnabled(false);
+                    db.CleanDate();
                 }
-                UserPhoneTextLabel.setText(PhoneReault);
-                UserGenderTextLabel.setText(GenderResult);
-                UserBirthTextLabel.setText(BirthyearResult);
-                UserCityTextLabel.setText(CityResult);
-                PhoneNumberTextField.setText(PhoneReault);
-                ChangePhoneNumber.setEnabled(true);
-                PhoneNumberTextField.setEnabled(false);
 
-                db.CleanDate();
+
 
             }
 
